@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saturday Night Racing Cup Series — Season 6</title>
+<meta name="description" content="Official website for the Saturday Night Racing League (SNRL) iRacing Cup Series. Season 6 standings, schedule, track stats, and more.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <img src="assets/snr-logo.jpg" alt="SNR Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="brand-name">Saturday Night Racing</span>
+        <span class="brand-series">Cup Series</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-page="home">Home</a>
+      <a href="#standings" class="nav-link" data-page="standings">Standings</a>
+      <a href="#history" class="nav-link" data-page="history">History</a>
+      <a href="#tracks" class="nav-link" data-page="tracks">Tracks</a>
+      <a href="#rules" class="nav-link" data-page="rules">Rules</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HOME PAGE ==================== -->
+<section class="page" id="page-home">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-bg">
+      <div class="checkered-flag"></div>
+      <div class="racing-stripes"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">SEASON 6</div>
+      <h1 class="hero-title">Saturday Night Racing<br><span class="hero-accent">Cup Series</span></h1>
+      <p class="hero-subtitle">NASCAR O'Reilly Series on iRacing — Every Saturday at 10PM EST</p>
+      <div class="hero-actions">
+        <a href="#standings" class="btn btn-primary">View Standings</a>
+        <a href="#rules" class="btn btn-outline">League Rules</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Countdown Section -->
+  <div class="section-container">
+    <div class="countdown-section">
+      <div class="countdown-header">
+        <h2 class="section-title">Next Race</h2>
+        <div class="next-race-badge">Race 5 of 22</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-track">
+          <img src="assets/darlington-logo.jpg" alt="Darlington Raceway" class="track-logo">
+          <div class="track-info">
+            <h3 class="track-name">Darlington Raceway</h3>
+            <p class="track-date">Saturday, March 21, 2026 — 10:00 PM EST</p>
+            <p class="track-detail">"The Track Too Tough to Tame"</p>
+          </div>
+        </div>
+        <div class="countdown-timer" id="countdown">
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cd-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cd-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cd-mins">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cd-secs">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Schedule -->
+    <div class="event-schedule">
+      <div class="schedule-item">
+        <span class="schedule-time">9:00 PM</span>
+        <span class="schedule-event">Practice</span>
+      </div>
+      <div class="schedule-divider"></div>
+      <div class="schedule-item">
+        <span class="schedule-time">10:00 PM</span>
+        <span class="schedule-event">Qualifying</span>
+      </div>
+      <div class="schedule-divider"></div>
+      <div class="schedule-item">
+        <span class="schedule-time">10:05 PM</span>
+        <span class="schedule-event">Race Start</span>
+      </div>
+    </div>
+
+    <!-- Current Leader Card -->
+    <div class="leader-card">
+      <div class="leader-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#F5A623"/></svg>
+        <span>Points Leader</span>
+      </div>
+      <div class="leader-body">
+        <div class="leader-pos">P1</div>
+        <div class="leader-info">
+          <h3 class="leader-name">Jeff J. Wright</h3>
+          <div class="leader-stats">
+            <span class="stat"><strong>170</strong> PTS</span>
+            <span class="stat"><strong>2</strong> Wins</span>
+            <span class="stat"><strong>3</strong> Top 5</span>
+            <span class="stat"><strong>4</strong> Starts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Season Schedule -->
+    <div class="schedule-section">
+      <h2 class="section-title">Season 6 Schedule</h2>
+      <div class="schedule-grid" id="scheduleGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Series Info -->
+    <div class="series-info">
+      <div class="info-card">
+        <div class="info-icon">🏎️</div>
+        <h4>Cars</h4>
+        <p>NASCAR O'Reilly Series (iRacing)</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📅</div>
+        <h4>Race Night</h4>
+        <p>Every Saturday at 10PM EST</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🏁</div>
+        <h4>Season 6</h4>
+        <p>22 Races — Chase begins Race 18</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🎮</div>
+        <h4>Platform</h4>
+        <p>iRacing Simulation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STANDINGS PAGE ==================== -->
+<section class="page" id="page-standings" style="display:none;">
+  <div class="page-header">
+    <h1 class="page-title">Season 6 <span class="text-accent">Standings</span></h1>
+    <p class="page-subtitle">After 4 of 22 races — Chase cutoff: Top 14</p>
+  </div>
+  <div class="section-container">
+    <!-- Search / Filter -->
+    <div class="table-controls">
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="standingsSearch" placeholder="Search drivers...">
+      </div>
+      <div class="table-legend">
+        <span class="legend-item"><span class="legend-dot chase"></span>Chase Eligible (Top 14)</span>
+        <span class="legend-item"><span class="legend-dot suspended"></span>Suspended</span>
+      </div>
+    </div>
+
+    <!-- Standings Table -->
+    <div class="table-wrapper">
+      <table class="standings-table" id="standingsTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-sort="pos">Pos</th>
+            <th class="sortable" data-sort="driver">Driver</th>
+            <th class="sortable" data-sort="points">Points</th>
+            <th class="sortable" data-sort="wins">Wins</th>
+            <th class="sortable" data-sort="top5">Top 5</th>
+            <th class="sortable" data-sort="top10">Top 10</th>
+            <th class="sortable" data-sort="starts">Starts</th>
+          </tr>
+        </thead>
+        <tbody id="standingsBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Race Results -->
+    <div class="race-results-section">
+      <h2 class="section-title">Season 6 Race Results</h2>
+      <div class="results-grid">
+        <div class="result-card completed">
+          <div class="result-race">Race 1</div>
+          <div class="result-track">Daytona International Speedway</div>
+          <div class="result-date">February 21, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Andy Telgenhof</span>
+          </div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Justin Carey</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 2</div>
+          <div class="result-track">Auto Club Speedway</div>
+          <div class="result-date">February 28, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Bailey Turner</span>
+          </div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Justin Michael</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 3</div>
+          <div class="result-track">Phoenix Raceway</div>
+          <div class="result-date">March 7, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+          <div class="result-detail">Led 113 of 156 laps</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Phillip Brewer</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 4</div>
+          <div class="result-track">Las Vegas Motor Speedway</div>
+          <div class="result-date">March 14, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+          <div class="result-detail">Led 90 of 140 laps</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Chad Clinger</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== HISTORY PAGE ==================== -->
+<section class="page" id="page-history" style="display:none;">
+  <div class="page-header">
+    <h1 class="page-title">Historical <span class="text-accent">Standings</span></h1>
+    <p class="page-subtitle">5 seasons of Saturday Night Racing history</p>
+  </div>
+  <div class="section-container">
+    <div class="season-tabs" id="seasonTabs">
+      <button class="season-tab active" data-season="1">Season 1</button>
+      <button class="season-tab" data-season="2">Season 2</button>
+      <button class="season-tab" data-season="3">Season 3</button>
+      <button class="season-tab" data-season="4">Season 4</button>
+      <button class="season-tab" data-season="5">Season 5</button>
+    </div>
+    <div id="historyContent">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRACKS PAGE ==================== -->
+<section class="page" id="page-tracks" style="display:none;">
+  <div class="page-header">
+    <h1 class="page-title">Track <span class="text-accent">Statistics</span></h1>
+    <p class="page-subtitle">All-time driver records by track</p>
+  </div>
+  <div class="section-container">
+    <div class="search-box track-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="trackSearch" placeholder="Search tracks...">
+    </div>
+    <div class="tracks-grid" id="tracksGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RULES PAGE ==================== -->
+<section class="page" id="page-rules" style="display:none;">
+  <div class="page-header">
+    <h1 class="page-title">League <span class="text-accent">Rules</span></h1>
+    <p class="page-subtitle">Saturday Night Racing Cup Series — Season 6 Rulebook</p>
+  </div>
+  <div class="section-container">
+    <div class="rules-container">
+
+      <!-- Section 1 -->
+      <div class="rule-section">
+        <button class="rule-header" data-rule="1">
+          <span class="rule-number">01</span>
+          <span class="rule-title">League Overview</span>
+          <svg class="rule-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="rule-body open" id="rule-1">
+          <div class="rule-item">
+            <h4>Consent to Rules & Amendments</h4>
+            <p>By participating in the Saturday Night Racing Cup Series, you agree to all current rules and any amendments made during the season. Rules can be amended at any time by league administration.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Driver Eligibility</h4>
+            <p>Open to all licensed iRacing members. Drivers must be at least 16 years of age to participate.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Charter System</h4>
+            <p>Charters guarantee entry to all events, similar to the NASCAR charter system. Charter holders receive priority entry and are expected to participate in all scheduled events.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="rule-section">
+        <button class="rule-header" data-rule="2">
+          <span class="rule-number">02</span>
+          <span class="rule-title">Competition Rules</span>
+          <svg class="rule-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="rule-body" id="rule-2">
+          <div class="rule-item">
+            <h4>Event Timeline</h4>
+            <div class="rule-timeline">
+              <div class="tl-item"><span class="tl-time">9:00 PM</span> Practice Opens</div>
+              <div class="tl-item"><span class="tl-time">10:00 PM</span> Qualifying (2 laps, single car)</div>
+              <div class="tl-item"><span class="tl-time">10:05 PM</span> Race Start</div>
+            </div>
+          </div>
+          <div class="rule-item">
+            <h4>Weather & Setups</h4>
+            <p>Realistic weather is enabled for all events. Open setups are permitted. Auto-fill fuel is enabled.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Tires</h4>
+            <p>Fixed tire limitations are enforced per track type. Tire management is a key component of race strategy.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Qualifying</h4>
+            <p>2-lap maximum per car during qualifying sessions. Any violations of qualifying procedures will result in penalties.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Race Starts</h4>
+            <p>Single-file restarts are enforced after cautions in the final laps of the race.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Overtime / Green-White-Checkered</h4>
+            <p>The Green-White-Checkered (GWC) rule is in effect. Up to 3 overtime attempts will be made before the race is declared official.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Cautions & Yellow Line</h4>
+            <p>The yellow-line rule is enforced at superspeedways (Daytona, Talladega). No passing below the yellow line. Violations will result in a penalty.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Black Flags</h4>
+            <p>Drivers who receive a black flag must serve the penalty within 3 laps or face disqualification from the event.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Connectivity Issues</h4>
+            <p>Each driver is allowed 1 free disconnection per season. Additional disconnections may result in a DNF with no points awarded for the event.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="rule-section">
+        <button class="rule-header" data-rule="3">
+          <span class="rule-number">03</span>
+          <span class="rule-title">Penalty System</span>
+          <svg class="rule-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="rule-body" id="rule-3">
+          <div class="rule-item">
+            <h4>Caution Penalties</h4>
+            <div class="penalty-grid">
+              <div class="penalty-card">
+                <span class="penalty-label">First 85% of Race</span>
+                <span class="penalty-value">-5 pts per caution caused</span>
+              </div>
+              <div class="penalty-card severe">
+                <span class="penalty-label">Last 15% of Race</span>
+                <span class="penalty-value">-10 pts per caution caused</span>
+              </div>
+            </div>
+          </div>
+          <div class="rule-item">
+            <h4>Warning System</h4>
+            <ul>
+              <li><strong>3 Warnings</strong> = 1-race probation</li>
+              <li><strong>5 Warnings</strong> = Suspension from the series</li>
+            </ul>
+          </div>
+          <div class="rule-item">
+            <h4>In-Race Chat</h4>
+            <p>Chat must be racing-related only. Excessive or inappropriate chat will result in a warning.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Intentional Wrecking</h4>
+            <p>Intentional wrecking results in immediate suspension with a minimum 2-race ban. All incidents are reviewed by league officials.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Teams</h4>
+            <p>Maximum 4 drivers per team, minimum 2. Pit road rules are enforced per NASCAR standards.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Retaliation</h4>
+            <p>No retaliation is allowed on track. Both parties will receive penalties if found guilty of retaliatory actions.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Slow / Damaged Cars</h4>
+            <p>Drivers who are 5+ laps down or unable to maintain competitive pace must exit the track to avoid interfering with the leaders.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="rule-section">
+        <button class="rule-header" data-rule="4">
+          <span class="rule-number">04</span>
+          <span class="rule-title">Points System</span>
+          <svg class="rule-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="rule-body" id="rule-4">
+          <div class="rule-item">
+            <h4>Regular Season Points</h4>
+            <div class="points-table-mini">
+              <div class="pts-row"><span>1st</span><strong>55 pts</strong></div>
+              <div class="pts-row"><span>2nd</span><strong>42 pts</strong></div>
+              <div class="pts-row"><span>3rd</span><strong>41 pts</strong></div>
+              <div class="pts-row"><span>4th</span><strong>40 pts</strong></div>
+              <div class="pts-row"><span>5th–43rd</span><strong>39 pts down by 1</strong></div>
+            </div>
+            <p class="rule-note">No bonus points are awarded in Season 6.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Chase (Playoffs)</h4>
+            <ul>
+              <li>Top 14 drivers after Race 17 advance to the Chase</li>
+              <li>Chase begins Race 18 (Talladega)</li>
+              <li>Points reset: 1st = 2025, 2nd = 2015, 3rd = 2012, 4th = 2010, then decreasing by 1 per position</li>
+              <li>4-race playoff format through Talladega, Homestead, Michigan, Bristol</li>
+              <li>Championship Race: Kansas (Race 22)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="rule-section">
+        <button class="rule-header" data-rule="5">
+          <span class="rule-number">05</span>
+          <span class="rule-title">Miscellaneous</span>
+          <svg class="rule-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="rule-body" id="rule-5">
+          <div class="rule-item">
+            <h4>Paint Schemes</h4>
+            <p>Custom paint schemes are encouraged but must be appropriate. Offensive or inappropriate designs will not be permitted.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Custom Numbers</h4>
+            <p>Custom car numbers are available upon request. Contact league administration for availability.</p>
+          </div>
+          <div class="rule-item">
+            <h4>Discord</h4>
+            <p>Discord is required during all race events for communication. All drivers must be in the designated voice channel during practice, qualifying, and the race.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/snr-logo.jpg" alt="SNR Logo" class="footer-logo">
+        <div>
+          <strong>Saturday Night Racing Cup Series</strong>
+          <p>Season 6 — iRacing</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#standings">Standings</a>
+        <a href="#history">History</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#rules">Rules</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saturday Night Racing League. All rights reserved.</p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="pplx-link">Created with Perplexity Computer</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
