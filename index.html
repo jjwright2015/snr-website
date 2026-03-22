@@ -31,7 +31,7 @@
 <nav class="main-nav" id="mainNav">
   <div class="nav-inner">
     <a href="#home" class="nav-brand">
-      <img src="assets/snr-logo.jpg" alt="SNR Logo" class="nav-logo">
+      <img src="assets/snr-logo-main.jpg" alt="SNR Logo" class="nav-logo">
       <div class="nav-brand-text">
         <span class="brand-name">Saturday Night Racing</span>
         <span class="brand-series">Cup Series</span>
@@ -59,12 +59,16 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-bg">
-      <div class="checkered-flag"></div>
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/snr-logo-main.jpg">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-logo-watermark"><img src="assets/snr-logo-main.jpg" alt="Saturday Night Racing Cup Series" class="hero-logo-img"></div>
       <div class="racing-stripes"></div>
     </div>
     <div class="hero-content">
+      <div class="hero-series-logo"><img src="assets/snr-logo-main.jpg" alt="Saturday Night Racing Cup Series Logo" class="hero-logo-center"></div>
       <div class="hero-badge">SEASON 6</div>
-      <h1 class="hero-title">Saturday Night Racing<br><span class="hero-accent">Cup Series</span></h1>
       <p class="hero-subtitle">NASCAR O'Reilly Series on iRacing — Every Saturday at 10PM EST</p>
       <div class="hero-actions">
         <a href="#standings" class="btn btn-primary">View Standings</a>
@@ -78,15 +82,15 @@
     <div class="countdown-section">
       <div class="countdown-header">
         <h2 class="section-title">Next Race</h2>
-        <div class="next-race-badge">Race 5 of 22</div>
+        <div class="next-race-badge">Race 6 of 22</div>
       </div>
       <div class="countdown-card">
         <div class="countdown-track">
-          <img src="assets/darlington-logo.jpg" alt="Darlington Raceway" class="track-logo">
+          <img src="assets/snr-logo-main.jpg" alt="Martinsville Speedway" class="track-logo">
           <div class="track-info">
-            <h3 class="track-name">Darlington Raceway</h3>
-            <p class="track-date">Saturday, March 21, 2026 — 10:00 PM EST</p>
-            <p class="track-detail">"The Track Too Tough to Tame"</p>
+            <h3 class="track-name">Martinsville Speedway</h3>
+            <p class="track-date">Saturday, March 28, 2026 — 10:00 PM EDT</p>
+            <p class="track-detail">"The Paperclip" — 0.526-mile short track</p>
           </div>
         </div>
         <div class="countdown-timer" id="countdown">
@@ -189,7 +193,7 @@
 <section class="page" id="page-standings" style="display:none;">
   <div class="page-header">
     <h1 class="page-title">Season 6 <span class="text-accent">Standings</span></h1>
-    <p class="page-subtitle">After 4 of 22 races — Chase cutoff: Top 14</p>
+    <p class="page-subtitle">After 5 of 22 races — Chase cutoff: Top 14</p>
   </div>
   <div class="section-container">
     <!-- Search / Filter -->
@@ -200,7 +204,6 @@
       </div>
       <div class="table-legend">
         <span class="legend-item"><span class="legend-dot chase"></span>Chase Eligible (Top 14)</span>
-        <span class="legend-item"><span class="legend-dot suspended"></span>Suspended</span>
       </div>
     </div>
 
@@ -280,6 +283,20 @@
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Chad Clinger</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 5</div>
+          <div class="result-track">Darlington Raceway</div>
+          <div class="result-date">March 21, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+          <div class="result-detail">Led 119 of 159 laps</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">James Lehman</span>
           </div>
         </div>
       </div>
@@ -522,7 +539,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/snr-logo.jpg" alt="SNR Logo" class="footer-logo">
+        <img src="assets/snr-logo-main.jpg" alt="SNR Logo" class="footer-logo">
         <div>
           <strong>Saturday Night Racing Cup Series</strong>
           <p>Season 6 — iRacing</p>
