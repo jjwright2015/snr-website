@@ -135,21 +135,21 @@
       </div>
     </div>
 
-    <!-- Current Leader Card -->
+    <!-- Current Leader Card — populated dynamically from standingsData -->
     <div class="leader-card">
       <div class="leader-header">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#F5A623"/></svg>
         <span>Points Leader</span>
       </div>
       <div class="leader-body">
-        <div class="leader-pos">P1</div>
+        <div class="leader-pos" id="leaderPos">P1</div>
         <div class="leader-info">
-          <h3 class="leader-name">Jeff J. Wright</h3>
+          <h3 class="leader-name" id="leaderName"></h3>
           <div class="leader-stats">
-            <span class="stat"><strong>170</strong> PTS</span>
-            <span class="stat"><strong>2</strong> Wins</span>
-            <span class="stat"><strong>3</strong> Top 5</span>
-            <span class="stat"><strong>4</strong> Starts</span>
+            <span class="stat"><strong id="leaderPts"></strong> PTS</span>
+            <span class="stat"><strong id="leaderWins"></strong> Wins</span>
+            <span class="stat"><strong id="leaderTop5"></strong> Top 5</span>
+            <span class="stat"><strong id="leaderStarts"></strong> Starts</span>
           </div>
         </div>
       </div>

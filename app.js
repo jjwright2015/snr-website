@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   renderSchedule();
   renderStandings();
+  renderLeaderCard();
   initStandingsSearch();
   initTableSort();
   initHistoryTabs();
@@ -63,6 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initHamburger();
 });
+
+// --- Points Leader Card ---
+// Always reads from standingsData[0] so it auto-updates whenever standings are refreshed.
+function renderLeaderCard() {
+  if (!standingsData || !standingsData.length) return;
+  const leader = standingsData[0];
+  const posEl     = document.getElementById('leaderPos');
+  const nameEl    = document.getElementById('leaderName');
+  const ptsEl     = document.getElementById('leaderPts');
+  const winsEl    = document.getElementById('leaderWins');
+  const top5El    = document.getElementById('leaderTop5');
+  const startsEl  = document.getElementById('leaderStarts');
+  if (posEl)    posEl.textContent    = 'P' + leader.pos;
+  if (nameEl)   nameEl.textContent   = leader.driver;
+  if (ptsEl)    ptsEl.textContent    = leader.points;
+  if (winsEl)   winsEl.textContent   = leader.wins;
+  if (top5El)   top5El.textContent   = leader.top5;
+  if (startsEl) startsEl.textContent = leader.starts;
+}
 
 // --- Router ---
 function initRouter() {
