@@ -308,12 +308,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-logo-center {
-  width: 220px;
+  width: 420px;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  /* Dark background to mask white JPG edges */
-  background: rgba(0,0,0,0.55);
+  background: transparent;
   padding: 8px 12px;
   box-shadow: 0 0 24px rgba(201, 162, 39, 0.4), 0 4px 20px rgba(0,0,0,0.8);
   animation: logoGlow 4s ease-in-out infinite alternate;
