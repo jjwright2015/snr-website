@@ -586,7 +586,7 @@ function buildModal(d) {
       <div class="stat-box"><span class="stat-box-label">P2 Finishes</span><span class="stat-box-value">${d.p2s}</span></div>
       <div class="stat-box"><span class="stat-box-label">P3 Finishes</span><span class="stat-box-value">${d.p3s}</span></div>
       <div class="stat-box"><span class="stat-box-label">Poles</span><span class="stat-box-value">${d.poles}</span></div>
-      <div class="stat-box"><span class="stat-box-label">DNFs</span><span class="stat-box-value">${d.dnfs}</span></div>
+      <div class="stat-box"><span class="stat-box-label">Win %</span><span class="stat-box-value">${d.starts > 0 ? ((d.wins / d.starts) * 100).toFixed(1) : '0.0'}%</span></div>
       <div class="stat-box"><span class="stat-box-label">Laps</span><span class="stat-box-value sm">${d.laps.toLocaleString()}</span></div>
       <div class="stat-box"><span class="stat-box-label">Laps Led</span><span class="stat-box-value accent sm">${d.laps_led.toLocaleString()}</span></div>
     </div>`;
