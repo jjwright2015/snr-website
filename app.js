@@ -307,22 +307,25 @@ function renderHistory(season) {
   
   // Table
   html += '<div class="table-wrapper"><table class="standings-table"><thead><tr>' +
-    '<th>Pos</th><th>Driver</th><th>Points</th><th>Wins</th><th>Top 5</th><th>Top 10</th><th>Starts</th>' +
+    '<th>Pos</th><th>Driver</th><th>Points</th><th>Behind</th><th>Wins</th><th>Top 5</th><th>Top 10</th><th>Starts</th>' +
     '</tr></thead><tbody>';
   
-  const displayData = data.slice(0, 20);
-  displayData.forEach((d, i) => {
+  const leaderPoints = data.length > 0 ? data[0].points : 0;
+  
+  data.forEach((d, i) => {
     let rowClass = '';
     if (d.pos === 1) rowClass = 'pos-1';
     else if (d.pos === 2) rowClass = 'pos-2';
     else if (d.pos === 3) rowClass = 'pos-3';
     
     const winsClass = d.wins > 0 ? ' wins-highlight' : '';
+    const behind = d.pos === 1 ? '<span style="color:var(--gold)">--</span>' : '-' + (leaderPoints - d.points);
     
     html += '<tr class="' + rowClass + '">' +
       '<td class="pos-cell">' + d.pos + '</td>' +
       '<td class="driver-name">' + d.driver + '</td>' +
       '<td><strong>' + d.points + '</strong></td>' +
+      '<td style="color:#888;font-size:0.85em">' + behind + '</td>' +
       '<td class="wins-cell' + winsClass + '">' + (d.wins || 0) + '</td>' +
       '<td>' + (d.top5 || 0) + '</td>' +
       '<td>' + (d.top10 || 0) + '</td>' +

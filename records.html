@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Series Records — Saturday Night Racing Cup Series</title>
+<meta name="description" content="All-time records for the Saturday Night Racing Cup Series. Most wins, poles, laps led, consecutive streaks, and more.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<style>
+/* ============================================
+   Records Page — Scoped Styles
+   ============================================ */
+
+/* Page wrapper */
+.records-page {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* Page Header */
+.records-header {
+  background: linear-gradient(180deg, rgba(201,162,39,0.08) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.records-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+
+.records-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
+}
+
+.records-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.records-page-title .text-accent {
+  color: var(--accent);
+}
+
+.records-page-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  position: relative;
+}
+
+.records-eligibility {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-family: var(--font-body);
+  font-style: italic;
+  position: relative;
+}
+
+/* Container */
+.records-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* Section */
+.records-section {
+  margin-top: 56px;
+}
+
+.records-section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.records-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.records-section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  opacity: 0.3;
+}
+
+.records-section-note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-family: var(--font-body);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+/* Records Grid */
+.records-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .records-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .records-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Record Card */
+.record-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 20px 20px 16px;
+  position: relative;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.record-card:hover {
+  border-left-color: var(--accent-gold);
+  box-shadow: 0 4px 24px rgba(201, 162, 39, 0.12);
+}
+
+.record-card-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+/* #1 Record Holder */
+.record-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.record-rank-1 {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 3px;
+  padding: 2px 5px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.record-holder-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.record-holder-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+/* Sub entries (#2-5) */
+.record-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.record-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.record-entry-rank {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  width: 16px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.record-entry-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.record-entry-val {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Season tag on entries */
+.record-entry-season {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+/* Tie note */
+.record-card-tie-note {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Consecutive section — same card style with 2-col grid */
+.records-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .records-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-brand">
+      <img src="assets/snr-logo-new.png" alt="SNR Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="brand-name">Saturday Night Racing</span>
+        <span class="brand-series">Cup Series</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#home" class="nav-link" data-page="home">Home</a>
+      <a href="index.html#standings" class="nav-link" data-page="standings">Standings</a>
+      <a href="index.html#history" class="nav-link" data-page="history">History</a>
+      <a href="index.html#tracks" class="nav-link" data-page="tracks">Tracks</a>
+      <a href="index.html#rules" class="nav-link" data-page="rules">Rules</a>
+      <a href="drivers.html" class="nav-link">Drivers</a>
+      <a href="records.html" class="nav-link active">Records</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Records Page -->
+<div class="records-page">
+
+  <!-- Page Header -->
+  <div class="records-header">
+    <h1 class="records-page-title">Series <span class="text-accent">Records</span></h1>
+    <p class="records-page-subtitle">Saturday Night Racing Cup Series — All-Time Records</p>
+    <span class="records-eligibility">* To qualify, a driver must have 20+ career starts or be active in Season 6</span>
+  </div>
+
+  <!-- Records Content -->
+  <div class="records-container" id="recordsContainer">
+    <!-- Populated by JS -->
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/snr-logo-main.jpg" alt="SNR Logo" class="footer-logo">
+        <div>
+          <strong>Saturday Night Racing Cup Series</strong>
+          <p>Season 6 — iRacing</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#standings">Standings</a>
+        <a href="index.html#history">History</a>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="index.html#rules">Rules</a>
+        <a href="drivers.html">Drivers</a>
+        <a href="records.html">Records</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saturday Night Racing League. All rights reserved.</p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="pplx-link">Created with Perplexity Computer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================
+//  SNR Records Page — Data & Renderer
+// ============================================
+
+const RECORDS_DATA = {"alltime":{"most_wins":[{"driver":"Jeff J. Wright","value":24,"suffix":""},{"driver":"Bailey Turner","value":15,"suffix":""},{"driver":"Joshua Banks","value":11,"suffix":""},{"driver":"Adam Cabot","value":7,"suffix":""},{"driver":"Chad Clinger","value":5,"suffix":""}],"most_starts":[{"driver":"Jeff J. Wright","value":90,"suffix":""},{"driver":"Max Kost","value":88,"suffix":""},{"driver":"Caleb Weekley","value":88,"suffix":""},{"driver":"Joshua Banks","value":82,"suffix":""},{"driver":"Chad Clinger","value":81,"suffix":""}],"most_top5":[{"driver":"Jeff J. Wright","value":55,"suffix":""},{"driver":"Bailey Turner","value":45,"suffix":""},{"driver":"Joshua Banks","value":40,"suffix":""},{"driver":"Ryan Carwile","value":23,"suffix":""},{"driver":"Chad Clinger","value":23,"suffix":""}],"most_top10":[{"driver":"Jeff J. Wright","value":66,"suffix":""},{"driver":"Bailey Turner","value":55,"suffix":""},{"driver":"Joshua Banks","value":47,"suffix":""},{"driver":"Ryan Carwile","value":45,"suffix":""},{"driver":"Chad Clinger","value":38,"suffix":""}],"most_p2":[{"driver":"Joshua Banks","value":16,"suffix":""},{"driver":"Jeff J. Wright","value":11,"suffix":""},{"driver":"Bailey Turner","value":7,"suffix":""},{"driver":"A.J. Stravato","value":7,"suffix":""},{"driver":"Adam Cabot","value":6,"suffix":""}],"most_p3":[{"driver":"Bailey Turner","value":13,"suffix":""},{"driver":"Jeff J. Wright","value":9,"suffix":""},{"driver":"Chad Clinger","value":7,"suffix":""},{"driver":"Kenny Kibbey","value":6,"suffix":""},{"driver":"Joshua Banks","value":5,"suffix":""}],"most_poles":[{"driver":"Jeff J. Wright","value":21,"suffix":""},{"driver":"Chad Clinger","value":10,"suffix":""},{"driver":"Adam Cabot","value":10,"suffix":""},{"driver":"James Lehman","value":6,"suffix":""},{"driver":"Seth Hatchel","value":3,"suffix":""}],"most_laps_led":[{"driver":"Jeff J. Wright","value":4145,"suffix":""},{"driver":"Bailey Turner","value":1622,"suffix":""},{"driver":"Joshua Banks","value":1289,"suffix":""},{"driver":"Adam Cabot","value":916,"suffix":""},{"driver":"Chad Clinger","value":714,"suffix":""}],"best_avg_finish":[{"driver":"Bailey Turner","value":7.5,"suffix":""},{"driver":"Adam Cabot","value":7.7,"suffix":""},{"driver":"Jeff J. Wright","value":7.9,"suffix":""},{"driver":"Kenny Kibbey","value":11.3,"suffix":""},{"driver":"Seth Hatchel","value":12.1,"suffix":""}],"best_win_pct":[{"driver":"Jeff J. Wright","value":26.7,"suffix":"%"},{"driver":"Bailey Turner","value":20.0,"suffix":"%"},{"driver":"Adam Cabot","value":20.0,"suffix":"%"},{"driver":"Joshua Banks","value":13.4,"suffix":"%"},{"driver":"Chad Clinger","value":6.2,"suffix":"%"}],"most_seasons":[{"driver":"Seth Hatchel","value":5,"suffix":" seasons"},{"driver":"Ryan Carwile","value":5,"suffix":" seasons"},{"driver":"Rhea Massey","value":5,"suffix":" seasons"},{"driver":"Reggie Ortega","value":5,"suffix":" seasons"},{"driver":"Noah Michalski","value":5,"suffix":" seasons"}],"most_tracks_won":[{"driver":"Jeff J. Wright","value":19,"suffix":" tracks"},{"driver":"Joshua Banks","value":11,"suffix":" tracks"},{"driver":"Bailey Turner","value":11,"suffix":" tracks"},{"driver":"Adam Cabot","value":7,"suffix":" tracks"},{"driver":"Chad Clinger","value":5,"suffix":" tracks"}]},"season":{"wins":[{"driver":"Bailey Turner","value":7,"season":"Season 4"},{"driver":"Jeff J. Wright","value":7,"season":"Season 5"},{"driver":"Jeff J. Wright","value":6,"season":"Season 1"},{"driver":"Jeff J. Wright","value":5,"season":"Season 2"},{"driver":"Joshua Banks","value":4,"season":"Season 2"}],"top5":[{"driver":"Jeff J. Wright","value":15,"season":"Season 1"},{"driver":"Jeff J. Wright","value":14,"season":"Season 2"},{"driver":"Bailey Turner","value":13,"season":"Season 4"},{"driver":"Joshua Banks","value":10,"season":"Season 2"},{"driver":"Bailey Turner","value":10,"season":"Season 2"}],"top10":[{"driver":"Jeff J. Wright","value":18,"season":"Season 1"},{"driver":"Alex W Bell","value":14,"season":"Season 1"},{"driver":"Jeff J. Wright","value":14,"season":"Season 2"},{"driver":"A.J. Stravato","value":13,"season":"Season 1"},{"driver":"Alex W Bell","value":13,"season":"Season 2"}],"starts":[{"driver":"Max Kost","value":20,"season":"Season 1"},{"driver":"Alex W Bell","value":20,"season":"Season 2"},{"driver":"Chuck Sweeting","value":20,"season":"Season 2"},{"driver":"Max Kost","value":20,"season":"Season 2"},{"driver":"Bryce Shoemaker","value":20,"season":"Season 2"}],"points":[{"driver":"Jeff J. Wright","value":2270,"season":"Season 1"},{"driver":"Jeff J. Wright","value":2231,"season":"Season 2"},{"driver":"Jeff J. Wright","value":2227,"season":"Season 5"},{"driver":"Michael Sturgill","value":2224,"season":"Season 1"},{"driver":"Bailey Turner","value":2212,"season":"Season 4"}]},"consecutive":{"win_streak":[[4,"Bailey Turner"],[3,"Joshua Banks"],[3,"Jeff J. Wright"],[1,"Seth Hatchel"],[1,"Ryan Carwile"]],"top5_streak":[[8,"Jeff J. Wright"],[7,"Joshua Banks"],[7,"Bailey Turner"],[5,"Adam Cabot"],[4,"Ryan Carwile"]],"top10_streak":[[23,"Jeff J. Wright"],[10,"Alex W Bell"],[9,"Bailey Turner"],[9,"Adam Cabot"],[9,"A.J. Stravato"]],"frontrow_streak":[[5,"Jeff J. Wright"],[4,"Bailey Turner"],[3,"Joshua Banks"],[2,"Ryan Carwile"],[2,"Michael Sturgill"]]}};
+
+// ---- Helper: format value string ----
+function fmtVal(val, suffix) {
+  if (suffix) return val + suffix;
+  return val.toLocaleString();
+}
+
+// ---- Build a record card from an array of {driver, value, suffix} ----
+function buildCard(title, entries, opts = {}) {
+  const top = entries[0];
+  const rest = entries.slice(1);
+
+  let topValueStr = fmtVal(top.value, top.suffix || '');
+
+  let restHtml = rest.map((e, i) => {
+    const season = e.season ? `<span class="record-entry-season">${e.season}</span>` : '';
+    return `
+      <div class="record-entry">
+        <span class="record-entry-rank">${i + 2}</span>
+        <span class="record-entry-name">${e.driver}</span>
+        ${season}
+        <span class="record-entry-val">${fmtVal(e.value, e.suffix || '')}</span>
+      </div>`;
+  }).join('');
+
+  const topSeason = top.season ? `<span style="font-size:0.72rem;color:var(--text-dim);margin-top:2px;display:block;font-family:var(--font-body);">${top.season}</span>` : '';
+  const note = opts.note ? `<p class="record-card-tie-note">${opts.note}</p>` : '';
+
+  return `
+    <div class="record-card">
+      <div class="record-card-title">${title}</div>
+      <div class="record-top">
+        <span class="record-rank-1">1ST</span>
+        <div style="flex:1;min-width:0;">
+          <div class="record-holder-name">${top.driver}</div>
+          ${topSeason}
+        </div>
+        <div class="record-holder-value">${topValueStr}</div>
+      </div>
+      <div class="record-entries">
+        ${restHtml}
+      </div>
+      ${note}
+    </div>`;
+}
+
+// ---- Build a card from consecutive data: [[value, driver], ...] ----
+function buildConsecCard(title, entries) {
+  const top = entries[0];
+  const rest = entries.slice(1);
+
+  let restHtml = rest.map((e, i) => {
+    // handle tie: same value as previous
+    return `
+      <div class="record-entry">
+        <span class="record-entry-rank">${i + 2}</span>
+        <span class="record-entry-name">${e[1]}</span>
+        <span class="record-entry-val">${e[0]}</span>
+      </div>`;
+  }).join('');
+
+  return `
+    <div class="record-card">
+      <div class="record-card-title">${title}</div>
+      <div class="record-top">
+        <span class="record-rank-1">1ST</span>
+        <div class="record-holder-name" style="flex:1;">${top[1]}</div>
+        <div class="record-holder-value">${top[0]}</div>
+      </div>
+      <div class="record-entries">
+        ${restHtml}
+      </div>
+    </div>`;
+}
+
+// ---- Render everything ----
+function renderRecords() {
+  const container = document.getElementById('recordsContainer');
+  const d = RECORDS_DATA;
+
+  container.innerHTML = `
+
+    <!-- ===== SECTION 1: ALL-TIME RECORDS ===== -->
+    <div class="records-section">
+      <div class="records-section-header">
+        <h2 class="records-section-title">All-Time Records</h2>
+        <div class="records-section-line"></div>
+      </div>
+      <div class="records-grid">
+        ${buildCard('Most Career Wins', d.alltime.most_wins)}
+        ${buildCard('Most Career Starts', d.alltime.most_starts)}
+        ${buildCard('Most Career Top 5s', d.alltime.most_top5)}
+        ${buildCard('Most Career Top 10s', d.alltime.most_top10)}
+        ${buildCard('Most Runner-Up (P2) Finishes', d.alltime.most_p2)}
+        ${buildCard('Most 3rd Place Finishes', d.alltime.most_p3)}
+        ${buildCard('Most Career Poles', d.alltime.most_poles)}
+        ${buildCard('Most Laps Led', d.alltime.most_laps_led)}
+        ${buildCard('Best Avg Finish ↓ lower is better', d.alltime.best_avg_finish)}
+        ${buildCard('Best Win % (min. 20 starts)', d.alltime.best_win_pct)}
+        ${buildCard('Most Seasons Competed', d.alltime.most_seasons, { note: '5-way tie at 5 seasons' })}
+        ${buildCard('Most Different Tracks Won At', d.alltime.most_tracks_won)}
+      </div>
+    </div>
+
+    <!-- ===== SECTION 2: SINGLE SEASON RECORDS ===== -->
+    <div class="records-section">
+      <div class="records-section-header">
+        <h2 class="records-section-title">Single Season Records</h2>
+        <div class="records-section-line"></div>
+      </div>
+      <div class="records-grid">
+        ${buildCard('Most Wins in a Single Season', d.season.wins)}
+        ${buildCard('Most Top 5s in a Single Season', d.season.top5)}
+        ${buildCard('Most Top 10s in a Single Season', d.season.top10)}
+        ${buildCard('Most Starts in a Single Season', d.season.starts)}
+        ${buildCard('Most Points in a Single Season', d.season.points)}
+      </div>
+    </div>
+
+    <!-- ===== SECTION 3: CONSECUTIVE RECORDS ===== -->
+    <div class="records-section">
+      <div class="records-section-header">
+        <h2 class="records-section-title">Consecutive Records</h2>
+        <div class="records-section-line"></div>
+      </div>
+      <p class="records-section-note">Calculated from race-by-race results. Qualifying position streaks require additional data.</p>
+      <div class="records-grid-2">
+        ${buildConsecCard('Most Consecutive Wins', d.consecutive.win_streak)}
+        ${buildConsecCard('Most Consecutive Top 5 Finishes', d.consecutive.top5_streak)}
+        ${buildConsecCard('Most Consecutive Top 10 Finishes', d.consecutive.top10_streak)}
+        ${buildConsecCard('Most Consecutive Front Row Finishes (P1 or P2)', d.consecutive.frontrow_streak)}
+      </div>
+      <p class="records-section-note" style="margin-top:12px;">Front row based on finishing position data. Qualifying position streaks coming soon.</p>
+    </div>
+
+  `;
+}
+
+// ---- Theme toggle (mirrors index.html behavior) ----
+(function initTheme() {
+  const saved = localStorage.getItem('snr-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+
+document.getElementById('themeToggle').addEventListener('click', function () {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('snr-theme', next);
+});
+
+// ---- Hamburger menu ----
+document.getElementById('hamburger').addEventListener('click', function () {
+  const links = document.getElementById('navLinks');
+  const isOpen = links.classList.toggle('open');
+  this.classList.toggle('open', isOpen);
+});
+
+// ---- Nav scroll behavior ----
+window.addEventListener('scroll', function () {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 10) {
+    nav.style.background = 'rgba(10,10,10,0.97)';
+  } else {
+    nav.style.background = 'rgba(10,10,10,0.92)';
+  }
+}, { passive: true });
+
+// ---- Init ----
+renderRecords();
+</script>
+</body>
+</html>
