@@ -825,7 +825,7 @@ img { max-width: 100%; height: auto; display: block; }
   height: 10px;
   border-radius: 50%;
 }
-.legend-dot.chase { background: var(--accent-teal); }
+.legend-dot.chase { background: var(--accent-gold); }
 .legend-dot.suspended { background: var(--accent); }
 
 .table-wrapper {
@@ -893,8 +893,18 @@ img { max-width: 100%; height: auto; display: block; }
 .pos-2 .pos-cell { color: var(--silver); }
 .pos-3 .pos-cell { color: var(--bronze); }
 
-/* Chase eligible */
-.chase-eligible { border-left: 3px solid var(--accent-teal); }
+/* Chase eligible — Top 14 in The Chase */
+.chase-eligible { 
+  border-left: 3px solid var(--accent-gold);
+  background: rgba(201, 162, 39, 0.06);
+}
+.chase-eligible:hover {
+  background: rgba(201, 162, 39, 0.12) !important;
+}
+.chase-eligible .driver-name {
+  color: #f0d060;
+}
+.behind-cell { font-size: 0.85em; }
 
 /* Suspended */
 .suspended-row {

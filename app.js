@@ -203,6 +203,7 @@ function renderSchedule() {
 function renderStandings(data) {
   const tbody = document.getElementById('standingsBody');
   const list = data || standingsData;
+  const leaderPoints = list.length > 0 ? list[0].points : 0;
   
   tbody.innerHTML = list.map(d => {
     let rowClass = '';
@@ -212,11 +213,13 @@ function renderStandings(data) {
     
     const suspBadge = d.suspended ? '<span class="suspended-badge">SUSPENDED R5</span>' : '';
     const winsClass = d.wins > 0 ? ' wins-highlight' : '';
+    const behind = d.pos === 1 ? '<span style="color:var(--accent-gold);font-weight:700">--</span>' : '<span style="color:#888">-' + (leaderPoints - d.points) + '</span>';
     
     return '<tr class="' + rowClass.trim() + '">' +
       '<td class="pos-cell">' + d.pos + '</td>' +
       '<td><span class="driver-name">' + d.driver + '</span>' + suspBadge + '</td>' +
       '<td><strong>' + d.points + '</strong></td>' +
+      '<td class="behind-cell">' + behind + '</td>' +
       '<td class="wins-cell' + winsClass + '">' + d.wins + '</td>' +
       '<td>' + d.top5 + '</td>' +
       '<td>' + d.top10 + '</td>' +
