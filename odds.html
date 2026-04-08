@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iowa Speedway Betting Odds — Race 7 | Saturday Night Racing Cup Series</title>
+<meta name="description" content="Official simulated betting odds for SNR Cup Series Race 7 at Iowa Speedway. For entertainment purposes only.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  /* ── Odds Page Specific Styles ─────────────────────────────────── */
+
+  .odds-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background: var(--bg);
+  }
+
+  /* Race Header */
+  .race-header {
+    background: linear-gradient(180deg, #0f0f0f 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .race-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--accent-gold), var(--accent), transparent);
+  }
+
+  .race-header-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .odds-eyebrow {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .odds-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 64px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+
+  .odds-subtitle {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(18px, 3vw, 26px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .odds-disclaimer-top {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* Race Info Strip */
+  .race-info-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .race-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 24px;
+    border-right: 1px solid var(--border);
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .race-info-item:last-child { border-right: none; }
+
+  .race-info-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  .race-info-value {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .race-info-value.accent { color: var(--accent); }
+
+  /* ── Pick'em CTA Banner ──────────────────────────────────────────── */
+  .pickem-banner {
+    background: var(--accent);
+    border-top: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+    padding: 20px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pickem-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(0,0,0,0.06) 10px,
+      rgba(0,0,0,0.06) 20px
+    );
+    pointer-events: none;
+  }
+
+  .pickem-banner-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pickem-banner-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(15px, 2.5vw, 22px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0a0a0a;
+  }
+
+  .pickem-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0a0a0a;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    border: 2px solid #0a0a0a;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .pickem-btn:hover {
+    background: #1a1a1a;
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
+  }
+
+  /* ── Page Content ───────────────────────────────────────────────── */
+  .odds-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── Section Headers ─────────────────────────────────────────────── */
+  .odds-section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .odds-section-title::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 22px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Track Facts Card ────────────────────────────────────────────── */
+  .track-facts-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 48px;
+    border-top: 3px solid var(--accent);
+  }
+
+  .track-facts-header {
+    background: var(--surface-2);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .track-facts-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .track-type-badge {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(201,162,39,0.1);
+    border: 1px solid rgba(201,162,39,0.25);
+    padding: 4px 14px;
+    border-radius: 4px;
+  }
+
+  .track-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0;
+  }
+
+  .track-fact-item {
+    padding: 18px 24px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .track-fact-item:nth-child(n) { border-bottom: 1px solid var(--border); }
+
+  .track-fact-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  .track-fact-value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ── History Table ───────────────────────────────────────────────── */
+  .history-section {
+    margin-bottom: 48px;
+  }
+
+  .odds-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .odds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .odds-table thead {
+    background: var(--surface-2);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .odds-table th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .odds-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .odds-table tbody tr {
+    background: var(--surface);
+    transition: background 0.15s ease;
+  }
+
+  .odds-table tbody tr:nth-child(even) {
+    background: rgba(20,20,20,0.8);
+  }
+
+  .odds-table tbody tr:hover {
+    background: var(--surface-2);
+  }
+
+  .history-winner {
+    font-weight: 600;
+    color: var(--accent-gold);
+  }
+
+  .history-tbd {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .caution-pill {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 3px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .caution-pill.high {
+    background: rgba(201,162,39,0.12);
+    border-color: rgba(201,162,39,0.3);
+    color: var(--accent-gold);
+  }
+
+  /* ── Odds Board ──────────────────────────────────────────────────── */
+  .odds-board-section {
+    margin-bottom: 48px;
+  }
+
+  .odds-board-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .odds-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .odds-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .odds-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-fav { background: #27ae60; }
+  .legend-mid { background: #C9A227; }
+  .legend-long { background: #555; }
+
+  /* Odds table specific */
+  .odds-board-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .odds-board-table thead {
+    background: #111;
+    position: sticky;
+    top: var(--nav-height);
+    z-index: 2;
+  }
+
+  .odds-board-table th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .odds-board-table th.th-odds {
+    text-align: right;
+  }
+
+  .odds-board-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(42,42,42,0.6);
+  }
+
+  .odds-board-table tbody tr {
+    background: var(--surface);
+    transition: background 0.12s ease;
+  }
+
+  .odds-board-table tbody tr:nth-child(even) {
+    background: #111;
+  }
+
+  .odds-board-table tbody tr:hover {
+    background: var(--surface-2);
+  }
+
+  /* Row rank badges */
+  .rank-cell {
+    width: 48px;
+    text-align: center;
+  }
+
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  .rank-badge.rank-1 {
+    background: linear-gradient(135deg, #E8BA2C, #C9A227);
+    color: #000;
+  }
+
+  .rank-badge.rank-2 {
+    background: linear-gradient(135deg, #d0d0d0, #a0a0a0);
+    color: #000;
+  }
+
+  .rank-badge.rank-3 {
+    background: linear-gradient(135deg, #d4894a, #CD7F32);
+    color: #000;
+  }
+
+  .rank-num {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* Driver cell */
+  .driver-cell {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .driver-cell.top3-driver {
+    color: var(--text);
+  }
+
+  /* History cell */
+  .history-cell {
+    font-size: 12px;
+    color: var(--text-muted);
+    max-width: 320px;
+    font-family: var(--font-body);
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .history-badge {
+    display: inline-block;
+    background: rgba(201,162,39,0.12);
+    border: 1px solid rgba(201,162,39,0.25);
+    color: var(--accent-gold);
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .no-history {
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  /* Odds cell */
+  .odds-cell {
+    text-align: right;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .odds-cell.odds-favorite {
+    color: #27ae60;
+  }
+
+  .odds-cell.odds-mid {
+    color: var(--accent-gold);
+  }
+
+  .odds-cell.odds-longshot {
+    color: #666;
+  }
+
+  /* Top 3 row highlight */
+  .odds-board-table tbody tr.row-top1 {
+    background: rgba(201,162,39,0.05);
+    border-left: 3px solid var(--accent-gold);
+  }
+
+  .odds-board-table tbody tr.row-top2 {
+    background: rgba(192,192,192,0.04);
+    border-left: 3px solid var(--silver);
+  }
+
+  .odds-board-table tbody tr.row-top3 {
+    background: rgba(205,127,50,0.04);
+    border-left: 3px solid var(--bronze);
+  }
+
+  /* Footer note */
+  .odds-footer-note {
+    text-align: center;
+    padding: 16px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  /* ── Challenger Notes ────────────────────────────────────────────── */
+  .challenger-section {
+    margin-bottom: 48px;
+  }
+
+  .challenger-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--accent-teal);
+    padding: 24px 28px;
+  }
+
+  .challenger-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .challenger-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .challenger-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .challenger-list li::before {
+    content: '▶';
+    color: var(--accent-teal);
+    font-size: 9px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .challenger-list li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .winner-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(0,188,212,0.12);
+    border: 1px solid rgba(0,188,212,0.3);
+    color: var(--accent-teal);
+    padding: 1px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── Disclaimer Section ──────────────────────────────────────────── */
+  .disclaimer-section {
+    margin-bottom: 16px;
+  }
+
+  .disclaimer-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .disclaimer-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .disclaimer-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .disclaimer-text strong {
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── Mobile Responsive ───────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .race-info-strip {
+      flex-direction: column;
+    }
+    .race-info-item {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+    .race-info-item:last-child { border-bottom: none; }
+
+    .pickem-banner-inner {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .track-facts-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .odds-board-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .history-cell {
+      max-width: 180px;
+      font-size: 11px;
+    }
+
+    .odds-cell {
+      font-size: 17px;
+    }
+
+    .driver-cell {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .track-facts-grid {
+      grid-template-columns: 1fr;
+    }
+    .race-info-strip {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html#home" class="nav-brand">
+      <img src="assets/snr-logo-new.png" alt="SNR Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="brand-name">Saturday Night Racing</span>
+        <span class="brand-series">Cup Series</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#home" class="nav-link" data-page="home">Home</a>
+      <a href="index.html#standings" class="nav-link" data-page="standings">Standings</a>
+      <a href="index.html#history" class="nav-link" data-page="history">History</a>
+      <a href="index.html#tracks" class="nav-link" data-page="tracks">Tracks</a>
+      <a href="index.html#rules" class="nav-link" data-page="rules">Rules</a>
+      <a href="drivers.html" class="nav-link">Drivers</a>
+      <a href="records.html" class="nav-link">Records</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Odds Page -->
+<div class="odds-page">
+
+  <!-- 1. Race Header -->
+  <div class="race-header">
+    <div class="race-header-inner">
+      <div class="odds-eyebrow">Race 7 of 22 &nbsp;·&nbsp; Season 6</div>
+      <h1 class="odds-title">Official Betting <span class="text-accent">Odds</span></h1>
+      <div class="odds-subtitle">Iowa Speedway &nbsp;—&nbsp; April 11, 2026</div>
+      <div class="odds-disclaimer-top">⚠ For Entertainment Purposes Only — Simulated Odds</div>
+      <div class="race-info-strip">
+        <div class="race-info-item">
+          <span class="race-info-label">Date</span>
+          <span class="race-info-value">Apr 11, 2026</span>
+        </div>
+        <div class="race-info-item">
+          <span class="race-info-label">Time</span>
+          <span class="race-info-value accent">10:00 PM EDT</span>
+        </div>
+        <div class="race-info-item">
+          <span class="race-info-label">Track</span>
+          <span class="race-info-value">0.875 Miles</span>
+        </div>
+        <div class="race-info-item">
+          <span class="race-info-label">Laps</span>
+          <span class="race-info-value">150</span>
+        </div>
+        <div class="race-info-item">
+          <span class="race-info-label">Surface</span>
+          <span class="race-info-value">Asphalt</span>
+        </div>
+        <div class="race-info-item">
+          <span class="race-info-label">Location</span>
+          <span class="race-info-value">Newton, IA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Pick'em CTA Banner -->
+  <div class="pickem-banner">
+    <div class="pickem-banner-inner">
+      <span class="pickem-banner-text">🏁 Picks Are Open — Submit your Iowa Speedway picks before 10PM EDT Saturday</span>
+      <a href="https://snr-website.jjwright2015.workers.dev/#home" target="_blank" rel="noopener" class="pickem-btn">
+        Submit Your Picks →
+      </a>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="odds-container">
+
+    <!-- 3. Track Facts -->
+    <div class="track-facts-card" style="margin-bottom:48px;">
+      <div class="track-facts-header">
+        <span class="track-facts-name">Iowa Speedway</span>
+        <span class="track-type-badge">Short Oval</span>
+      </div>
+      <div class="track-facts-grid">
+        <div class="track-fact-item">
+          <div class="track-fact-label">Length</div>
+          <div class="track-fact-value">0.875 Miles</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Track Type</div>
+          <div class="track-fact-value">Short Oval</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Banking (Turns)</div>
+          <div class="track-fact-value">12°</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Banking (Straights)</div>
+          <div class="track-fact-value">4°</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Surface</div>
+          <div class="track-fact-value">Asphalt</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Race Laps</div>
+          <div class="track-fact-value">150</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">Location</div>
+          <div class="track-fact-value">Newton, Iowa</div>
+        </div>
+        <div class="track-fact-item">
+          <div class="track-fact-label">SNR Cup Races</div>
+          <div class="track-fact-value">5 (S1–S6)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Iowa Race History -->
+    <div class="history-section">
+      <div class="odds-section-title">Iowa SNR Cup Race History</div>
+      <div class="odds-table-wrapper">
+        <table class="odds-table">
+          <thead>
+            <tr>
+              <th>Season</th>
+              <th>Winner</th>
+              <th>P2</th>
+              <th>P3</th>
+              <th>Cautions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="font-family:var(--font-display);font-weight:700;">Season 1</span></td>
+              <td class="history-winner">Michael Sturgill</td>
+              <td>Mark Whitley</td>
+              <td>Joshua Banks</td>
+              <td><span class="caution-pill">2</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-display);font-weight:700;">Season 2</span></td>
+              <td class="history-winner">Jeff J. Wright</td>
+              <td>Ben D Bafford</td>
+              <td>Bailey Turner</td>
+              <td><span class="caution-pill">0</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-display);font-weight:700;">Season 4</span></td>
+              <td class="history-winner">Joshua L Adams</td>
+              <td>Chad Clinger</td>
+              <td>Bailey Turner</td>
+              <td><span class="caution-pill high">7</span></td>
+            </tr>
+            <tr>
+              <td><span style="font-family:var(--font-display);font-weight:700;">Season 5</span></td>
+              <td class="history-winner">Jeff J. Wright</td>
+              <td>Joshua Banks</td>
+              <td>Bailey Turner</td>
+              <td><span class="caution-pill high">6</span></td>
+            </tr>
+            <tr style="opacity:0.65;">
+              <td><span style="font-family:var(--font-display);font-weight:700;color:var(--accent);">Season 6</span></td>
+              <td class="history-tbd">TBD</td>
+              <td class="history-tbd">April 11 @ 10PM EDT</td>
+              <td class="history-tbd">—</td>
+              <td><span class="caution-pill">—</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. Race Winner Odds Board -->
+    <div class="odds-board-section">
+      <div class="odds-board-header">
+        <div class="odds-section-title" style="margin-bottom:0;">Race Winner Odds — 47 Drivers</div>
+        <div class="odds-legend">
+          <div class="odds-legend-item"><span class="odds-legend-dot legend-fav"></span>Favorite (+225–+2500)</div>
+          <div class="odds-legend-item"><span class="odds-legend-dot legend-mid"></span>Mid-Tier (+2501–+10000)</div>
+          <div class="odds-legend-item"><span class="odds-legend-dot legend-long"></span>Longshot (+10001+)</div>
+        </div>
+      </div>
+
+      <div class="odds-table-wrapper">
+        <table class="odds-board-table">
+          <thead>
+            <tr>
+              <th class="rank-cell">#</th>
+              <th>Driver</th>
+              <th>Iowa Cup History</th>
+              <th class="th-odds">Odds</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Row 1: Jeff J. Wright +225 -->
+            <tr class="row-top1">
+              <td class="rank-cell"><span class="rank-badge rank-1">1</span></td>
+              <td class="driver-cell top3-driver">Jeff J. Wright</td>
+              <td class="history-cell">S1:P5 (140 led) · S2:P1 (156 led) · S4:P4 (51 led) · S5:P1 (68 led)</td>
+              <td class="odds-cell odds-favorite">+225</td>
+            </tr>
+
+            <!-- Row 2: Bailey Turner +450 -->
+            <tr class="row-top2">
+              <td class="rank-cell"><span class="rank-badge rank-2">2</span></td>
+              <td class="driver-cell top3-driver">Bailey Turner</td>
+              <td class="history-cell">S1:P9 (4 led) · S2:P3 (19 led) · S4:P3 (39 led) · S5:P3 (8 led)</td>
+              <td class="odds-cell odds-favorite">+450</td>
+            </tr>
+
+            <!-- Row 3: Joshua Banks +700 -->
+            <tr class="row-top3">
+              <td class="rank-cell"><span class="rank-badge rank-3">3</span></td>
+              <td class="driver-cell top3-driver">Joshua Banks</td>
+              <td class="history-cell">S1:P4 · S2:P19 · S5:P2</td>
+              <td class="odds-cell odds-favorite">+700</td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">4</span></td>
+              <td class="driver-cell">Chad Clinger</td>
+              <td class="history-cell">S2:P11 · S4:P2 (3 led) · S5:P31</td>
+              <td class="odds-cell odds-favorite">+900</td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">5</span></td>
+              <td class="driver-cell">Angelo Hronis</td>
+              <td class="history-cell">S1:P6 (3 led) · S4:P19 · S5:P4</td>
+              <td class="odds-cell odds-favorite">+1200</td>
+            </tr>
+
+            <!-- Row 6 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">6</span></td>
+              <td class="driver-cell">A.J. Stravato</td>
+              <td class="history-cell">S5:P5</td>
+              <td class="odds-cell odds-favorite">+1400</td>
+            </tr>
+
+            <!-- Row 7 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">7</span></td>
+              <td class="driver-cell">Casey Lakatos</td>
+              <td class="history-cell">S2:P15 · S4:P5 (1 led) · S5:P12</td>
+              <td class="odds-cell odds-favorite">+1700</td>
+            </tr>
+
+            <!-- Row 8 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">8</span></td>
+              <td class="driver-cell">Chuck Sweeting</td>
+              <td class="history-cell">S1:P7 · S2:P6 · S5:P9</td>
+              <td class="odds-cell odds-favorite">+2000</td>
+            </tr>
+
+            <!-- Row 9 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">9</span></td>
+              <td class="driver-cell">J R Shepherd</td>
+              <td class="history-cell">S4:P10 · S5:P11</td>
+              <td class="odds-cell odds-favorite">+2200</td>
+            </tr>
+
+            <!-- Row 10 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">10</span></td>
+              <td class="driver-cell">Dakota Floyd2</td>
+              <td class="history-cell">S4:P6 · S5:P10</td>
+              <td class="odds-cell odds-favorite">+2400</td>
+            </tr>
+
+            <!-- Row 11 — begins mid-tier transition area -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">11</span></td>
+              <td class="driver-cell">Rhea Massey</td>
+              <td class="history-cell">S2:P5 · S5:P29</td>
+              <td class="odds-cell odds-mid">+2700</td>
+            </tr>
+
+            <!-- Row 12 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">12</span></td>
+              <td class="driver-cell">Ryan Carwile</td>
+              <td class="history-cell">S2:P10 (5 led) · S4:P20 (7 led) · S5:P16</td>
+              <td class="odds-cell odds-mid">+3000</td>
+            </tr>
+
+            <!-- Row 13 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">13</span></td>
+              <td class="driver-cell">Phillip Brewer</td>
+              <td class="history-cell">S2:P20 · S5:P27 <span class="history-badge">Challenger Winner</span></td>
+              <td class="odds-cell odds-mid">+3200</td>
+            </tr>
+
+            <!-- Row 14 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">14</span></td>
+              <td class="driver-cell">Seth Hatchel</td>
+              <td class="history-cell">S2:P22 · S5:P30</td>
+              <td class="odds-cell odds-mid">+3500</td>
+            </tr>
+
+            <!-- Row 15 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">15</span></td>
+              <td class="driver-cell">Justin Richie</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-mid">+3800</td>
+            </tr>
+
+            <!-- Row 16 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">16</span></td>
+              <td class="driver-cell">Caleb Weekley</td>
+              <td class="history-cell">S2:P16 · S4:P12</td>
+              <td class="odds-cell odds-mid">+4000</td>
+            </tr>
+
+            <!-- Row 17 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">17</span></td>
+              <td class="driver-cell">Kenny Kibbey</td>
+              <td class="history-cell">S4:P25 · S5:P17 (16 led)</td>
+              <td class="odds-cell odds-mid">+4500</td>
+            </tr>
+
+            <!-- Row 18 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">18</span></td>
+              <td class="driver-cell">James Lehman</td>
+              <td class="history-cell">S4:P26 · S5:P20 (39 led)</td>
+              <td class="odds-cell odds-mid">+5000</td>
+            </tr>
+
+            <!-- Row 19 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">19</span></td>
+              <td class="driver-cell">Noah Michalski</td>
+              <td class="history-cell">S2:P7 · S4:P28</td>
+              <td class="odds-cell odds-mid">+5500</td>
+            </tr>
+
+            <!-- Row 20 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">20</span></td>
+              <td class="driver-cell">Elliott Butler</td>
+              <td class="history-cell">S4:P24 · S5:P13</td>
+              <td class="odds-cell odds-mid">+6000</td>
+            </tr>
+
+            <!-- Row 21 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">21</span></td>
+              <td class="driver-cell">Max Kost</td>
+              <td class="history-cell">S1:P10 · S2:P18 · S4:P9</td>
+              <td class="odds-cell odds-mid">+6500</td>
+            </tr>
+
+            <!-- Row 22 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">22</span></td>
+              <td class="driver-cell">Enathian Ferrada</td>
+              <td class="history-cell">S5:P19</td>
+              <td class="odds-cell odds-mid">+7000</td>
+            </tr>
+
+            <!-- Row 23 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">23</span></td>
+              <td class="driver-cell">Christopher Hodges</td>
+              <td class="history-cell">S4:P17 · S5:P15</td>
+              <td class="odds-cell odds-mid">+7500</td>
+            </tr>
+
+            <!-- Row 24 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">24</span></td>
+              <td class="driver-cell">Austin Boelke</td>
+              <td class="history-cell">S2:P14 · S4:P16 <span class="history-badge">Challenger Winner</span></td>
+              <td class="odds-cell odds-mid">+8000</td>
+            </tr>
+
+            <!-- Row 25 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">25</span></td>
+              <td class="driver-cell">Bryce Shoemaker</td>
+              <td class="history-cell">S1:P11 · S4:P21 · S5:P21</td>
+              <td class="odds-cell odds-mid">+8500</td>
+            </tr>
+
+            <!-- Row 26 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">26</span></td>
+              <td class="driver-cell">Stefan Davis</td>
+              <td class="history-cell">S2:P13 · S4:P15 · S5:P28</td>
+              <td class="odds-cell odds-mid">+9000</td>
+            </tr>
+
+            <!-- Row 27 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">27</span></td>
+              <td class="driver-cell">Brandon Wallace</td>
+              <td class="history-cell">S1:P13 · S4:P22 · S5:P26</td>
+              <td class="odds-cell odds-mid">+9500</td>
+            </tr>
+
+            <!-- Row 28 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">28</span></td>
+              <td class="driver-cell">Adam Cabot</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-mid">+10000</td>
+            </tr>
+
+            <!-- ─── LONGSHOTS begin ─── -->
+
+            <!-- Row 29 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">29</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Ben Laughter</td>
+              <td class="history-cell">S5:P23</td>
+              <td class="odds-cell odds-longshot">+11000</td>
+            </tr>
+
+            <!-- Row 30 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">30</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Matt Shinoski</td>
+              <td class="history-cell">S4:P11 · S5:P14</td>
+              <td class="odds-cell odds-longshot">+12000</td>
+            </tr>
+
+            <!-- Row 31 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">31</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Brian Chambliss</td>
+              <td class="history-cell">S5:P18</td>
+              <td class="odds-cell odds-longshot">+13000</td>
+            </tr>
+
+            <!-- Row 32 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">32</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Reggie Ortega</td>
+              <td class="history-cell">S1:P12</td>
+              <td class="odds-cell odds-longshot">+14000</td>
+            </tr>
+
+            <!-- Row 33 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">33</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Rob Hamp</td>
+              <td class="history-cell">S4:P27</td>
+              <td class="odds-cell odds-longshot">+15000</td>
+            </tr>
+
+            <!-- Row 34 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">34</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Bryan Dehn</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+16000</td>
+            </tr>
+
+            <!-- Row 35 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">35</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Justin Carey2</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+17000</td>
+            </tr>
+
+            <!-- Row 36 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">36</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Tim Shinoski</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+18000</td>
+            </tr>
+
+            <!-- Row 37 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">37</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Keith Shoemaker</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+19000</td>
+            </tr>
+
+            <!-- Row 38 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">38</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Eldon Stewart2</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+20000</td>
+            </tr>
+
+            <!-- Row 39 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">39</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Justin Michael</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+21000</td>
+            </tr>
+
+            <!-- Row 40 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">40</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">John Seniw</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+22000</td>
+            </tr>
+
+            <!-- Row 41 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">41</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Derek M Garrison</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+23000</td>
+            </tr>
+
+            <!-- Row 42 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">42</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Broderick Vaclavik</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+24000</td>
+            </tr>
+
+            <!-- Row 43 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">43</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Mark McFadyen</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+25000</td>
+            </tr>
+
+            <!-- Row 44 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">44</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Mikal Jones</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+26000</td>
+            </tr>
+
+            <!-- Row 45 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">45</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Andy Telgenhof</td>
+              <td class="history-cell">S4:P14</td>
+              <td class="odds-cell odds-longshot">+27000</td>
+            </tr>
+
+            <!-- Row 46 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">46</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Logan Threlkeld</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+28000</td>
+            </tr>
+
+            <!-- Row 47 -->
+            <tr>
+              <td class="rank-cell"><span class="rank-num">47</span></td>
+              <td class="driver-cell" style="color:var(--text-muted);">Logan Watern</td>
+              <td class="history-cell"><span class="no-history">No prior Iowa Cup starts</span></td>
+              <td class="odds-cell odds-longshot">+30000</td>
+            </tr>
+
+          </tbody>
+        </table>
+        <div class="odds-footer-note">
+          ★ FOR ENTERTAINMENT PURPOSES ONLY — These are simulated odds, not real gambling lines. No real money betting.
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Challenger Series Notes -->
+    <div class="challenger-section">
+      <div class="odds-section-title">SNR Challenger Series — Iowa Notes</div>
+      <div class="challenger-card">
+        <ul class="challenger-list">
+          <li><span><strong>Austin Boelke</strong> — Challenger Series Iowa race winner<span class="winner-tag">Winner</span></span></li>
+          <li><span><strong>Phillip Brewer</strong> — Challenger Series Iowa race winner, led 87 laps<span class="winner-tag">Winner · 87 Laps Led</span></span></li>
+          <li><span><strong>Bryce Shoemaker</strong> — 3 top-10 finishes in 3 Challenger Iowa starts (100% top-10 rate)</span></li>
+          <li><span><strong>Dakota Floyd2</strong> — 2 top-10 finishes in 2 Challenger Iowa starts (100% top-10 rate)</span></li>
+          <li><span><strong>Brandon Wallace</strong> — 2 top-10 finishes in 3 Challenger Iowa starts</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7. Disclaimer -->
+    <div class="disclaimer-section">
+      <div class="disclaimer-card">
+        <div class="disclaimer-icon">⚠️</div>
+        <div class="disclaimer-text">
+          <strong>Entertainment Purposes Only</strong>
+          All odds are simulated and for entertainment purposes only. No real money gambling is implied or encouraged. Generated using SNR Cup Series historical data, Season 6 standings, and SimRacerHub driver ratings. Odds reflect past Iowa performance, recent season results, and Challenger Series experience. Not affiliated with any real-world sportsbook.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /odds-container -->
+
+</div><!-- /odds-page -->
+
+<!-- Sponsors Section -->
+<section class="sponsors-section" id="sponsors">
+  <div class="sponsors-inner">
+    <div class="sponsors-header">
+      <span class="sponsors-label">Our Partners &amp; Sponsors</span>
+    </div>
+
+    <!-- Title Sponsor -->
+    <div class="sponsors-tier title-sponsor">
+      <div class="sponsor-item title-item">
+        <img src="assets/sponsors/mj-distributors-title.png" alt="M&amp;J Distributors — Presented By" class="sponsor-logo title-logo">
+      </div>
+    </div>
+
+    <!-- Primary Sponsors -->
+    <div class="sponsors-tier primary-sponsors">
+      <div class="sponsor-item">
+        <a href="https://www.vspeedsim.com/" target="_blank" rel="noopener">
+          <img src="assets/sponsors/vspeed.png" alt="VSpeed" class="sponsor-logo">
+        </a>
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/sponsors/mj-distributors.png" alt="M&amp;J Distributors Matco Tools" class="sponsor-logo">
+      </div>
+    </div>
+
+    <!-- Secondary Sponsors -->
+    <div class="sponsors-tier secondary-sponsors">
+      <div class="sponsor-item">
+        <a href="https://walkinrollin.org/" target="_blank" rel="noopener">
+          <img src="assets/sponsors/walkin-rollin.png" alt="Walkin' &amp; Rollin' Costumes" class="sponsor-logo">
+        </a>
+      </div>
+      <div class="sponsor-item">
+        <a href="https://www.clarkprintshop.com/" target="_blank" rel="noopener">
+          <img src="assets/sponsors/clark-print-shop.png" alt="Clark Print Shop" class="sponsor-logo">
+        </a>
+      </div>
+      <div class="sponsor-item">
+        <a href="https://www.youtube.com/@JUICYSPYDRnetwork" target="_blank" rel="noopener">
+          <img src="assets/sponsors/juicyspydr.png" alt="JuicySpydr Studios" class="sponsor-logo" style="max-height:80px;">
+        </a>
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/sponsors/tusa.png" alt="TUSA" class="sponsor-logo">
+      </div>
+      <div class="sponsor-item">
+        <img src="assets/sponsors/firestorm-racing.png" alt="Fire Storm Racing" class="sponsor-logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/snr-logo-new.png" alt="SNR Logo" class="footer-logo">
+        <div>
+          <strong>Saturday Night Racing Cup Series</strong>
+          <p>Season 6 — iRacing</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#standings">Standings</a>
+        <a href="index.html#history">History</a>
+        <a href="index.html#tracks">Tracks</a>
+        <a href="index.html#rules">Rules</a>
+        <a href="drivers.html">Drivers</a>
+        <a href="records.html">Records</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saturday Night Racing League. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const saved = localStorage.getItem('snr-theme');
+  if (saved) html.setAttribute('data-theme', saved);
+
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('snr-theme', next);
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close mobile nav when clicking a link
+  navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
