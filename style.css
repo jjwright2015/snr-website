@@ -1601,10 +1601,11 @@ img { max-width: 100%; height: auto; display: block; }
 .title-item { opacity: 1 !important; }
 .sponsor-logo { 
   max-height: 70px;
+  max-width: 220px;
   width: auto;
   object-fit: contain;
 }
-.title-logo { max-height: 90px; }
+.title-logo { max-height: 90px; max-width: none; }
 @media (max-width: 600px) {
   .sponsor-logo { max-height: 50px; }
   .title-logo { max-height: 65px; }
