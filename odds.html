@@ -315,9 +315,13 @@
 
   .odds-table-wrapper {
     overflow-x: auto;
-    border-radius: var(--radius-lg);
     border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
   }
+  .odds-board-table thead tr:first-child th:first-child { border-top-left-radius: var(--radius-lg); }
+  .odds-board-table thead tr:first-child th:last-child { border-top-right-radius: var(--radius-lg); }
+  .odds-board-table tbody tr:first-child td { padding-top: 16px; padding-bottom: 16px; }
+  .odds-board-table thead th { position: sticky; top: 0; z-index: 1; }
 
   .odds-table {
     width: 100%;
@@ -444,9 +448,6 @@
 
   .odds-board-table thead {
     background: #111;
-    position: sticky;
-    top: var(--nav-height);
-    z-index: 2;
   }
 
   .odds-board-table th {
