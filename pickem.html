@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pick'em — Saturday Night Racing Cup Series</title>
+<meta name="description" content="Official website for the Saturday Night Racing League (SNRL) iRacing Cup Series. Season 6 standings, schedule, track stats, and more.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body class="dark-theme">
+
+<nav class="main-nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <img src="assets/snr-logo-new.png" alt="SNR Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="brand-name">Saturday Night Racing</span>
+        <span class="brand-series">Cup Series</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#standings" class="nav-link" data-page="standings">Standings</a>
+      <a href="pickem.html" class="nav-link">Pick'em</a>
+      <a href="odds.html" class="nav-link">Odds</a>
+      <a href="#history" class="nav-link" data-page="history">History</a>
+      <a href="#tracks" class="nav-link" data-page="tracks">Tracks</a>
+      <a href="#rules" class="nav-link" data-page="rules">Rules</a>
+      <a href="drivers.html" class="nav-link">Drivers</a>
+      <a href="records.html" class="nav-link">Records</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Pick'em Page -->
+<div class="pickem-page">
+
+  <!-- Header -->
+  <div class="pickem-header">
+    <div class="pickem-header-inner">
+      <div class="pickem-title-wrap">
+        <span class="pickem-eyebrow">Season 6 — Race 7</span>
+        <h1 class="pickem-title">SNR <span class="gold">PICK'EM</span></h1>
+        <p class="pickem-subtitle">Iowa Speedway &nbsp;·&nbsp; April 11, 2026 &nbsp;·&nbsp; 10:00 PM EDT</p>
+        <p class="pickem-disclaimer">For entertainment purposes only. Picks lock at race start.</p>
+      </div>
+      <div class="pickem-cta-wrap">
+        <div class="pickem-stats">
+          <div class="pickem-stat">
+            <span class="ps-num">47</span>
+            <span class="ps-label">Drivers</span>
+          </div>
+          <div class="pickem-stat">
+            <span class="ps-num">∞</span>
+            <span class="ps-label">Free</span>
+          </div>
+          <div class="pickem-stat">
+            <span class="ps-num">10PM</span>
+            <span class="ps-label">Lock Time</span>
+          </div>
+        </div>
+        <a href="odds.html" class="pickem-odds-link">View Full Odds Board →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="pickem-how">
+    <div class="pickem-how-inner">
+      <div class="how-step">
+        <span class="how-num">1</span>
+        <span class="how-text">Enter your Discord username</span>
+      </div>
+      <div class="how-divider">→</div>
+      <div class="how-step">
+        <span class="how-num">2</span>
+        <span class="how-text">Pick your race winner &amp; props</span>
+      </div>
+      <div class="how-divider">→</div>
+      <div class="how-step">
+        <span class="how-num">3</span>
+        <span class="how-text">Earn points based on odds</span>
+      </div>
+      <div class="how-divider">→</div>
+      <div class="how-step">
+        <span class="how-num">4</span>
+        <span class="how-text">Climb the season leaderboard</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embed -->
+  <div class="pickem-embed-wrap">
+    <iframe
+      src="https://snr-website.jjwright2015.workers.dev"
+      class="pickem-iframe"
+      title="SNR Pick'em App"
+      allow="clipboard-write"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/snr-logo-new.png" alt="SNR Logo" class="footer-logo">
+        <div>
+          <strong>Saturday Night Racing Cup Series</strong>
+          <p>Season 6 — iRacing</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#standings">Standings</a>
+        <a href="#history">History</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#rules">Rules</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Saturday Night Racing League. All rights reserved.</p>    </div>
+  </div>
+</footer>
+
+<style>
+  .pickem-page {
+    min-height: 100vh;
+    background: var(--bg, #0a0a0a);
+  }
+
+  /* Header */
+  .pickem-header {
+    background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+    border-bottom: 1px solid #222;
+    padding: 48px 24px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pickem-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pickem-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .pickem-eyebrow {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #C9A227;
+    margin-bottom: 8px;
+  }
+  .pickem-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0 0 8px;
+    line-height: 1;
+  }
+  .pickem-title .gold { color: #C9A227; }
+  .pickem-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .pickem-disclaimer {
+    font-size: 11px;
+    color: #444;
+    margin: 0;
+  }
+
+  /* CTA wrap */
+  .pickem-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .pickem-stats {
+    display: flex;
+    gap: 24px;
+  }
+  .pickem-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .ps-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #C9A227;
+    line-height: 1;
+  }
+  .ps-label {
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .pickem-odds-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #C9A227;
+    text-decoration: none;
+    border: 1px solid #C9A227;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pickem-odds-link:hover {
+    background: #C9A227;
+    color: #000;
+  }
+
+  /* How it works */
+  .pickem-how {
+    background: #0d0d0d;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 16px 24px;
+  }
+  .pickem-how-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .how-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .how-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #C9A227;
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .how-text {
+    font-size: 13px;
+    color: #888;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .how-divider {
+    color: #333;
+    font-size: 16px;
+  }
+
+  /* Iframe embed */
+  .pickem-embed-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  .pickem-iframe {
+    width: 100%;
+    height: 900px;
+    border: 1px solid #222;
+    border-radius: 12px;
+    background: #111;
+  }
+
+  @media (max-width: 768px) {
+    .pickem-header-inner { flex-direction: column; align-items: flex-start; }
+    .pickem-cta-wrap { align-items: flex-start; }
+    .how-text { white-space: normal; }
+    .how-divider { display: none; }
+    .pickem-iframe { height: 700px; }
+    .pickem-how-inner { justify-content: flex-start; gap: 12px; }
+  }
+</style>
+
+<script>
+  // Theme toggle (match main site)
+  const savedTheme = document.documentElement.classList.contains('light-theme') ? 'light' : 'dark';
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      document.body.classList.toggle('dark-theme');
+    });
+  }
+</script>
+
+</body>
+</html>
