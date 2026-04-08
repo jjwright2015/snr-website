@@ -114,8 +114,8 @@ function showPage(page) {
     target.style.animation = 'fadeIn 0.3s ease';
   }
   
-  // Update nav
-  document.querySelectorAll('.nav-link').forEach(link => {
+  // Update nav — only toggle hash-routed links; preserve active state on direct page links
+  document.querySelectorAll('.nav-link[data-page]').forEach(link => {
     link.classList.toggle('active', link.dataset.page === page);
   });
   
