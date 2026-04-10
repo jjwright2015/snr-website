@@ -1454,12 +1454,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text-dim);
 }
 
-.pplx-link {
-  font-size: 12px;
-  color: var(--text-dim);
-  transition: color var(--transition);
-}
-.pplx-link:hover { color: var(--text-muted); }
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
