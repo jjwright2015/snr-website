@@ -3,7 +3,56 @@
    ============================================ */
 
 // --- Data ---
-const standingsData = [{"pos":1,"driver":"Jeff J. Wright","points":264,"wins":3,"top5":4,"top10":4,"starts":7,"laps_led":0,"change":"+2"},{"pos":2,"driver":"Kenny Kibbey","points":253,"wins":0,"top5":3,"top10":4,"starts":7,"laps_led":0,"change":"-1"},{"pos":3,"driver":"Bailey Turner","points":249,"wins":2,"top5":3,"top10":4,"starts":7,"laps_led":0,"change":"-1"},{"pos":4,"driver":"A.J. Stravato","points":226,"wins":0,"top5":4,"top10":5,"starts":7,"laps_led":0,"change":"+2"},{"pos":5,"driver":"Caleb Weekley","points":221,"wins":0,"top5":1,"top10":4,"starts":7,"laps_led":0,"change":"-1"},{"pos":6,"driver":"Seth Hatchel","points":221,"wins":0,"top5":1,"top10":6,"starts":6,"laps_led":0,"change":"+1"},{"pos":7,"driver":"J R Shepherd","points":216,"wins":0,"top5":2,"top10":3,"starts":7,"laps_led":0,"change":"+1"},{"pos":8,"driver":"Justin Richie","points":215,"wins":0,"top5":0,"top10":4,"starts":7,"laps_led":0,"change":"-3"},{"pos":9,"driver":"Angelo Hronis","points":209,"wins":0,"top5":1,"top10":4,"starts":7,"laps_led":0,"change":"–"},{"pos":10,"driver":"Phillip Brewer","points":198,"wins":0,"top5":0,"top10":1,"starts":7,"laps_led":0,"change":"–"},{"pos":11,"driver":"Joshua Banks","points":194,"wins":1,"top5":3,"top10":3,"starts":6,"laps_led":0,"change":"+1"},{"pos":12,"driver":"Elliott Butler","points":187,"wins":0,"top5":0,"top10":2,"starts":7,"laps_led":0,"change":"-1"},{"pos":13,"driver":"Noah Michalski","points":172,"wins":0,"top5":1,"top10":2,"starts":6,"laps_led":0,"change":"+6"},{"pos":14,"driver":"Enathian Ferrada","points":171,"wins":0,"top5":1,"top10":2,"starts":7,"laps_led":0,"change":"-1"},{"pos":15,"driver":"Adam Cabot","points":167,"wins":0,"top5":3,"top10":4,"starts":5,"laps_led":0,"change":"+6"},{"pos":16,"driver":"Dakota Floyd2","points":162,"wins":0,"top5":1,"top10":1,"starts":7,"laps_led":0,"change":"–"},{"pos":17,"driver":"Casey Lakatos","points":157,"wins":0,"top5":0,"top10":0,"starts":7,"laps_led":0,"change":"-3"},{"pos":18,"driver":"Ben Laughter","points":147,"wins":0,"top5":0,"top10":1,"starts":7,"laps_led":0,"change":"-1"},{"pos":19,"driver":"Christopher Hodges","points":146,"wins":0,"top5":1,"top10":1,"starts":7,"laps_led":0,"change":"-4"},{"pos":20,"driver":"Austin Boelke","points":145,"wins":0,"top5":0,"top10":1,"starts":7,"laps_led":0,"change":"+2"},{"pos":21,"driver":"Andy Telgenhof","points":145,"wins":1,"top5":1,"top10":2,"starts":4,"laps_led":0,"change":"+2"},{"pos":22,"driver":"Chuck Sweeting","points":144,"wins":0,"top5":1,"top10":1,"starts":7,"laps_led":0,"change":"-4"},{"pos":23,"driver":"Max Kost","points":141,"wins":0,"top5":0,"top10":0,"starts":7,"laps_led":0,"change":"-3"},{"pos":24,"driver":"Bryce Shoemaker","points":134,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"–"},{"pos":25,"driver":"Brandon Wallace","points":118,"wins":0,"top5":0,"top10":1,"starts":7,"laps_led":0,"change":"+1"},{"pos":26,"driver":"Ryan Carwile","points":117,"wins":0,"top5":0,"top10":2,"starts":5,"laps_led":0,"change":"+8"},{"pos":27,"driver":"Matt Shinoski","points":112,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"–"},{"pos":28,"driver":"Broderick Vaclavik","points":109,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"-3"},{"pos":29,"driver":"Rob Hamp","points":109,"wins":0,"top5":1,"top10":1,"starts":6,"laps_led":0,"change":"+2"},{"pos":30,"driver":"Reggie Ortega","points":103,"wins":0,"top5":0,"top10":1,"starts":5,"laps_led":0,"change":"-1"},{"pos":31,"driver":"Stefan Davis","points":102,"wins":0,"top5":1,"top10":1,"starts":6,"laps_led":0,"change":"-3"},{"pos":32,"driver":"Tim Shinoski","points":101,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"–"},{"pos":33,"driver":"James Lehman","points":92,"wins":0,"top5":0,"top10":1,"starts":7,"laps_led":0,"change":"+7"},{"pos":34,"driver":"Bryan Dehn","points":89,"wins":0,"top5":0,"top10":0,"starts":4,"laps_led":0,"change":"-4"},{"pos":35,"driver":"Brian Chambliss","points":89,"wins":0,"top5":0,"top10":0,"starts":5,"laps_led":0,"change":"+2"},{"pos":36,"driver":"Keith Shoemaker","points":88,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"-3"},{"pos":37,"driver":"Mikal Jones","points":86,"wins":0,"top5":1,"top10":1,"starts":6,"laps_led":0,"change":"-2"},{"pos":38,"driver":"Rhea Massey","points":81,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"+4"},{"pos":39,"driver":"Justin Carey2","points":78,"wins":0,"top5":0,"top10":1,"starts":4,"laps_led":0,"change":"-3"},{"pos":40,"driver":"Eldon Stewart2","points":78,"wins":0,"top5":0,"top10":0,"starts":7,"laps_led":0,"change":"-1"},{"pos":41,"driver":"Chad Clinger","points":73,"wins":0,"top5":0,"top10":1,"starts":6,"laps_led":0,"change":"-3"},{"pos":42,"driver":"Mark McFadyen","points":57,"wins":0,"top5":0,"top10":0,"starts":5,"laps_led":0,"change":"-1"},{"pos":43,"driver":"Kyle Peacock","points":54,"wins":0,"top5":0,"top10":0,"starts":2,"laps_led":0,"change":"NEW"},{"pos":44,"driver":"Justin Michael","points":48,"wins":0,"top5":0,"top10":0,"starts":3,"laps_led":0,"change":"-1"},{"pos":45,"driver":"John Seniw","points":37,"wins":0,"top5":0,"top10":0,"starts":6,"laps_led":0,"change":"-1"},{"pos":46,"driver":"Derek M Garrison","points":25,"wins":0,"top5":0,"top10":0,"starts":1,"laps_led":0,"change":"-1"},{"pos":47,"driver":"Logan Threlkeld","points":11,"wins":0,"top5":0,"top10":0,"starts":2,"laps_led":0,"change":"-1"},{"pos":48,"driver":"Logan Watern","points":4,"wins":0,"top5":0,"top10":0,"starts":1,"laps_led":0,"change":"-1"}];
+const standingsData = [
+  { pos: 1, driver: "Kenny Kibbey", points: 295, behind: 0 },
+  { pos: 2, driver: "Bailey Turner", points: 284, behind: -11 },
+  { pos: 3, driver: "A.J. Stravato", points: 282, behind: -13 },
+  { pos: 4, driver: "Jeff J. Wright", points: 264, behind: -31 },
+  { pos: 5, driver: "Seth Hatchel", points: 262, behind: -33 },
+  { pos: 6, driver: "J R Shepherd", points: 259, behind: -36 },
+  { pos: 7, driver: "Justin Richie", points: 253, behind: -42 },
+  { pos: 8, driver: "Caleb Weekley", points: 253, behind: -42 },
+  { pos: 9, driver: "Phillip Brewer", points: 238, behind: -57 },
+  { pos: 10, driver: "Joshua Banks", points: 229, behind: -66 },
+  { pos: 11, driver: "Elliott Butler", points: 211, behind: -84 },
+  { pos: 12, driver: "Angelo Hronis", points: 210, behind: -85 },
+  { pos: 13, driver: "Casey Lakatos", points: 194, behind: -101 },
+  { pos: 14, driver: "Dakota Floyd2", points: 193, behind: -102 },
+  { pos: 15, driver: "Enathian Ferrada", points: 191, behind: -104 },
+  { pos: 16, driver: "Noah Michalski", points: 173, behind: -122 },
+  { pos: 17, driver: "Austin Boelke", points: 172, behind: -123 },
+  { pos: 18, driver: "Chuck Sweeting", points: 172, behind: -123 },
+  { pos: 19, driver: "Christopher Hodges", points: 171, behind: -124 },
+  { pos: 20, driver: "Max Kost", points: 171, behind: -124 },
+  { pos: 21, driver: "Ben Laughter", points: 170, behind: -125 },
+  { pos: 22, driver: "Adam Cabot", points: 168, behind: -127 },
+  { pos: 23, driver: "Bryce Shoemaker", points: 163, behind: -132 },
+  { pos: 24, driver: "Andy Telgenhof", points: 146, behind: -149 },
+  { pos: 25, driver: "Brandon Wallace", points: 144, behind: -151 },
+  { pos: 26, driver: "Stefan Davis", points: 131, behind: -164 },
+  { pos: 27, driver: "Broderick Vaclavik", points: 130, behind: -165 },
+  { pos: 28, driver: "Rhea Massey", points: 120, behind: -175 },
+  { pos: 29, driver: "Matt Shinoski", points: 118, behind: -177 },
+  { pos: 30, driver: "Ryan Carwile", points: 113, behind: -182 },
+  { pos: 31, driver: "Rob Hamp", points: 110, behind: -185 },
+  { pos: 32, driver: "Mikal Jones", points: 107, behind: -188 },
+  { pos: 33, driver: "Tim Shinoski", points: 102, behind: -193 },
+  { pos: 34, driver: "Reggie Ortega", points: 99, behind: -196 },
+  { pos: 35, driver: "James Lehman", points: 93, behind: -202 },
+  { pos: 36, driver: "Brian Chambliss", points: 90, behind: -205 },
+  { pos: 37, driver: "Bryan Dehn", points: 89, behind: -206 },
+  { pos: 38, driver: "Keith Shoemaker", points: 89, behind: -206 },
+  { pos: 39, driver: "Eldon Stewart2", points: 79, behind: -216 },
+  { pos: 40, driver: "Justin Carey2", points: 78, behind: -217 },
+  { pos: 41, driver: "Mark McFadyen", points: 76, behind: -219 },
+  { pos: 42, driver: "Chad Clinger", points: 74, behind: -221 },
+  { pos: 43, driver: "John Seniw", points: 65, behind: -230 },
+  { pos: 44, driver: "Justin Michael", points: 48, behind: -247 },
+  { pos: 45, driver: "Kyle Peacock", points: 28, behind: -267 },
+  { pos: 46, driver: "Derek M Garrison", points: 25, behind: -270 },
+  { pos: 47, driver: "Logan Threlkeld", points: 12, behind: -283 },
+  { pos: 48, driver: "Logan Watern", points: 4, behind: -291 }
+];
 
 const scheduleData = [
   {num:1,track:"Daytona",date:"Feb 21",completed:true,winner:"Andy Telgenhof"},
@@ -13,8 +62,8 @@ const scheduleData = [
   {num:5,track:"Darlington",date:"Mar 21",completed:true,winner:"Joshua Banks"},
   {num:6,track:"Martinsville",date:"Mar 28",completed:true,winner:"Bailey Turner"},
   {num:7,track:"Iowa Speedway",date:"Apr 11",completed:true,winner:"Jeff J. Wright"},
-  {num:8,track:"Rockingham",date:"Apr 18",next:true},
-  {num:9,track:"Atlanta",date:"Apr 25"},
+  {num:8,track:"Rockingham",date:"Apr 18",completed:true,winner:"A.J. Stravato"},
+  {num:9,track:"Atlanta",date:"Apr 25",next:true},
   {num:10,track:"Texas",date:"May 2"},
   {num:11,track:"Dover",date:"May 16"},
   {num:12,track:"Charlotte",date:"May 23"},
@@ -129,7 +178,7 @@ function showPage(page) {
 
 // --- Countdown ---
 function initCountdown() {
-  const target = new Date('2026-04-11T22:00:00-04:00').getTime();
+  const target = new Date('2026-04-25T22:00:00-04:00').getTime();
   
   function update() {
     const now = Date.now();
