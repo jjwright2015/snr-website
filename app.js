@@ -63,7 +63,7 @@ const scheduleData = [
   {num:6,track:"Martinsville",date:"Mar 28",completed:true,winner:"Bailey Turner"},
   {num:7,track:"Iowa Speedway",date:"Apr 11",completed:true,winner:"Jeff J. Wright"},
   {num:8,track:"Rockingham",date:"Apr 18",completed:true,winner:"A.J. Stravato"},
-  {num:9,track:"Atlanta",date:"Apr 25",next:true},
+  {num:9,track:"Echo Park",date:"Apr 25",next:true},
   {num:10,track:"Texas",date:"May 2"},
   {num:11,track:"Dover",date:"May 16"},
   {num:12,track:"Charlotte",date:"May 23"},
