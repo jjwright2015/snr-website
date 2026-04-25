@@ -5965,6 +5965,9 @@ function render() {
 document.getElementById('driversSearch').addEventListener('input', e => { currentSearch = e.target.value; render(); });
 document.getElementById('driversSort').addEventListener('change', e => { currentSort = e.target.value; render(); });
 
+// Initial render — show all drivers on page load
+render();
+
 // ============================================================
 //  THEME TOGGLE
 // ============================================================
