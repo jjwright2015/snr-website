@@ -11,17 +11,17 @@ const standingsData = [
   { pos: 5, driver: "Seth Hatchel", points: 262, wins: 0, top5: 2, top10: 7, starts: 8, laps: 1316, incs: 51, behind: -33 },
   { pos: 6, driver: "J R Shepherd", points: 259, wins: 0, top5: 3, top10: 5, starts: 9, laps: 1470, incs: 42, behind: -36 },
   { pos: 7, driver: "Justin Richie", points: 253, wins: 0, top5: 0, top10: 5, starts: 9, laps: 1475, incs: 87, behind: -42 },
-  { pos: 7, driver: "Caleb Weekley", points: 253, wins: 1, top5: 1, top10: 4, starts: 9, laps: 1475, incs: 74, behind: -42 },
+  { pos: 7, driver: "Caleb Weekley", points: 253, wins: 0, top5: 1, top10: 4, starts: 9, laps: 1475, incs: 74, behind: -42 },
   { pos: 9, driver: "Phillip Brewer", points: 238, wins: 0, top5: 2, top10: 3, starts: 9, laps: 1460, incs: 36, behind: -57 },
   { pos: 10, driver: "Joshua Banks", points: 229, wins: 1, top5: 4, top10: 5, starts: 8, laps: 1211, incs: 36, behind: -66 },
   { pos: 11, driver: "Elliott Butler", points: 211, wins: 0, top5: 0, top10: 2, starts: 9, laps: 1362, incs: 48, behind: -84 },
-  { pos: 12, driver: "Angelo Hronis", points: 210, wins: 1, top5: 1, top10: 4, starts: 8, laps: 1306, incs: 39, behind: -85 },
+  { pos: 12, driver: "Angelo Hronis", points: 210, wins: 0, top5: 1, top10: 4, starts: 8, laps: 1306, incs: 39, behind: -85 },
   { pos: 13, driver: "Casey Lakatos", points: 194, wins: 0, top5: 0, top10: 1, starts: 9, laps: 1393, incs: 78, behind: -101 },
   { pos: 14, driver: "Dakota Floyd2", points: 193, wins: 0, top5: 1, top10: 1, starts: 8, laps: 1311, incs: 50, behind: -102 },
   { pos: 15, driver: "Enathian Ferrada", points: 186, wins: 0, top5: 1, top10: 3, starts: 9, laps: 1266, incs: 61, behind: -109 },
   { pos: 16, driver: "Noah Michalski", points: 173, wins: 0, top5: 1, top10: 2, starts: 6, laps: 942, incs: 60, behind: -122 },
   { pos: 17, driver: "Austin Boelke", points: 172, wins: 0, top5: 0, top10: 1, starts: 8, laps: 1150, incs: 31, behind: -123 },
-  { pos: 17, driver: "Chuck Sweeting", points: 172, wins: 1, top5: 1, top10: 2, starts: 9, laps: 1203, incs: 31, behind: -123 },
+  { pos: 17, driver: "Chuck Sweeting", points: 172, wins: 0, top5: 1, top10: 2, starts: 9, laps: 1203, incs: 31, behind: -123 },
   { pos: 19, driver: "Christopher Hodges", points: 171, wins: 0, top5: 1, top10: 1, starts: 9, laps: 1329, incs: 45, behind: -124 },
   { pos: 19, driver: "Max Kost", points: 171, wins: 0, top5: 0, top10: 0, starts: 9, laps: 1446, incs: 38, behind: -124 },
   { pos: 21, driver: "Ben Laughter", points: 170, wins: 0, top5: 0, top10: 1, starts: 9, laps: 1377, incs: 86, behind: -125 },
@@ -51,7 +51,8 @@ const standingsData = [
   { pos: 45, driver: "Kyle Peacock", points: 28, wins: 0, top5: 0, top10: 0, starts: 2, laps: 305, incs: 3, behind: -267 },
   { pos: 46, driver: "Derek M Garrison", points: 25, wins: 0, top5: 0, top10: 1, starts: 2, laps: 270, incs: 8, behind: -270 },
   { pos: 47, driver: "Logan Threlkeld", points: 12, wins: 0, top5: 0, top10: 0, starts: 3, laps: 415, incs: 17, behind: -283 },
-  { pos: 48, driver: "Logan Watern", points: 4, wins: 0, top5: 0, top10: 0, starts: 1, laps: 186, incs: 22, behind: -291 }
+  { pos: 48, driver: "Logan Watern", points: 4, wins: 0, top5: 0, top10: 0, starts: 1, laps: 186, incs: 22, behind: -291 },
+  { pos: 49, driver: "Christian Key", points: 0, wins: 0, top5: 0, top10: 0, starts: 1, laps: 116, incs: 4, behind: -295 }
 ];
 
 const scheduleData = [
