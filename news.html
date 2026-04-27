@@ -13,13 +13,17 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="navbar" id="navbar">
+<!-- Navigation -->
+<nav class="main-nav" id="mainNav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <img src="assets/snr-logo-new.png" alt="SNR" class="nav-logo">
+      <img src="assets/snr-logo-new.png" alt="SNR Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="brand-name">Saturday Night Racing</span>
+        <span class="brand-series">Cup Series</span>
+      </div>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="navLinks">
@@ -32,12 +36,16 @@
       <a href="index.html#rules"     class="nav-link">Rules</a>
       <a href="drivers.html"         class="nav-link">Drivers</a>
       <a href="records.html"         class="nav-link">Records</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
     </div>
   </div>
 </nav>
 
 <!-- PAGE -->
-<div class="standalone-page">
+<div class="standalone-page" style="padding-top:80px;">
   <div class="section-container">
 
     <div class="page-header">
@@ -100,14 +108,26 @@
 </footer>
 
 <script>
-// Nav toggle
-document.getElementById('navToggle').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
+// Theme
+const html = document.documentElement;
+html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark');
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('snr-theme', next);
 });
-// Navbar scroll
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+// Nav scroll shadow
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-});
+  document.getElementById('mainNav').style.background =
+    window.scrollY > 20 ? 'rgba(10,10,10,0.98)' : '';
+}, { passive: true });
 </script>
 </body>
 </html>
