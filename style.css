@@ -1705,3 +1705,10 @@ img { max-width: 100%; height: auto; display: block; }
 .news-archive .news-card {
   max-width: 100%;
 }
+
+/* Fix footer logo image size */
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
