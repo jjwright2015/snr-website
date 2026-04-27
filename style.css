@@ -1605,3 +1605,90 @@ img { max-width: 100%; height: auto; display: block; }
   .title-logo { max-height: 65px; }
   .sponsors-tier { gap: 20px; }
 }
+
+/* ── NEWS SECTION ─────────────────────────────────────────── */
+.news-section {
+  margin: 2.5rem 0;
+}
+
+.news-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.news-race-badge {
+  background: var(--accent);
+  color: #000;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.news-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.news-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+  padding: 0.6rem 1.5rem 0.8rem;
+  margin: 0;
+}
+
+.news-image-wrap {
+  width: 100%;
+  line-height: 0;
+}
+
+.news-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.news-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.news-body p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.news-body p strong {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .news-headline { font-size: 1.2rem; }
+  .news-body p { font-size: 0.88rem; }
+}
