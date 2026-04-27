@@ -1692,3 +1692,16 @@ img { max-width: 100%; height: auto; display: block; }
   .news-headline { font-size: 1.2rem; }
   .news-body p { font-size: 0.88rem; }
 }
+
+/* ── NEWS ARCHIVE PAGE ────────────────────────────────────── */
+.news-archive {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.news-archive .news-card {
+  max-width: 100%;
+}
