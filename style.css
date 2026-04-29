@@ -53,6 +53,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -114,6 +116,9 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .nav-brand {
@@ -122,6 +127,13 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 12px;
   color: var(--text);
   text-decoration: none;
+  min-width: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
+.hamburger {
+  flex-shrink: 0;
 }
 
 .nav-logo {
@@ -132,7 +144,19 @@ img { max-width: 100%; height: auto; display: block; }
   background: #000;
 }
 
-.nav-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.brand-name, .brand-series {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .brand-name { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
 .brand-series { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
