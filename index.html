@@ -236,36 +236,28 @@
     <p class="page-subtitle">After 11 of 22 races — Chase cutoff: Top 14</p>
   </div>
   <div class="section-container">
-    <!-- Search / Filter -->
-    <div class="table-controls">
-      <div class="search-box">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="standingsSearch" placeholder="Search drivers...">
+    <!-- Live Standings iframe -->
+    <div class="srh-iframe-block">
+      <div class="srh-iframe-label">
+        <div class="srh-iframe-dot"></div>
+        <span class="srh-iframe-text">Driver Standings &nbsp;&mdash;&nbsp; Live via SimRacerHub</span>
+        <a href="https://www.simracerhub.com/scoring/season_standings.php?season_id=28637" target="_blank" rel="noopener" class="srh-iframe-link">View Full Page &#8599;</a>
       </div>
-      <div class="table-legend">
-        <span class="legend-item"><span class="legend-dot chase"></span>Chase Eligible (Top 14)</span>
+      <div class="srh-iframe-scaler">
+        <iframe src="https://www.simracerhub.com/scoring/season_standings.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Season 6 Standings"></iframe>
       </div>
     </div>
 
-    <!-- Standings Table -->
-    <div class="table-wrapper">
-      <table class="standings-table" id="standingsTable">
-        <thead>
-          <tr>
-            <th class="sortable" data-sort="pos">Pos</th>
-            <th class="sortable" data-sort="driver">Driver</th>
-            <th class="sortable" data-sort="points">Points</th>
-            <th>Behind</th>
-            <th class="sortable" data-sort="wins">Wins</th>
-            <th class="sortable" data-sort="top5">Top 5</th>
-            <th class="sortable" data-sort="top10">Top 10</th>
-            <th class="sortable" data-sort="starts">Starts</th>
-          </tr>
-        </thead>
-        <tbody id="standingsBody">
-          <!-- Populated by JS -->
-        </tbody>
-      </table>
+    <!-- Live Race Results iframe -->
+    <div class="srh-iframe-block">
+      <div class="srh-iframe-label">
+        <div class="srh-iframe-dot"></div>
+        <span class="srh-iframe-text">Most Recent Race Results &nbsp;&mdash;&nbsp; Live via SimRacerHub</span>
+        <a href="https://www.simracerhub.com/scoring/season_race.php?series_id=9950" target="_blank" rel="noopener" class="srh-iframe-link">View Full Page &#8599;</a>
+      </div>
+      <div class="srh-iframe-scaler">
+        <iframe src="https://www.simracerhub.com/scoring/season_race.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Most Recent Race Results"></iframe>
+      </div>
     </div>
 
     <!-- Race Results -->

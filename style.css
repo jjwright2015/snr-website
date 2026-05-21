@@ -1789,3 +1789,82 @@ img { max-width: 100%; height: auto; display: block; }
   height: auto;
   display: block;
 }
+
+/* ── SIMRACERHUB LIVE IFRAMES ─────────────────────────────── */
+.srh-iframe-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.srh-iframe-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: #161616;
+}
+
+.srh-iframe-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.srh-iframe-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.srh-iframe-link {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.srh-iframe-link:hover { text-decoration: underline; }
+
+/* Scaler wrapper — clips to display height */
+.srh-iframe-scaler {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 530px;
+}
+
+.srh-iframe-scaler iframe {
+  border: none;
+  display: block;
+  /* Scale down to 78% for compact view */
+  transform: scale(0.78);
+  transform-origin: top left;
+  /* Compensate width so it fills the container (100 / 0.78 = 128.2%) */
+  width: 128.2%;
+  /* Height compensated for scale (530 / 0.78 = 680px) */
+  height: 680px;
+  /* Dark mode filter — remove this line to switch back to white */
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .srh-iframe-scaler {
+    height: 420px;
+  }
+  .srh-iframe-scaler iframe {
+    transform: scale(0.62);
+    width: 161%;
+    height: 677px;
+  }
+}
