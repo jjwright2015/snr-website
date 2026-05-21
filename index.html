@@ -236,28 +236,33 @@
     <p class="page-subtitle">After 11 of 22 races — Chase cutoff: Top 14</p>
   </div>
   <div class="section-container">
-    <!-- Live Standings iframe -->
-    <div class="srh-iframe-block">
-      <div class="srh-iframe-label">
-        <div class="srh-iframe-dot"></div>
-        <span class="srh-iframe-text">Driver Standings &nbsp;&mdash;&nbsp; Live via SimRacerHub</span>
-        <a href="https://www.simracerhub.com/scoring/season_standings.php?season_id=28637" target="_blank" rel="noopener" class="srh-iframe-link">View Full Page &#8599;</a>
-      </div>
-      <div class="srh-iframe-scaler">
-        <iframe src="https://www.simracerhub.com/scoring/season_standings.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Season 6 Standings"></iframe>
-      </div>
-    </div>
+    <!-- Live Standings + Results — Side by Side -->
+    <div class="srh-sidebyside">
 
-    <!-- Live Race Results iframe -->
-    <div class="srh-iframe-block">
-      <div class="srh-iframe-label">
-        <div class="srh-iframe-dot"></div>
-        <span class="srh-iframe-text">Most Recent Race Results &nbsp;&mdash;&nbsp; Live via SimRacerHub</span>
-        <a href="https://www.simracerhub.com/scoring/season_race.php?series_id=9950" target="_blank" rel="noopener" class="srh-iframe-link">View Full Page &#8599;</a>
+      <!-- Race Results — Left -->
+      <div class="srh-iframe-block">
+        <div class="srh-iframe-label">
+          <div class="srh-iframe-dot"></div>
+          <span class="srh-iframe-text">Most Recent Race Results</span>
+          <a href="https://www.simracerhub.com/scoring/season_race.php?series_id=9950" target="_blank" rel="noopener" class="srh-iframe-link">Full Results &#8599;</a>
+        </div>
+        <div class="srh-iframe-scaler">
+          <iframe src="https://www.simracerhub.com/scoring/season_race.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Most Recent Race Results"></iframe>
+        </div>
       </div>
-      <div class="srh-iframe-scaler">
-        <iframe src="https://www.simracerhub.com/scoring/season_race.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Most Recent Race Results"></iframe>
+
+      <!-- Driver Standings — Right -->
+      <div class="srh-iframe-block">
+        <div class="srh-iframe-label">
+          <div class="srh-iframe-dot"></div>
+          <span class="srh-iframe-text">Driver Standings</span>
+          <a href="https://www.simracerhub.com/scoring/season_standings.php?season_id=28637" target="_blank" rel="noopener" class="srh-iframe-link">Full Standings &#8599;</a>
+        </div>
+        <div class="srh-iframe-scaler">
+          <iframe src="https://www.simracerhub.com/scoring/season_standings.php?series_id=9950&ifn=1" scrolling="yes" title="SNR Season 6 Standings"></iframe>
+        </div>
       </div>
+
     </div>
 
     <!-- Race Results -->
