@@ -67,8 +67,8 @@ const scheduleData = [
   {num:9,track:"EchoPark Atlanta",date:"Apr 25",completed:true,winner:"Andy Telgenhof"},
   {num:10,track:"Texas",date:"May 2",completed:true,winner:"A.J. Stravato"},
   {num:11,track:"Dover",date:"May 16",completed:true,winner:"A.J. Stravato"},
-  {num:12,track:"Charlotte",date:"May 23",next:true},
-  {num:13,track:"Nashville",date:"May 30"},
+  {num:12,track:"Charlotte",date:"May 23",completed:true,winner:"Jeff J. Wright"},
+  {num:13,track:"Nashville",date:"May 30",next:true},
   {num:14,track:"Atlanta 2008",date:"Jun 6"},
   {num:15,track:"Sonoma",date:"Jun 13"},
   {num:16,track:"Richmond",date:"Jun 20"},
@@ -179,7 +179,7 @@ function showPage(page) {
 
 // --- Countdown ---
 function initCountdown() {
-  const target = new Date('2026-05-23T22:00:00-04:00').getTime();
+  const target = new Date('2026-05-30T22:00:00-04:00').getTime();
   
   function update() {
     const now = Date.now();
