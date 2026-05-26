@@ -5910,7 +5910,7 @@ function buildCard(d) {
         </div>
         <div class="card-stat">
           <span class="card-stat-label">Avg Rtg</span>
-          <span class="card-stat-value ${rClass}">${d.avg_rating.toFixed(1)}</span>
+          <span class="card-stat-value ${rClass}">${(typeof d.avg_rating === 'number' ? d.avg_rating.toFixed(1) : '-')}</span>
         </div>
       </div>
     </div>`;
@@ -6126,43 +6126,58 @@ function render() {
   list.forEach(d => grid.appendChild(buildCard(d)));
 }
 
-document.getElementById('driversSearch').addEventListener('input', e => { currentSearch = e.target.value; render(); });
-document.getElementById('driversSort').addEventListener('change', e => { currentSort = e.target.value; render(); });
-
-// Initial render — show all drivers on page load
-render();
+// ============================================================
+//  HAMBURGER  — wire up FIRST so any later error can't break mobile nav
+// ============================================================
+(function () {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  if (!hamburger || !navLinks) return;
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks .nav-link').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+})();
 
 // ============================================================
 //  THEME TOGGLE
 // ============================================================
 const html = document.documentElement;
 html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark');
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('snr-theme', next);
-});
-
-// ============================================================
-//  HAMBURGER
-// ============================================================
-const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
+(function () {
+  const tt = document.getElementById('themeToggle');
+  if (!tt) return;
+  tt.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('snr-theme', next);
+  });
+})();
 
 // ============================================================
 //  NAV SCROLL SHADOW
 // ============================================================
 window.addEventListener('scroll', () => {
-  document.getElementById('mainNav').style.background =
-    window.scrollY > 20 ? 'rgba(10,10,10,0.98)' : '';
+  const nav = document.getElementById('mainNav');
+  if (nav) nav.style.background = window.scrollY > 20 ? 'rgba(10,10,10,0.98)' : '';
 }, { passive: true });
 
-// INIT
-render();
+// ============================================================
+//  DRIVERS GRID — search / sort / render
+// ============================================================
+const _ds = document.getElementById('driversSearch');
+if (_ds) _ds.addEventListener('input', e => { currentSearch = e.target.value; render(); });
+const _dso = document.getElementById('driversSort');
+if (_dso) _dso.addEventListener('change', e => { currentSort = e.target.value; render(); });
+
+// Initial render — show all drivers on page load
+try { render(); } catch (e) { console.warn('[drivers] render failed:', e); }
 </script>
 </body>
 </html>

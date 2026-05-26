@@ -532,19 +532,34 @@ function renderRecords() {
   document.documentElement.setAttribute('data-theme', saved);
 })();
 
-document.getElementById('themeToggle').addEventListener('click', function () {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('snr-theme', next);
-});
-
-// ---- Hamburger menu ----
-document.getElementById('hamburger').addEventListener('click', function () {
+// ---- Hamburger menu ---- (set up FIRST so a later error can't break mobile nav)
+(function () {
+  const btn = document.getElementById('hamburger');
   const links = document.getElementById('navLinks');
-  const isOpen = links.classList.toggle('open');
-  this.classList.toggle('open', isOpen);
-});
+  if (!btn || !links) return;
+  btn.addEventListener('click', function () {
+    const isOpen = links.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+  });
+  document.querySelectorAll('#navLinks .nav-link').forEach(function (a) {
+    a.addEventListener('click', function () {
+      links.classList.remove('open');
+      btn.classList.remove('open');
+    });
+  });
+})();
+
+// ---- Theme toggle ----
+(function () {
+  const tt = document.getElementById('themeToggle');
+  if (!tt) return;
+  tt.addEventListener('click', function () {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('snr-theme', next);
+  });
+})();
 
 // ---- Nav scroll behavior ----
 window.addEventListener('scroll', function () {

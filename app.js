@@ -98,21 +98,28 @@ let currentSort = {col: 'pos', dir: 'asc'};
 let currentSeason = 1;
 
 // --- Init ---
+// Each step is wrapped in try/catch so a failure in one (e.g., a missing
+// element on a sub-page) does not block later steps like initHamburger().
+// initHamburger() also runs FIRST so the mobile nav is always wired up.
+function _safeInit(label, fn) {
+  try { fn(); }
+  catch (e) { console.warn('[init] ' + label + ' failed:', e); }
+}
 document.addEventListener('DOMContentLoaded', () => {
-  initRouter();
-  initCountdown();
-  renderSchedule();
-  renderStandings();
-  renderLeaderCard();
-  initStandingsSearch();
-  initTableSort();
-  initHistoryTabs();
-  renderHistory(1);
-  renderTracks();
-  initTrackSearch();
-  initRuleAccordions();
-  initThemeToggle();
-  initHamburger();
+  _safeInit('initHamburger',       initHamburger);
+  _safeInit('initThemeToggle',     initThemeToggle);
+  _safeInit('initRouter',          initRouter);
+  _safeInit('initCountdown',       initCountdown);
+  _safeInit('renderSchedule',      renderSchedule);
+  _safeInit('renderStandings',     renderStandings);
+  _safeInit('renderLeaderCard',    renderLeaderCard);
+  _safeInit('initStandingsSearch', initStandingsSearch);
+  _safeInit('initTableSort',       initTableSort);
+  _safeInit('initHistoryTabs',     initHistoryTabs);
+  _safeInit('renderHistory',       () => renderHistory(1));
+  _safeInit('renderTracks',        renderTracks);
+  _safeInit('initTrackSearch',     initTrackSearch);
+  _safeInit('initRuleAccordions',  initRuleAccordions);
 });
 
 // --- Points Leader Card ---
@@ -170,8 +177,10 @@ function showPage(page) {
   });
   
   // Close mobile menu
-  document.getElementById('navLinks').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
+  const _nl = document.getElementById('navLinks');
+  const _hb = document.getElementById('hamburger');
+  if (_nl) _nl.classList.remove('open');
+  if (_hb) _hb.classList.remove('open');
   
   // Scroll to top
   window.scrollTo(0, 0);
@@ -215,6 +224,7 @@ function initCountdown() {
 // --- Schedule ---
 function renderSchedule() {
   const grid = document.getElementById('scheduleGrid');
+  if (!grid) return;
   grid.innerHTML = scheduleData.map(race => {
     let classes = 'schedule-race';
     let badge = '';
@@ -252,9 +262,10 @@ function renderSchedule() {
 // --- Standings ---
 function renderStandings(data) {
   const tbody = document.getElementById('standingsBody');
+  if (!tbody) return;
   const list = data || standingsData;
   const leaderPoints = list.length > 0 ? list[0].points : 0;
-  
+
   tbody.innerHTML = list.map(d => {
     let rowClass = '';
     if (d.pos <= 3) rowClass += ' pos-' + d.pos;
@@ -498,12 +509,13 @@ function initThemeToggle() {
 function initHamburger() {
   const btn = document.getElementById('hamburger');
   const links = document.getElementById('navLinks');
-  
+  if (!btn || !links) return;
+
   btn.addEventListener('click', () => {
     btn.classList.toggle('open');
     links.classList.toggle('open');
   });
-  
+
   // Close on link click
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
