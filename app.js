@@ -72,7 +72,7 @@ const scheduleData = [
   {num:14,track:"Atlanta 2008",date:"Jun 6"},
   {num:15,track:"Sonoma",date:"Jun 13"},
   {num:16,track:"Richmond",date:"Jun 20"},
-  {num:17,track:"Chicagoland",date:"Jun 27"},
+  {num:17,track:"Chicagoland",date:"Jun 27",completed:true,winner:"Jeff J. Wright"},
   {num:18,track:"Talladega",date:"Jul 11",chase:true,label:"CHASE BEGINS"},
   {num:19,track:"Homestead",date:"Jul 18",chase:true},
   {num:20,track:"Michigan",date:"Jul 25",chase:true},
@@ -188,7 +188,7 @@ function showPage(page) {
 
 // --- Countdown ---
 function initCountdown() {
-  const target = new Date('2026-05-30T22:00:00-04:00').getTime();
+  const target = new Date('2026-07-11T22:00:00-04:00').getTime();
   
   function update() {
     const now = Date.now();
