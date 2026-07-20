@@ -2164,3 +2164,18 @@ img { max-width: 100%; height: auto; display: block; }
   .join-home-cta-logo { width: 100px; }
   .join-expect-grid { grid-template-columns: 1fr; }
 }
+
+/* ── JOIN NAV BUTTON ──────────────────────────────────────── */
+.nav-join-btn {
+  background: var(--accent) !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  padding: 6px 16px !important;
+  letter-spacing: 0.05em;
+}
+
+.nav-join-btn:hover {
+  background: #e0b52a !important;
+  color: #000 !important;
+}
