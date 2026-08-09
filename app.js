@@ -187,7 +187,7 @@ function showPage(page) {
 
 // --- Countdown ---
 function initCountdown() {
-  const target = new Date('2026-07-11T22:00:00-04:00').getTime();
+  const target = new Date('2027-01-30T22:00:00-05:00').getTime();
   
   function update() {
     const now = Date.now();
