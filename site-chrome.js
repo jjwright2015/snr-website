@@ -10,9 +10,8 @@
     { label: 'Home',        page: 'home' },                      // home page (hash route)
     { label: 'Latest News', href: 'news.html' },
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
-    { label: 'Drivers',     href: 'drivers.html' },
-    { label: 'Odds',        href: 'odds.html' },
-    { label: "Pick'em",     href: 'pickem.html' },
+    { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
+    { label: 'Odds',        href: 'https://pickem.snrleague.com/#/', external: true }, // odds are posted in the Pick'em app
     { label: 'Records',     href: 'records.html', hidden: true }, // hidden for now
     { label: 'History',     page: 'history',      hidden: true }, // hidden for now
     { label: 'Rules',       page: 'rules' },                     // home page (hash route)
@@ -32,6 +31,7 @@
     return onHome ? '#' + it.page : 'index.html#' + it.page;
   }
   function isActive(it) {
+    if (it.external) return false;
     if (it.href) return it.href.toLowerCase() === file;
     return onHome && it.page === hash;
   }
@@ -40,7 +40,8 @@
   var links = visible.map(function (it) {
     var cls = 'nav-link' + (it.cta ? ' nav-join-btn' : '') + (isActive(it) ? ' active' : '');
     var dp = it.page && onHome ? ' data-page="' + it.page + '"' : '';
-    return '<a href="' + hrefFor(it) + '" class="' + cls + '"' + dp + '>' + it.label + '</a>';
+    var ext = it.external ? ' target="_blank" rel="noopener"' : '';
+    return '<a href="' + hrefFor(it) + '" class="' + cls + '"' + dp + ext + '>' + it.label + '</a>';
   }).join('\n      ');
 
   var navHtml =
@@ -67,7 +68,8 @@
     '</nav>';
 
   var footLinks = visible.map(function (it) {
-    return '<a href="' + hrefFor(it) + '">' + it.label + '</a>';
+    var ext = it.external ? ' target="_blank" rel="noopener"' : '';
+    return '<a href="' + hrefFor(it) + '"' + ext + '>' + it.label + '</a>';
   }).join('\n        ');
 
   var footHtml =
