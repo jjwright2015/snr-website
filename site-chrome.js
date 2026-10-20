@@ -9,9 +9,7 @@
   var NAV = [
     { label: 'Home',        page: 'home' },                      // home page (hash route)
     { label: 'Latest News', href: 'news.html' },
-    // Placeholder: Season 6 schedule until the Season 7 schedule is posted on SimRacerHub.
-    // When it is, swap season_id=28637 for the new Season 7 id.
-    { label: 'Schedule',    href: 'https://www.simracerhub.com/scoring/season_schedule.php?season_id=28637', external: true },
+    { label: 'Schedule',    href: 'schedule.html' },   // page embeds SimRacerHub; season id is set inside schedule.html
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
     { label: 'Odds',        href: 'https://pickem.snrleague.com/#/', external: true }, // odds are posted in the Pick'em app

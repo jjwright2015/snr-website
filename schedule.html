@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule — Saturday Night Racing League</title>
+  <meta name="description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saturday Night Racing League">
+  <meta property="og:title" content="Schedule — Saturday Night Racing League">
+  <meta property="og:description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
+  <meta property="og:image" content="https://snrleague.com/assets/snr-logo-new.png">
+  <meta property="og:url" content="https://snrleague.com/schedule.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Schedule — Saturday Night Racing League">
+  <meta name="twitter:description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
+  <meta name="twitter:image" content="https://snrleague.com/assets/snr-logo-new.png">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="site-nav"></div>
+<script src="site-chrome.js"></script>
+
+<div class="standalone-page" style="padding-top:80px;">
+<div class="section-container">
+  <div class="page-header">
+    <h1 class="page-title">Race <span class="text-accent">Schedule</span></h1>
+    <p class="page-subtitle">Live from SimRacerHub &mdash; every Saturday night at 10:00 PM ET</p>
+  </div>
+
+  <!-- Season id is a placeholder (Season 6) until the Season 7 schedule is posted on SimRacerHub. -->
+  <div class="srh-iframe-block">
+    <div class="srh-iframe-label">
+      <div class="srh-iframe-dot"></div>
+      <span class="srh-iframe-text">Season Schedule</span>
+      <a href="https://www.simracerhub.com/scoring/season_schedule.php?season_id=28637" target="_blank" rel="noopener" class="srh-iframe-link">Open on SimRacerHub &#8599;</a>
+    </div>
+    <div class="srh-iframe-scaler">
+      <iframe src="https://www.simracerhub.com/scoring/season_schedule.php?season_id=28637&ifn=1" scrolling="yes" title="SNR Race Schedule"></iframe>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="site-footer"></div>
+<script src="site-chrome.js"></script>
+<script>
+var html = document.documentElement;
+html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark');
+document.getElementById('themeToggle').addEventListener('click', function () {
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('snr-theme', next);
+});
+var hamburger = document.getElementById('hamburger');
+var navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function () {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+</script>
+</body>
+</html>
