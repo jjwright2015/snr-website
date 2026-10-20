@@ -73,6 +73,14 @@
       <div class="hero-logo-watermark"><img src="assets/snr-logo-main.jpg" alt="Saturday Night Racing Cup Series" class="hero-logo-img"></div>
       <div class="racing-stripes"></div>
     </div>
+    <!-- Brand intro: plays once, then fades out to reveal the hero -->
+    <div class="hero-intro" id="heroIntro" aria-hidden="true">
+      <video id="heroIntroVideo" muted playsinline preload="auto" poster="assets/hero-intro-poster.jpg">
+        <source src="assets/hero-intro.webm" type="video/webm">
+        <source src="assets/hero-intro.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="hero-intro-skip" id="heroIntroSkip">Skip intro</button>
+    </div>
     <div class="hero-content">
       <div class="hero-series-logo"><img src="assets/snr-logo-new.png" alt="Saturday Night Racing Cup Series Logo" class="hero-logo-center"></div>
       <div class="hero-badge">Season 7 Coming Soon - Apply Now!</div>
@@ -721,5 +729,33 @@
 </footer>
 
 <script src="app.js"></script>
+<script>
+/* Hero intro: plays once per browser session, skipped for reduced motion.
+   Add ?intro=1 to the address to force it (handy for previews). */
+(function () {
+  var box = document.getElementById('heroIntro');
+  var vid = document.getElementById('heroIntroVideo');
+  if (!box || !vid) return;
+  var forced = /[?&]intro=1/.test(location.search);
+  var seen = false;
+  try { seen = sessionStorage.getItem('snrIntroSeen') === '1'; } catch (e) {}
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var done = false;
+  function finish() {
+    if (done) return; done = true;
+    box.classList.add('is-done');
+    try { sessionStorage.setItem('snrIntroSeen', '1'); } catch (e) {}
+    setTimeout(function () { box.style.display = 'none'; try { vid.pause(); } catch (e) {} }, 900);
+  }
+  if ((seen && !forced) || (reduce && !forced)) { box.style.display = 'none'; return; }
+  box.classList.add('is-playing');
+  vid.addEventListener('ended', finish);
+  vid.addEventListener('error', finish);
+  document.getElementById('heroIntroSkip').addEventListener('click', finish);
+  var p = vid.play();
+  if (p && p.catch) p.catch(finish);
+  setTimeout(finish, 20000); // safety net
+})();
+</script>
 </body>
 </html>
