@@ -8,523 +8,206 @@
 / /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
 \____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
                     /_/
--->
-<meta charset="UTF-8">
+--><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>League Records — Saturday Night Racing League</title>
-<meta name="description" content="All-time records and milestones from the Saturday Night Racing League Cup Series.">
+<meta name="description" content="League records, streaks and top performances in Saturday Night Racing League history.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saturday Night Racing League">
   <meta property="og:title" content="League Records — Saturday Night Racing League">
-  <meta property="og:description" content="All-time records and milestones from the Saturday Night Racing League Cup Series.">
+  <meta property="og:description" content="League records, streaks and top performances in Saturday Night Racing League history.">
   <meta property="og:image" content="https://snrleague.com/assets/snr-logo-new.png">
   <meta property="og:url" content="https://snrleague.com/records.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="League Records — Saturday Night Racing League">
-  <meta name="twitter:description" content="All-time records and milestones from the Saturday Night Racing League Cup Series.">
+  <meta name="twitter:description" content="League records, streaks and top performances in Saturday Night Racing League history.">
   <meta name="twitter:image" content="https://snrleague.com/assets/snr-logo-new.png">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-
 <style>
-/* ============================================
-   Records Page — Scoped Styles
-   ============================================ */
-
-/* Page wrapper */
-.records-page {
-  padding-top: var(--nav-height);
-  min-height: 100vh;
-}
-
-/* Page Header */
-.records-header {
-  background: linear-gradient(180deg, rgba(201,162,39,0.08) 0%, transparent 100%);
-  border-bottom: 1px solid var(--border);
-  padding: 56px 24px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.records-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 4px 4px;
-  pointer-events: none;
-}
-
-.records-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px 2px 0 0;
-}
-
-.records-page-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.records-page-title .text-accent {
-  color: var(--accent);
-}
-
-.records-page-subtitle {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  position: relative;
-}
-
-.records-eligibility {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  font-family: var(--font-body);
-  font-style: italic;
-  position: relative;
-}
-
-/* Container */
-.records-container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 24px 80px;
-}
-
-/* Section */
-.records-section {
-  margin-top: 56px;
-}
-
-.records-section-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 8px;
-}
-
-.records-section-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  line-height: 1;
-}
-
-.records-section-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-  opacity: 0.3;
-}
-
-.records-section-note {
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  font-family: var(--font-body);
-  font-style: italic;
-  margin-bottom: 24px;
-}
-
-/* Records Grid */
-.records-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 900px) {
-  .records-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 540px) {
-  .records-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Record Card */
-.record-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 20px 20px 16px;
-  position: relative;
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-.record-card:hover {
-  border-left-color: var(--accent-gold);
-  box-shadow: 0 4px 24px rgba(201, 162, 39, 0.12);
-}
-
-.record-card-title {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-
-/* #1 Record Holder */
-.record-top {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 10px;
-}
-
-.record-rank-1 {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: rgba(201,162,39,0.12);
-  border: 1px solid rgba(201,162,39,0.3);
-  border-radius: 3px;
-  padding: 2px 5px;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
-
-.record-holder-name {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.1;
-  flex: 1;
-  letter-spacing: 0.01em;
-}
-
-.record-holder-value {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  flex-shrink: 0;
-}
-
-/* Sub entries (#2-5) */
-.record-entries {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.record-entry {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.record-entry-rank {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--text-dim);
-  width: 16px;
-  flex-shrink: 0;
-  text-align: right;
-}
-
-.record-entry-name {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.record-entry-val {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-
-/* Season tag on entries */
-.record-entry-season {
-  font-size: 0.68rem;
-  color: var(--text-dim);
-  flex-shrink: 0;
-}
-
-/* Tie note */
-.record-card-tie-note {
-  font-size: 0.68rem;
-  color: var(--text-dim);
-  font-style: italic;
-  margin-top: 4px;
-}
-
-/* Consecutive section — same card style with 2-col grid */
-.records-grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 640px) {
-  .records-grid-2 {
-    grid-template-columns: 1fr;
-  }
-}
+.dp { padding-top: var(--nav-height); min-height: 100vh; }
+.dp-hero { background: linear-gradient(180deg,var(--surface),var(--bg)); border-bottom:1px solid var(--border); padding:48px 24px 32px; text-align:center; }
+.dp-hero h1 { font-family:var(--font-display); font-size:clamp(2rem,5vw,3.5rem); font-weight:800; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+.dp-hero h1 span { color:var(--accent); }
+.dp-hero p { color:var(--text-muted); font-size:14px; }
+.dp-wrap { max-width:var(--container-max); margin:0 auto; padding:0 16px; }
+.dp-h2 { font-family:var(--font-display); font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:28px 0 12px; }
+.dp-champs { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+.dp-champ { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; cursor:pointer; text-align:left; color:var(--text); font:inherit; transition:border-color var(--transition); }
+.dp-champ:hover { border-color:var(--accent); }
+.dp-champ small { display:block; font-family:var(--font-display); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); }
+.dp-champ b { font-family:var(--font-display); font-size:18px; font-weight:700; }
+.dp-champ i { font-style:normal; font-size:12px; color:var(--text-muted); display:block; }
+.dp-recs { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; }
+.dp-rec { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; cursor:pointer; text-align:left; color:var(--text); font:inherit; }
+.dp-rec:hover { border-color:var(--accent); }
+.dp-rec small { display:block; font-size:11px; color:var(--text-muted); }
+.dp-rec strong { font-family:var(--font-display); font-size:26px; color:var(--accent); line-height:1.1; }
+.dp-rec span { display:block; font-size:13px; }
+.dp-controls { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 8px; align-items:center; }
+.dp-controls input, .dp-controls select { background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:var(--radius); padding:10px 12px; font:inherit; font-size:14px; }
+.dp-controls input { flex:1; min-width:200px; }
+.dp-count { font-size:12px; color:var(--text-muted); margin-bottom:12px; }
+.dp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; padding-bottom:56px; }
+.dp-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; cursor:pointer; text-align:left; color:var(--text); font:inherit; transition:transform var(--transition),border-color var(--transition); }
+.dp-card:hover,.dp-card:focus-visible { transform:translateY(-2px); border-color:var(--accent); outline:none; }
+.dp-card h3 { font-family:var(--font-display); font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; line-height:1.15; }
+.dp-card .sub { font-size:12px; color:var(--text-muted); margin:2px 0 12px; min-height:16px; }
+.dp-trophy { color:var(--accent-gold); }
+.dp-mini { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.dp-mini div { padding:8px 4px; text-align:center; border-right:1px solid var(--border); }
+.dp-mini div:last-child { border-right:0; }
+.dp-mini small { display:block; font-family:var(--font-display); font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
+.dp-mini b { font-family:var(--font-display); font-size:19px; }
+.dp-none { grid-column:1/-1; text-align:center; color:var(--text-muted); padding:40px 0; }
+.dp-modal { position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; z-index:2000; overflow-y:auto; padding:24px 12px; }
+.dp-modal.open { display:block; }
+.dp-panel { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-lg); max-width:860px; margin:0 auto; position:relative; }
+.dp-x { position:absolute; top:10px; right:10px; background:var(--surface-2); border:1px solid var(--border); color:var(--text); width:34px; height:34px; border-radius:50%; cursor:pointer; font-size:18px; line-height:1; }
+.dp-head { padding:28px 28px 20px; border-bottom:1px solid var(--border); background:linear-gradient(180deg,var(--surface),var(--bg)); border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
+.dp-head h2 { font-family:var(--font-display); font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; text-transform:uppercase; letter-spacing:1px; line-height:1.05; padding-right:36px; }
+.dp-badges { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0; }
+.dp-badge { font-family:var(--font-display); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--suspended-border); background:var(--suspended-bg); color:var(--accent-gold); border-radius:20px; padding:4px 12px; }
+.dp-body { padding:8px 28px 28px; }
+.dp-sec { margin-top:22px; }
+.dp-sec h4 { font-family:var(--font-display); font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.dp-stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:8px; }
+.dp-stat { background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius); padding:10px; }
+.dp-stat small { display:block; font-family:var(--font-display); font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
+.dp-stat b { font-family:var(--font-display); font-size:24px; }
+.dp-best { background:var(--suspended-bg); border:1px solid var(--suspended-border); border-radius:var(--radius); padding:14px 16px; }
+.dp-best b { font-family:var(--font-display); font-size:20px; }
+.dp-best p { color:var(--text-muted); font-size:13px; margin-top:4px; }
+.dp-two { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.dp-row { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:8px 12px; margin-bottom:6px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:6px; font-size:13px; }
+.dp-row em { font-style:normal; color:var(--text-muted); font-size:12px; }
+.dp-row.bad { border-left-color:#c0392b; }
+.dp-bar { height:6px; background:var(--surface-3); border-radius:3px; overflow:hidden; margin-top:4px; }
+.dp-bar i { display:block; height:100%; background:var(--accent); }
+.dp-tbl-wrap { overflow-x:auto; }
+.dp-tbl { width:100%; border-collapse:collapse; font-size:13px; }
+.dp-tbl th { font-family:var(--font-display); font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); text-align:right; padding:6px 8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+.dp-tbl td { text-align:right; padding:7px 8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+.dp-tbl th:first-child,.dp-tbl td:first-child { text-align:left; }
+.dp-tbl tr.champ td { color:var(--accent-gold); font-weight:600; }
+.dp-form { display:flex; gap:6px; flex-wrap:wrap; }
+.dp-form span { font-family:var(--font-display); font-weight:700; background:var(--surface-2); border:1px solid var(--border); border-radius:6px; padding:4px 10px; }
+.dp-form span.w { color:#111; background:var(--accent-gold); border-color:var(--accent-gold); }
+.dp-form span.t5 { color:var(--accent-green); }
+.dp-srh { display:inline-block; margin-top:22px; color:var(--accent); font-size:13px; text-decoration:none; border:1px solid var(--border); border-radius:var(--radius); padding:9px 14px; }
+.dp-note { font-size:12px; color:var(--text-muted); margin-top:10px; }
+@media (max-width:640px){ .dp-two{grid-template-columns:1fr} .dp-head,.dp-body{padding-left:16px;padding-right:16px} }
+</style><style>
+.rc-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+.rc-tab{background:var(--surface);border:1px solid var(--border);color:var(--text-muted);border-radius:20px;padding:8px 18px;font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.rc-tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#111}
+.rc-asof{font-size:12px;color:var(--text-muted);margin:6px 0 16px}
+.rc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;padding-bottom:56px;align-items:start}
+.rc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px}
+.rc-card h3{font-family:var(--font-display);font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);line-height:1.2}
+.rc-note{font-size:11px;color:var(--text-muted);margin-top:4px}
+.rc-list{list-style:none;margin:12px 0 0;padding:0}
+.rc-item{border-top:1px solid var(--border)}
+.rc-item:first-child{border-top:0}
+.rc-line{display:flex;align-items:center;gap:10px;padding:9px 0;width:100%;background:none;border:0;color:var(--text);font:inherit;text-align:left}
+button.rc-line{cursor:pointer}
+.rc-rank{font-family:var(--font-display);font-weight:800;font-size:18px;width:24px;color:var(--text-muted);flex:none}
+.rc-item.r1 .rc-rank{color:var(--accent-gold)} .rc-item.r2 .rc-rank{color:var(--silver)} .rc-item.r3 .rc-rank{color:var(--bronze)}
+.rc-who{flex:1;min-width:0}
+.rc-who b{display:block;font-size:14px;font-weight:600}
+.rc-who a{color:inherit;text-decoration:none} .rc-who a:hover{color:var(--accent);text-decoration:underline}
+.rc-who small{display:block;font-size:11px;color:var(--text-muted);line-height:1.35}
+.rc-val{font-family:var(--font-display);font-size:22px;font-weight:700;flex:none}
+.rc-val small{font-size:11px;color:var(--text-muted);font-weight:400;margin-left:3px}
+.rc-chev{color:var(--text-muted);font-size:12px;transition:transform .2s}
+.rc-line[aria-expanded="true"] .rc-chev{transform:rotate(180deg)}
+.rc-dfs{padding:0 0 12px 34px}
+.rc-dfs table{width:100%;border-collapse:collapse;font-size:12px}
+.rc-dfs td{padding:4px 0;border-bottom:1px solid var(--border)} .rc-dfs td:last-child{text-align:right;font-weight:600}
+.rc-dfs tr.tot td{border-bottom:0;color:var(--accent-gold);font-weight:700}
+.rc-dfs p{font-size:12px;color:var(--text-muted);margin:0 0 8px}
+.rc-neg{color:#e05a4a}
+.rc-trk{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.rc-trk .rc-card h3{font-size:16px;color:var(--text)}
+.rc-more{font-size:11px;color:var(--text-muted);padding-top:6px}
 </style>
 </head>
 <body>
-
-<!-- Navigation -->
 <div id="site-nav"></div>
 <script src="site-chrome.js"></script>
-
-<!-- Records Page -->
-<div class="records-page">
-
-  <!-- Page Header -->
-  <div class="records-header">
-    <h1 class="records-page-title">Series <span class="text-accent">Records</span></h1>
-    <p class="records-page-subtitle">Saturday Night Racing Cup Series — All-Time Records</p>
-    <span class="records-eligibility">* To qualify, a driver must have 20+ career starts or be active in Season 6</span>
+<main class="dp">
+  <section class="dp-hero"><h1>League <span>Records</span></h1><p id="rcSub">Streaks, single-race marks, career and season bests.</p></section>
+  <div class="dp-wrap">
+    <div class="rc-tabs" id="rcTabs" role="tablist"></div>
+    <div class="rc-asof" id="rcAsof"></div>
+    <div id="rcBody"></div>
   </div>
-
-  <!-- Records Content -->
-  <div class="records-container" id="recordsContainer">
-    <!-- Populated by JS -->
-  </div>
-
-</div>
-
-<!-- Footer -->
+</main>
 <div id="site-footer"></div>
 <script src="site-chrome.js"></script>
-
 <script>
-// ============================================
-//  SNR Records Page — Data & Renderer
-// ============================================
-
-const RECORDS_DATA = {"alltime":{"most_wins":[{"driver":"Jeff J. Wright","value":24,"suffix":""},{"driver":"Bailey Turner","value":15,"suffix":""},{"driver":"Joshua Banks","value":11,"suffix":""},{"driver":"Adam Cabot","value":7,"suffix":""},{"driver":"Chad Clinger","value":5,"suffix":""}],"most_starts":[{"driver":"Jeff J. Wright","value":90,"suffix":""},{"driver":"Max Kost","value":88,"suffix":""},{"driver":"Caleb Weekley","value":88,"suffix":""},{"driver":"Joshua Banks","value":82,"suffix":""},{"driver":"Chad Clinger","value":81,"suffix":""}],"most_top5":[{"driver":"Jeff J. Wright","value":55,"suffix":""},{"driver":"Bailey Turner","value":45,"suffix":""},{"driver":"Joshua Banks","value":40,"suffix":""},{"driver":"Ryan Carwile","value":23,"suffix":""},{"driver":"Chad Clinger","value":23,"suffix":""}],"most_top10":[{"driver":"Jeff J. Wright","value":66,"suffix":""},{"driver":"Bailey Turner","value":55,"suffix":""},{"driver":"Joshua Banks","value":47,"suffix":""},{"driver":"Ryan Carwile","value":45,"suffix":""},{"driver":"Chad Clinger","value":38,"suffix":""}],"most_p2":[{"driver":"Joshua Banks","value":16,"suffix":""},{"driver":"Jeff J. Wright","value":11,"suffix":""},{"driver":"Bailey Turner","value":7,"suffix":""},{"driver":"A.J. Stravato","value":7,"suffix":""},{"driver":"Adam Cabot","value":6,"suffix":""}],"most_p3":[{"driver":"Bailey Turner","value":13,"suffix":""},{"driver":"Jeff J. Wright","value":9,"suffix":""},{"driver":"Chad Clinger","value":7,"suffix":""},{"driver":"Kenny Kibbey","value":6,"suffix":""},{"driver":"Joshua Banks","value":5,"suffix":""}],"most_poles":[{"driver":"Jeff J. Wright","value":21,"suffix":""},{"driver":"Chad Clinger","value":10,"suffix":""},{"driver":"Adam Cabot","value":10,"suffix":""},{"driver":"James Lehman","value":6,"suffix":""},{"driver":"Seth Hatchel","value":3,"suffix":""}],"most_laps_led":[{"driver":"Jeff J. Wright","value":4145,"suffix":""},{"driver":"Bailey Turner","value":1622,"suffix":""},{"driver":"Joshua Banks","value":1289,"suffix":""},{"driver":"Adam Cabot","value":916,"suffix":""},{"driver":"Chad Clinger","value":714,"suffix":""}],"best_avg_finish":[{"driver":"Bailey Turner","value":7.5,"suffix":""},{"driver":"Adam Cabot","value":7.7,"suffix":""},{"driver":"Jeff J. Wright","value":7.9,"suffix":""},{"driver":"Kenny Kibbey","value":11.3,"suffix":""},{"driver":"Seth Hatchel","value":12.1,"suffix":""}],"best_win_pct":[{"driver":"Jeff J. Wright","value":26.7,"suffix":"%"},{"driver":"Bailey Turner","value":20.0,"suffix":"%"},{"driver":"Adam Cabot","value":20.0,"suffix":"%"},{"driver":"Joshua Banks","value":13.4,"suffix":"%"},{"driver":"Chad Clinger","value":6.2,"suffix":"%"}],"most_seasons":[{"driver":"Seth Hatchel","value":5,"suffix":" seasons"},{"driver":"Ryan Carwile","value":5,"suffix":" seasons"},{"driver":"Rhea Massey","value":5,"suffix":" seasons"},{"driver":"Reggie Ortega","value":5,"suffix":" seasons"},{"driver":"Noah Michalski","value":5,"suffix":" seasons"}],"most_tracks_won":[{"driver":"Jeff J. Wright","value":19,"suffix":" tracks"},{"driver":"Joshua Banks","value":11,"suffix":" tracks"},{"driver":"Bailey Turner","value":11,"suffix":" tracks"},{"driver":"Adam Cabot","value":7,"suffix":" tracks"},{"driver":"Chad Clinger","value":5,"suffix":" tracks"}]},"season":{"wins":[{"driver":"Bailey Turner","value":7,"season":"Season 4"},{"driver":"Jeff J. Wright","value":7,"season":"Season 5"},{"driver":"Jeff J. Wright","value":6,"season":"Season 1"},{"driver":"Jeff J. Wright","value":5,"season":"Season 2"},{"driver":"Joshua Banks","value":4,"season":"Season 2"}],"top5":[{"driver":"Jeff J. Wright","value":15,"season":"Season 1"},{"driver":"Jeff J. Wright","value":14,"season":"Season 2"},{"driver":"Bailey Turner","value":13,"season":"Season 4"},{"driver":"Joshua Banks","value":10,"season":"Season 2"},{"driver":"Bailey Turner","value":10,"season":"Season 2"}],"top10":[{"driver":"Jeff J. Wright","value":18,"season":"Season 1"},{"driver":"Alex W Bell","value":14,"season":"Season 1"},{"driver":"Jeff J. Wright","value":14,"season":"Season 2"},{"driver":"A.J. Stravato","value":13,"season":"Season 1"},{"driver":"Alex W Bell","value":13,"season":"Season 2"}],"starts":[{"driver":"Max Kost","value":20,"season":"Season 1"},{"driver":"Alex W Bell","value":20,"season":"Season 2"},{"driver":"Chuck Sweeting","value":20,"season":"Season 2"},{"driver":"Max Kost","value":20,"season":"Season 2"},{"driver":"Bryce Shoemaker","value":20,"season":"Season 2"}],"points":[{"driver":"Jeff J. Wright","value":2270,"season":"Season 1"},{"driver":"Jeff J. Wright","value":2231,"season":"Season 2"},{"driver":"Jeff J. Wright","value":2227,"season":"Season 5"},{"driver":"Michael Sturgill","value":2224,"season":"Season 1"},{"driver":"Bailey Turner","value":2212,"season":"Season 4"}]},"consecutive":{"win_streak":[[4,"Bailey Turner"],[3,"Joshua Banks"],[3,"Jeff J. Wright"],[1,"Seth Hatchel"],[1,"Ryan Carwile"]],"top5_streak":[[8,"Jeff J. Wright"],[7,"Joshua Banks"],[7,"Bailey Turner"],[5,"Adam Cabot"],[4,"Ryan Carwile"]],"top10_streak":[[23,"Jeff J. Wright"],[10,"Alex W Bell"],[9,"Bailey Turner"],[9,"Adam Cabot"],[9,"A.J. Stravato"]],"frontrow_streak":[[5,"Jeff J. Wright"],[4,"Bailey Turner"],[3,"Joshua Banks"],[2,"Ryan Carwile"],[2,"Michael Sturgill"]]}};
-
-// ---- Helper: format value string ----
-function fmtVal(val, suffix) {
-  if (suffix) return val + suffix;
-  return val.toLocaleString();
-}
-
-// ---- Build a record card from an array of {driver, value, suffix} ----
-function buildCard(title, entries, opts = {}) {
-  const top = entries[0];
-  const rest = entries.slice(1);
-
-  let topValueStr = fmtVal(top.value, top.suffix || '');
-
-  let restHtml = rest.map((e, i) => {
-    const season = e.season ? `<span class="record-entry-season">${e.season}</span>` : '';
-    return `
-      <div class="record-entry">
-        <span class="record-entry-rank">${i + 2}</span>
-        <span class="record-entry-name">${e.driver}</span>
-        ${season}
-        <span class="record-entry-val">${fmtVal(e.value, e.suffix || '')}</span>
-      </div>`;
-  }).join('');
-
-  const topSeason = top.season ? `<span style="font-size:0.72rem;color:var(--text-dim);margin-top:2px;display:block;font-family:var(--font-body);">${top.season}</span>` : '';
-  const note = opts.note ? `<p class="record-card-tie-note">${opts.note}</p>` : '';
-
-  return `
-    <div class="record-card">
-      <div class="record-card-title">${title}</div>
-      <div class="record-top">
-        <span class="record-rank-1">1ST</span>
-        <div style="flex:1;min-width:0;">
-          <div class="record-holder-name">${top.driver}</div>
-          ${topSeason}
-        </div>
-        <div class="record-holder-value">${topValueStr}</div>
-      </div>
-      <div class="record-entries">
-        ${restHtml}
-      </div>
-      ${note}
-    </div>`;
-}
-
-// ---- Build a card from consecutive data: [[value, driver], ...] ----
-function buildConsecCard(title, entries) {
-  const top = entries[0];
-  const rest = entries.slice(1);
-
-  let restHtml = rest.map((e, i) => {
-    // handle tie: same value as previous
-    return `
-      <div class="record-entry">
-        <span class="record-entry-rank">${i + 2}</span>
-        <span class="record-entry-name">${e[1]}</span>
-        <span class="record-entry-val">${e[0]}</span>
-      </div>`;
-  }).join('');
-
-  return `
-    <div class="record-card">
-      <div class="record-card-title">${title}</div>
-      <div class="record-top">
-        <span class="record-rank-1">1ST</span>
-        <div class="record-holder-name" style="flex:1;">${top[1]}</div>
-        <div class="record-holder-value">${top[0]}</div>
-      </div>
-      <div class="record-entries">
-        ${restHtml}
-      </div>
-    </div>`;
-}
-
-// ---- Render everything ----
-function renderRecords() {
-  const container = document.getElementById('recordsContainer');
-  const d = RECORDS_DATA;
-
-  container.innerHTML = `
-
-    <!-- ===== SECTION 1: ALL-TIME RECORDS ===== -->
-    <div class="records-section">
-      <div class="records-section-header">
-        <h2 class="records-section-title">All-Time Records</h2>
-        <div class="records-section-line"></div>
-      </div>
-      <div class="records-grid">
-        ${buildCard('Most Career Wins', d.alltime.most_wins)}
-        ${buildCard('Most Career Starts', d.alltime.most_starts)}
-        ${buildCard('Most Career Top 5s', d.alltime.most_top5)}
-        ${buildCard('Most Career Top 10s', d.alltime.most_top10)}
-        ${buildCard('Most Runner-Up (P2) Finishes', d.alltime.most_p2)}
-        ${buildCard('Most 3rd Place Finishes', d.alltime.most_p3)}
-        ${buildCard('Most Career Poles', d.alltime.most_poles)}
-        ${buildCard('Most Laps Led', d.alltime.most_laps_led)}
-        ${buildCard('Best Avg Finish ↓ lower is better', d.alltime.best_avg_finish)}
-        ${buildCard('Best Win % (min. 20 starts)', d.alltime.best_win_pct)}
-        ${buildCard('Most Seasons Competed', d.alltime.most_seasons, { note: '5-way tie at 5 seasons' })}
-        ${buildCard('Most Different Tracks Won At', d.alltime.most_tracks_won)}
-      </div>
-    </div>
-
-    <!-- ===== SECTION 2: SINGLE SEASON RECORDS ===== -->
-    <div class="records-section">
-      <div class="records-section-header">
-        <h2 class="records-section-title">Single Season Records</h2>
-        <div class="records-section-line"></div>
-      </div>
-      <div class="records-grid">
-        ${buildCard('Most Wins in a Single Season', d.season.wins)}
-        ${buildCard('Most Top 5s in a Single Season', d.season.top5)}
-        ${buildCard('Most Top 10s in a Single Season', d.season.top10)}
-        ${buildCard('Most Starts in a Single Season', d.season.starts)}
-        ${buildCard('Most Points in a Single Season', d.season.points)}
-      </div>
-    </div>
-
-    <!-- ===== SECTION 3: CONSECUTIVE RECORDS ===== -->
-    <div class="records-section">
-      <div class="records-section-header">
-        <h2 class="records-section-title">Consecutive Records</h2>
-        <div class="records-section-line"></div>
-      </div>
-      <p class="records-section-note">Calculated from race-by-race results. Qualifying position streaks require additional data.</p>
-      <div class="records-grid-2">
-        ${buildConsecCard('Most Consecutive Wins', d.consecutive.win_streak)}
-        ${buildConsecCard('Most Consecutive Top 5 Finishes', d.consecutive.top5_streak)}
-        ${buildConsecCard('Most Consecutive Top 10 Finishes', d.consecutive.top10_streak)}
-        ${buildConsecCard('Most Consecutive Front Row Finishes (P1 or P2)', d.consecutive.frontrow_streak)}
-      </div>
-      <p class="records-section-note" style="margin-top:12px;">Front row based on finishing position data. Qualifying position streaks coming soon.</p>
-    </div>
-
-  `;
-}
-
-// ---- Theme toggle (mirrors index.html behavior) ----
-(function initTheme() {
-  const saved = localStorage.getItem('snr-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-})();
-
-// ---- Hamburger menu ---- (set up FIRST so a later error can't break mobile nav)
-(function () {
-  const btn = document.getElementById('hamburger');
-  const links = document.getElementById('navLinks');
-  if (!btn || !links) return;
-  btn.addEventListener('click', function () {
-    const isOpen = links.classList.toggle('open');
-    btn.classList.toggle('open', isOpen);
-  });
-  document.querySelectorAll('#navLinks .nav-link').forEach(function (a) {
-    a.addEventListener('click', function () {
-      links.classList.remove('open');
-      btn.classList.remove('open');
-    });
-  });
-})();
-
-// ---- Theme toggle ----
-(function () {
-  const tt = document.getElementById('themeToggle');
-  if (!tt) return;
-  tt.addEventListener('click', function () {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('snr-theme', next);
-  });
-})();
-
-// ---- Nav scroll behavior ----
-window.addEventListener('scroll', function () {
-  const nav = document.getElementById('mainNav');
-  if (window.scrollY > 10) {
-    nav.style.background = 'rgba(10,10,10,0.97)';
-  } else {
-    nav.style.background = 'rgba(10,10,10,0.92)';
+(function(){
+  var D,tab='Streaks',$=function(i){return document.getElementById(i)};
+  var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var root=document.documentElement;
+  try{root.setAttribute('data-theme',localStorage.getItem('snr-theme')||'dark')}catch(e){}
+  var tt=$('themeToggle');if(tt)tt.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('snr-theme',n)}catch(e){}});
+  var hb=$('hamburger'),nl=$('navLinks');if(hb&&nl)hb.addEventListener('click',function(){hb.classList.toggle('open');nl.classList.toggle('open')});
+  var TABS=['Streaks','Single Race','Career','Season','Tracks'];
+  function val(c,v){
+    if(c.fmt==='dec')return v.toFixed(2);
+    if(c.fmt==='pct')return v.toFixed(1)+'%';
+    if(c.fmt==='pos')return 'P'+v;
+    if(c.fmt==='dfs')return String(Math.round(v*100)/100);
+    return Number(v).toLocaleString();
   }
-}, { passive: true });
-
-// ---- Init ----
-renderRecords();
+  function who(e){
+    var n=e.name||D.names[e.id];
+    return e.id?'<a href="drivers.html#driver='+e.id+'">'+esc(n)+'</a>':esc(n);
+  }
+  function dfsRows(e){
+    var x=e.dfs,t=0,rows=x.parts.map(function(p){var v=Math.round(p[1]*100)/100;if(v===0)v=0;t+=p[1];return'<tr><td>'+p[0]+'</td><td class="'+(v<0?'rc-neg':'')+'">'+(v>0?'+':'')+v+'</td></tr>'}).join('');
+    return'<div class="rc-dfs"><p>Started P'+x.start+', finished P'+x.finish+' &middot; '+x.lapsLed+' laps led &middot; '+x.incidents+' incident'+(x.incidents===1?'':'s')+(x.fastest?' &middot; fastest lap':'')+'</p><table>'+rows+'<tr class="tot"><td>Total</td><td>'+Math.round(e.value*100)/100+'</td></tr></table></div>';
+  }
+  function card(c){
+    var h='<div class="rc-card"><h3>'+esc(c.title)+'</h3>'+(c.note?'<div class="rc-note">'+esc(c.note)+'</div>':'')+'<ul class="rc-list">';
+    c.entries.forEach(function(e,i){
+      var inner='<span class="rc-rank">'+e.rank+'</span><span class="rc-who"><b>'+who(e)+'</b>'+(e.detail?'<small>'+esc(e.detail)+'</small>':'')+'</span><span class="rc-val">'+val(c,e.value)+(c.unit&&c.fmt!=='pct'&&c.fmt!=='pos'&&c.fmt!=='dfs'&&c.fmt!=='dec'?'<small>'+esc(c.unit)+'</small>':'')+(c.fmt==='dfs'?'<small>pts</small>':'')+'</span>';
+      if(e.dfs){
+        var id='dfs'+c.key+i;
+        h+='<li class="rc-item r'+Math.min(e.rank,3)+'"><button type="button" class="rc-line" aria-expanded="false" aria-controls="'+id+'" data-dfs="'+id+'">'+inner+'<span class="rc-chev">&#9660;</span></button><div id="'+id+'" hidden>'+dfsRows(e)+'</div></li>';
+      }else h+='<li class="rc-item r'+Math.min(e.rank,3)+'"><div class="rc-line">'+inner+'</div></li>';
+    });
+    return h+'</ul></div>';
+  }
+  function trackCard(t){
+    var shown=t.entries.length,more=t.winners-shown;
+    return'<div class="rc-card"><h3>'+esc(t.track)+'</h3><div class="rc-note">'+t.races+' race'+(t.races===1?'':'s')+' &middot; '+esc(t.type)+' &middot; '+t.winners+' different winner'+(t.winners===1?'':'s')+'</div><ul class="rc-list">'+t.entries.map(function(e){return'<li class="rc-item r'+Math.min(e.rank,3)+'"><div class="rc-line"><span class="rc-rank">'+e.rank+'</span><span class="rc-who"><b>'+who(e)+'</b><small>'+esc(e.detail)+'</small></span><span class="rc-val">'+e.value+'<small>win'+(e.value===1?'':'s')+'</small></span></div></li>'}).join('')+'</ul>'+(more>0?'<div class="rc-more">+ '+more+' more winner'+(more===1?'':'s')+'</div>':'')+'</div>';
+  }
+  function render(){
+    var h='<div class="rc-grid">';
+    D.categories.filter(function(c){return c.tab===tab}).forEach(function(c){h+=card(c)});
+    if(tab==='Career'){
+      h+='<div class="rc-card"><h3>Won in Their Series Debut</h3><ul class="rc-list">'+D.debutWinners.map(function(e){return'<li class="rc-item"><div class="rc-line"><span class="rc-who"><b>'+who(e)+'</b><small>'+esc(e.detail)+'</small></span></div></li>'}).join('')+'</ul></div>';
+    }
+    h+='</div>';
+    if(tab==='Tracks'){
+      h+='<h2 class="dp-h2" style="margin-top:0">Track by Track</h2><div class="dp-controls" style="margin-top:0"><input type="search" id="rcTrkSearch" placeholder="Search tracks..." aria-label="Search tracks"></div><div class="rc-trk" id="rcTrk" style="padding-bottom:56px">'+D.tracks.map(trackCard).join('')+'</div>';
+    }
+    $('rcBody').innerHTML=h;
+    document.querySelectorAll('[data-dfs]').forEach(function(b){b.addEventListener('click',function(){var p=$(b.dataset.dfs),o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));p.hidden=o})});
+    var s=$('rcTrkSearch');if(s)s.addEventListener('input',function(){var q=s.value.trim().toLowerCase();$('rcTrk').innerHTML=D.tracks.filter(function(t){return t.track.toLowerCase().indexOf(q)>=0}).map(trackCard).join('')||'<div class="dp-none">No tracks found</div>'});
+  }
+  function tabs(){
+    $('rcTabs').innerHTML=TABS.map(function(t){return'<button class="rc-tab" role="tab" aria-selected="'+(t===tab)+'" data-t="'+t+'">'+t+'</button>'}).join('');
+    document.querySelectorAll('.rc-tab').forEach(function(b){b.addEventListener('click',function(){tab=b.dataset.t;try{history.replaceState(null,'','#'+encodeURIComponent(tab))}catch(e){}tabs();render()})});
+  }
+  fetch('records_data.json').then(function(r){return r.json()}).then(function(data){
+    D=data;var h=decodeURIComponent(location.hash.slice(1));if(TABS.indexOf(h)>=0)tab=h;
+    $('rcAsof').textContent='Through Season '+D.asOf.season+', Race '+D.asOf.race+' ('+D.races+' races). Top 3 shown for each record; ties for 3rd are all listed. Streaks count only races a driver entered, so a missed race does not break them.';
+    tabs();render();
+  }).catch(function(){$('rcBody').innerHTML='<div class="dp-none">Records could not be loaded. Please refresh.</div>'});
+})();
 </script>
 </body>
 </html>

@@ -106,13 +106,11 @@
 <main class="dp">
   <section class="dp-hero">
     <h1>Driver <span>Profiles</span></h1>
-    <p id="dpSub">Career stats, best seasons, best tracks and league records.</p>
+    <p id="dpSub">Career stats, best seasons and best tracks.</p>
   </section>
   <div class="dp-wrap">
     <h2 class="dp-h2">Series Champions</h2>
     <div class="dp-champs" id="dpChamps"></div>
-    <h2 class="dp-h2">League Records</h2>
-    <div class="dp-recs" id="dpRecs"></div>
     <div class="dp-controls">
       <input type="search" id="dpSearch" placeholder="Search drivers..." aria-label="Search drivers">
       <select id="dpFilter" aria-label="Filter">
@@ -144,7 +142,7 @@
 <script src="site-chrome.js"></script>
 <script>
 (function () {
-  var D, BY = {};
+  var D, R = null, BY = {};
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
   var f1 = function (n) { return Number(n).toFixed(1); };
@@ -206,7 +204,8 @@
   function profile(d) {
     var c = d.career, badges = '';
     d.titles.forEach(function (s) { badges += '<span class="dp-badge">&#127942; Season ' + s + ' Champion</span>'; });
-    if (d.records.length) badges += '<span class="dp-badge">' + d.records.length + ' League Record' + (d.records.length > 1 ? 's' : '') + '</span>';
+    var held = (R && R.holders[d.id]) || [];
+    if (held.length) badges += '<span class="dp-badge">' + held.length + ' League Record' + (held.length > 1 ? 's' : '') + '</span>';
     var h = '<div class="dp-head"><h2>' + esc(d.name) + '</h2><div class="dp-badges">' + (badges || '<span class="dp-badge" style="color:var(--text-muted);border-color:var(--border);background:none">Seasons ' + Object.keys(d.seasons).join(', ') + '</span>') + '</div></div><div class="dp-body">';
 
     h += '<div class="dp-sec"><h4>Career</h4><div class="dp-stats">' +
@@ -214,10 +213,8 @@
       stat('Laps Led', num(c.lapsLed)) + stat('Fastest Laps', c.fastest) + stat('Avg Finish', f1(c.avgFinish)) + stat('Avg Start', f1(c.avgStart)) +
       stat('Best Finish', ord(c.best)) + stat('DNFs', c.dnf) + stat('Inc / Race', f1(c.avgInc)) + '</div></div>';
 
-    if (d.records.length) {
-      h += '<div class="dp-sec"><h4>League Records Held</h4>' + d.records.map(function (k) {
-        var r = D.records[k]; return row('<strong>' + esc(r.label) + (r.season ? ' (Season ' + r.season + ')' : '') + '</strong>', (k === 'lapsLed' || k === 'seasonLaps' ? num(r.value) : r.value));
-      }).join('') + '</div>';
+    if (held.length) {
+      h += '<div class="dp-sec"><h4>League Records Held</h4>' + held.map(function (t) { return row('<strong>' + esc(t) + '</strong>', ''); }).join('') + '<p class="dp-note"><a href="records.html" style="color:var(--accent)">See all league records &rarr;</a></p></div>';
     }
 
     var bs = d.bestSeason && d.seasons[d.bestSeason];
@@ -268,20 +265,16 @@
   $('dpModal').addEventListener('click', function (e) { if (e.target === $('dpModal')) closeDriver(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDriver(); });
 
-  fetch('driver_data.json').then(function (r) { return r.json(); }).then(function (data) {
+  fetch('records_data.json').then(function (r) { return r.json(); }).then(function (x) { R = x; }).catch(function () {})
+  .then(function () { return fetch('driver_data.json'); }).then(function (r) { return r.json(); }).then(function (data) {
     D = data; D.drivers.forEach(function (d) { BY[d.id] = d; });
     var byName = {}; D.drivers.forEach(function (d) { byName[d.name] = d; });
-    $('dpSub').textContent = D.drivers.length + ' drivers · Seasons 1–' + D.seasonsCount + ' · Career stats, best seasons, best tracks and league records';
+    $('dpSub').textContent = D.drivers.length + ' drivers · Seasons 1–' + D.seasonsCount + ' · Career stats, best seasons and best tracks';
     $('dpChamps').innerHTML = Object.keys(D.champions).map(function (s) {
       var n = D.champions[s], d = byName[n], a = d && d.seasons[s];
       return '<button class="dp-champ" data-id="' + (d ? d.id : '') + '"><small>Season ' + s + '</small><b>&#127942; ' + esc(n) + '</b><i>' + (a ? a.points + ' pts · ' + a.wins + ' win' + (a.wins === 1 ? '' : 's') : '') + '</i></button>';
     }).join('');
-    var order = ['wins','poles','top5','lapsLed','seasonWins','streak','avgFinish'];
-    $('dpRecs').innerHTML = order.map(function (k) {
-      var r = D.records[k], d = byName[r.driver];
-      return '<button class="dp-rec" data-id="' + (d ? d.id : '') + '"><small>' + esc(r.label) + (r.season ? ' (S' + r.season + ')' : '') + '</small><strong>' + (k === 'lapsLed' ? num(r.value) : r.value) + '</strong><span>' + esc(r.driver) + '</span></button>';
-    }).join('');
-    document.querySelectorAll('.dp-champ,.dp-rec').forEach(function (b) { b.addEventListener('click', function () { openDriver(+b.dataset.id, true); }); });
+    document.querySelectorAll('.dp-champ').forEach(function (b) { b.addEventListener('click', function () { openDriver(+b.dataset.id, true); }); });
     ['dpSearch'].forEach(function (i) { $(i).addEventListener('input', render); });
     ['dpFilter','dpSort'].forEach(function (i) { $(i).addEventListener('change', render); });
     render();

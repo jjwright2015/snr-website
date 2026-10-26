@@ -73,38 +73,8 @@ for cid, rs in by.items():
         recent=[r['finish_pos'] for r in rs[-5:]], first=rs[0]['race_id'], last=rs[-1]['race_id'],
         active=rs[-1]['season']==max(r['season'] for r in rows)))
 
-# league records
-def top(key, n=1, minstarts=0, rev=True, val=None):
-    pool = [d for d in drivers if d['career']['starts']>=minstarts]
-    f = val or (lambda d: d['career'][key])
-    return sorted(pool, key=f, reverse=rev)[:n]
-rec = {}
-def put(k, label, d, v): rec[k] = dict(label=label, driver=d['name'], value=v)
-d=top('wins')[0]; put('wins','Career wins',d,d['career']['wins'])
-d=top('poles')[0]; put('poles','Career poles',d,d['career']['poles'])
-d=top('top5')[0]; put('top5','Career top 5s',d,d['career']['top5'])
-d=top('lapsLed')[0]; put('lapsLed','Career laps led',d,d['career']['lapsLed'])
-d=top('fastest')[0]; put('fastest','Career fastest laps',d,d['career']['fastest'])
-d=top('avgFinish',minstarts=30,rev=False)[0]; put('avgFinish','Best career avg finish (30+ starts)',d,d['career']['avgFinish'])
-best=max(((a['wins'],d['name'],s) for d in drivers for s,a in d['seasons'].items()))
-rec['seasonWins']=dict(label='Wins in a season',driver=best[1],value=best[0],season=best[2])
-best=max(((a['lapsLed'],d['name'],s) for d in drivers for s,a in d['seasons'].items()))
-rec['seasonLaps']=dict(label='Laps led in a season',driver=best[1],value=best[0],season=best[2])
-best=max(((a['poles'],d['name'],s) for d in drivers for s,a in d['seasons'].items()))
-rec['seasonPoles']=dict(label='Poles in a season',driver=best[1],value=best[0],season=best[2])
-# win streak
-streak = {}; cur = (None,0); bestst=(0,None)
-for rid in sorted({r['race_id'] for r in rows}, key=lambda x: (int(re.match(r'S(\d+)R',x).group(1)), int(x.split('R')[1]))):
-    w = next((r['driver'] for r in rows if r['race_id']==rid and r['finish_pos']==1), None)
-    cur = (w, cur[1]+1) if w and w==cur[0] else (w, 1 if w else 0)
-    if cur[1]>bestst[0]: bestst=(cur[1],cur[0])
-rec['streak']=dict(label='Consecutive wins',driver=bestst[1],value=bestst[0])
-rec['champions']={str(s):c for s,c in champs.items()}
-for d in drivers:
-    d['records']=[k for k,v in rec.items() if isinstance(v,dict) and v.get('driver')==d['name'] and k!='champions']
-
 drivers.sort(key=lambda d: -d['career']['starts'])
 json.dump(dict(generated='from results.csv S1-S6', seasonsCount=max(champs), champions=champs,
     carBySeason={1:'Gen 4',2:'Next Gen / Xfinity',3:'Xfinity',4:'Next Gen',5:'Gen 4',6:'Xfinity'},
-    records=rec, drivers=drivers), open(f'{ROOT}/driver_data.json','w'), separators=(',',':'))
+    drivers=drivers), open(f'{ROOT}/driver_data.json','w'), separators=(',',':'))
 print(len(drivers),'drivers', 'champs', champs)
