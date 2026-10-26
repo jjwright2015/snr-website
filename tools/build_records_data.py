@@ -98,7 +98,6 @@ for key, title, f in [
   ('c_polewin','Most Wins From the Pole',lambda rs: sum(r['finish_pos']==1 and r['start_pos']==1 for r in rs)),
   ('c_dom','Most Dominant Wins (Led at Least Half the Race)',lambda rs: sum(r['finish_pos']==1 and r['laps_led']*2>=r['race_laps'] for r in rs)),
   ('c_chase','Most Chase Wins',lambda rs: sum(r['finish_pos']==1 and r['chase'] for r in rs)),
-  ('c_finale','Most Season-Finale Wins',lambda rs: sum(r['finish_pos']==1 and (r['season'],r['round']) in FINALES for r in rs)),
   ('c_nowin_led','Most Laps Led Without a Win',lambda rs: sum(r['laps_led'] for r in rs) if not any(r['finish_pos']==1 for r in rs) else None),
   ('c_nowin_starts','Most Starts Without a Win',lambda rs: len(rs) if not any(r['finish_pos']==1 for r in rs) else None),
   ('c_dnf','Most DNFs',lambda rs: sum(r['dnf'] for r in rs)),
