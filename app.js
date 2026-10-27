@@ -43,6 +43,11 @@ const seasonChampions = {
   6: {driver: "Joshua Banks", points: 2240, wins: 5}
 };
 
+// Standings tables show the top 43 only (the size of a full race field). The full standings stay in the data
+// (driver profiles use them); drivers tied for 43rd are all shown.
+const STANDINGS_DISPLAY_LIMIT = 43;
+const topStandings = list => list.filter(d => d.pos <= STANDINGS_DISPLAY_LIMIT);
+
 // --- State ---
 let currentPage = 'home';
 let currentSort = {col: 'pos', dir: 'asc'};
@@ -214,7 +219,7 @@ function renderSchedule() {
 function renderStandings(data) {
   const tbody = document.getElementById('standingsBody');
   if (!tbody) return;
-  const list = data || standingsData;
+  const list = topStandings(data || standingsData);
   const leaderPoints = list.length > 0 ? list[0].points : 0;
 
   tbody.innerHTML = list.map(d => {
@@ -300,7 +305,7 @@ function initHistoryTabs() {
 function renderHistory(season) {
   const container = document.getElementById('historyContent');
   const key = 'season' + season;
-  const data = historicalData[key] || [];
+  const data = topStandings(historicalData[key] || []);
   const champ = seasonChampions[season];
   
   let html = '';
