@@ -148,7 +148,7 @@
   var f1 = function (n) { return Number(n).toFixed(1); };
   var num = function (n) { return Number(n).toLocaleString(); };
   var ord = function (n) { var v = n % 100, s = ['th','st','nd','rd']; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
-  var TYPE = { 'Superspeedway':'Superspeedways', 'Intermediate':'Intermediates', 'Short track':'Short tracks', 'Road course':'Road courses' };
+  var TYPE = { 'Superspeedway':'Superspeedways', 'Speedway':'Speedways', 'Short Track':'Short tracks', 'Road Course':'Road courses' };
 
   // chrome handlers (nav + theme) — site-chrome.js only writes the markup
   var root = document.documentElement;
