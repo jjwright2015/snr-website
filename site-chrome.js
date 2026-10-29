@@ -12,7 +12,7 @@
     { label: 'Schedule',    href: 'schedule.html' },   // page embeds SimRacerHub; season id is set inside schedule.html
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
-    { label: 'Odds',        href: 'https://pickem.snrleague.com/#/', external: true }, // odds are posted in the Pick'em app
+    { label: "Pick'em",     href: 'https://pickem.snrleague.com/#/', external: true }, // free fantasy lineup game (points only) in the Pick'em app
     { label: 'Records',     href: 'records.html', hidden: true }, // hidden for now
     { label: 'History',     page: 'history',      hidden: true }, // hidden for now
     { label: 'Rules',       page: 'rules' },                     // home page (hash route)
