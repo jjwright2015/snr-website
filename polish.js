@@ -2,36 +2,6 @@
 (function () {
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-  /* ---- Season 7 countdown ---- */
-  var cd = document.getElementById('raceCountdown');
-  if (cd) {
-    var target = Date.parse(cd.getAttribute('data-target'));
-    var cells = {}; cd.querySelectorAll('[data-u]').forEach(function (el) { cells[el.getAttribute('data-u')] = el; });
-    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
-    var tick = function () {
-      var ms = target - Date.now();
-      if (ms <= 0) { cd.innerHTML = '<div class="countdown-live">Green flag &mdash; it&rsquo;s race night!</div>'; return false; }
-      var t = Math.floor(ms / 1000);
-      cells.d.textContent = Math.floor(t / 86400); cells.h.textContent = pad(Math.floor(t % 86400 / 3600));
-      cells.m.textContent = pad(Math.floor(t % 3600 / 60)); cells.s.textContent = pad(t % 60);
-      return true;
-    };
-    if (tick()) { var iv = setInterval(function () { if (!tick()) clearInterval(iv); }, 1000); }
-  }
-
-  /* ---- Hall of Champions (from seasonChampions in app.js) ---- */
-  var hall = document.getElementById('hallOfChampions');
-  if (hall && typeof seasonChampions !== 'undefined') {
-    var counts = {};
-    Object.keys(seasonChampions).forEach(function (s) { var d = seasonChampions[s].driver; counts[d] = (counts[d] || 0) + 1; });
-    hall.innerHTML = Object.keys(seasonChampions).sort(function (a, b) { return b - a; }).map(function (s) {
-      var c = seasonChampions[s];
-      return '<div class="champ-tile"><div class="champ-season">Season ' + s + '</div><div class="champ-name">' + esc(c.driver) +
-        (counts[c.driver] > 1 ? ' <span class="champ-x">&times;' + counts[c.driver] + '</span>' : '') + '</div>' +
-        '<div class="champ-meta">' + Number(c.points).toLocaleString() + ' pts &middot; ' + c.wins + ' win' + (c.wins === 1 ? '' : 's') + '</div></div>';
-    }).join('');
-  }
-
   /* ---- Season 6 final standings on the Standings page ---- */
   var s6 = document.getElementById('s6Final');
   if (s6 && typeof historicalData !== 'undefined' && historicalData.season6) {

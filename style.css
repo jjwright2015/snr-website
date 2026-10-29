@@ -2319,3 +2319,11 @@ img { max-width: 100%; height: auto; display: block; }
   .countdown-label { font-size: 9px; letter-spacing: 1px; }
   .countdown-sep { font-size: 22px; }
 }
+
+@media (max-width: 600px) {
+  .series-info { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .info-card { padding: 18px 12px; }
+  .secondary-sponsors { gap: 20px 24px; }
+  .secondary-sponsors .sponsor-logo { max-width: 135px; max-height: 48px; }
+  .primary-sponsors .sponsor-logo { max-height: 72px; max-width: 220px; }
+}

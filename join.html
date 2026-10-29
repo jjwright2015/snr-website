@@ -82,7 +82,7 @@
         </div>
         <div class="join-expect-item">
           <span class="join-expect-check">&#10003;</span>
-          <span>Both Cup Series and Challenger Series available</span>
+          <span>One series &mdash; every driver competes in the Cup Series</span>
         </div>
       </div>
     </div>
@@ -102,11 +102,10 @@
 
 <script>
 const html = document.documentElement;
-html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark');
+html.setAttribute('data-theme', 'dark');
 document.getElementById('themeToggle').addEventListener('click', () => {
   const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
-  localStorage.setItem('snr-theme', next);
 });
 const _hbtn = document.getElementById('hamburger');
 const _hnav = document.getElementById('navLinks');

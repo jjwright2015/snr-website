@@ -457,12 +457,11 @@ function initRuleAccordions() {
 function initThemeToggle() {
   const btn = document.getElementById('themeToggle');
   const html = document.documentElement;
-  try { html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark'); } catch (e) {}
+  try { html.setAttribute('data-theme', 'dark'); } catch (e) {}
   if (!btn) return;
   btn.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
-    try { localStorage.setItem('snr-theme', next); } catch (e) {}
   });
 }
 

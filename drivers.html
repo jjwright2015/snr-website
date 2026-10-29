@@ -152,11 +152,11 @@
 
   // chrome handlers (nav + theme) — site-chrome.js only writes the markup
   var root = document.documentElement;
-  try { root.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark'); } catch (e) {}
+  try { root.setAttribute('data-theme', 'dark'); } catch (e) {}
   var tt = $('themeToggle');
   if (tt) tt.addEventListener('click', function () {
     var n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', n); try { localStorage.setItem('snr-theme', n); } catch (e) {}
+    root.setAttribute('data-theme', n);
   });
   var hb = $('hamburger'), nl = $('navLinks');
   if (hb && nl) hb.addEventListener('click', function () { hb.classList.toggle('open'); nl.classList.toggle('open'); });
