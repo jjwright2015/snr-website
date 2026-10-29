@@ -54,6 +54,11 @@
 .dp-card h3 { font-family:var(--font-display); font-size:21px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; line-height:1.15; }
 .dp-card .sub { font-size:12px; color:var(--text-muted); margin:2px 0 12px; min-height:16px; }
 .dp-trophy { color:var(--accent-gold); }
+
+.dp-ph { display:block; width:100%; aspect-ratio:2/1; object-fit:cover; object-position:center; border-radius:var(--radius); margin-bottom:12px; background:var(--bg); }
+.dp-ph.none { display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:34px; font-weight:800; letter-spacing:2px; color:var(--text-muted); border:1px dashed var(--border); background:linear-gradient(135deg,var(--surface),var(--bg)); }
+.dp-head .dp-ph { max-width:none; margin:-28px -28px 18px; width:calc(100% + 56px); border-radius:var(--radius-lg) var(--radius-lg) 0 0; aspect-ratio:21/9; border:0; }
+@media (max-width:640px){ .dp-head .dp-ph { max-width:none; margin:-28px -16px 16px; width:calc(100% + 32px); } }
 .dp-mini { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
 .dp-mini div { padding:8px 4px; text-align:center; border-right:1px solid var(--border); }
 .dp-mini div:last-child { border-right:0; }
@@ -163,11 +168,18 @@
 
   function titlesText(d) { return d.titles.length ? d.titles.map(function (s) { return 'S' + s; }).join(' · ') : ''; }
 
+  function photo(d, big) {
+    if (d.img) return '<img class="dp-ph" src="' + d.img + '" alt="' + esc(d.name) + ' race car" loading="lazy" decoding="async">';
+    if (big) return '';
+    var ini = d.name.replace(/[^A-Za-z ]/g, '').split(/\s+/).filter(Boolean).map(function (w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
+    return '<div class="dp-ph none" aria-hidden="true">' + ini + '</div>';
+  }
+
   function card(d) {
     var c = d.career, b = document.createElement('button');
     b.className = 'dp-card'; b.type = 'button';
     var first = d.first.match(/^S(\d+)/)[1], last = d.last.match(/^S(\d+)/)[1];
-    b.innerHTML = '<h3>' + esc(d.name) + (d.titles.length ? ' <span class="dp-trophy" title="Series champion">&#127942;&times;' + d.titles.length + '</span>' : '') + '</h3>' +
+    b.innerHTML = photo(d) + '<h3>' + esc(d.name) + (d.titles.length ? ' <span class="dp-trophy" title="Series champion">&#127942;&times;' + d.titles.length + '</span>' : '') + '</h3>' +
       '<div class="sub">' + (first === last ? 'Season ' + first : 'Seasons ' + first + '–' + last) + ' &middot; ' + c.starts + ' start' + (c.starts === 1 ? '' : 's') + '</div>' +
       '<div class="dp-mini"><div><small>Wins</small><b>' + c.wins + '</b></div><div><small>Top 5</small><b>' + c.top5 + '</b></div><div><small>Top 10</small><b>' + c.top10 + '</b></div><div><small>Avg Fin</small><b>' + f1(c.avgFinish) + '</b></div></div>';
     b.addEventListener('click', function () { openDriver(d.id, true); });
@@ -206,7 +218,7 @@
     d.titles.forEach(function (s) { badges += '<span class="dp-badge">&#127942; Season ' + s + ' Champion</span>'; });
     var held = (R && R.holders[d.id]) || [];
     if (held.length) badges += '<span class="dp-badge">' + held.length + ' League Record' + (held.length > 1 ? 's' : '') + '</span>';
-    var h = '<div class="dp-head"><h2>' + esc(d.name) + '</h2><div class="dp-badges">' + (badges || '<span class="dp-badge" style="color:var(--text-muted);border-color:var(--border);background:none">Seasons ' + Object.keys(d.seasons).join(', ') + '</span>') + '</div></div><div class="dp-body">';
+    var h = '<div class="dp-head">' + photo(d, true) + '<h2>' + esc(d.name) + '</h2><div class="dp-badges">' + (badges || '<span class="dp-badge" style="color:var(--text-muted);border-color:var(--border);background:none">Seasons ' + Object.keys(d.seasons).join(', ') + '</span>') + '</div></div><div class="dp-body">';
 
     h += '<div class="dp-sec"><h4>Career</h4><div class="dp-stats">' +
       stat('Starts', c.starts) + stat('Wins', c.wins) + stat('Top 5', c.top5) + stat('Top 10', c.top10) + stat('Poles', c.poles) +
