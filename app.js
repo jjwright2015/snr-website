@@ -112,6 +112,8 @@ function showPage(page) {
   if (!validPages.includes(page)) page = 'home';
   
   currentPage = page;
+  var PAGE_TITLES = { home: 'Saturday Night Racing League – NASCAR iRacing League', standings: 'Standings — Saturday Night Racing League', history: 'Historical Standings — Saturday Night Racing League', tracks: 'Track Statistics — Saturday Night Racing League', rules: 'League Rules — Saturday Night Racing League' };
+  document.title = PAGE_TITLES[page] || document.title;
   
   // Hide all pages
   document.querySelectorAll('.page').forEach(p => {
@@ -454,10 +456,13 @@ function initRuleAccordions() {
 // --- Theme Toggle ---
 function initThemeToggle() {
   const btn = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  try { html.setAttribute('data-theme', localStorage.getItem('snr-theme') || 'dark'); } catch (e) {}
+  if (!btn) return;
   btn.addEventListener('click', () => {
-    const html = document.documentElement;
-    const current = html.getAttribute('data-theme');
-    html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('snr-theme', next); } catch (e) {}
   });
 }
 

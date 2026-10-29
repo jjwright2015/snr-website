@@ -67,6 +67,34 @@
     </div>
   </div>
 
+  <!-- Countdown Section -->
+  <div class="section-container">
+    <div class="countdown-section">
+      <div class="countdown-header">
+        <h2 class="section-title">Season 7 Opener</h2>
+        <div class="next-race-badge">SNR 500 &mdash; Season 7</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-track">
+          <div class="track-info">
+            <h3 class="track-name">Daytona International Speedway</h3>
+            <p class="track-date">Saturday, January 30, 2027 — 10:00 PM EST</p>
+            <p class="track-detail">2.5-mile superspeedway &mdash; SNR 500</p>
+          </div>
+        </div>
+        <div class="countdown-timer" id="raceCountdown" data-target="2027-01-31T03:00:00Z" aria-live="off">
+          <div class="countdown-unit"><div class="countdown-number" data-u="d">--</div><div class="countdown-label">Days</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><div class="countdown-number" data-u="h">--</div><div class="countdown-label">Hours</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><div class="countdown-number" data-u="m">--</div><div class="countdown-label">Minutes</div></div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit"><div class="countdown-number" data-u="s">--</div><div class="countdown-label">Seconds</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- Join CTA -->
     <div class="section-container">
       <div class="join-home-cta">
@@ -76,8 +104,10 @@
           <p class="join-home-cta-sub">Established in 2023, Saturday Night Racing League has hosted 150+ official league events, featuring competitive NASCAR Fixed-Setup racing broadcast live on VSPEED&rsquo;s YouTube channel every Saturday night at 10:00 PM EST. Roster spots are limited, and we are currently accepting driver applications for the upcoming season. Submit your application today to earn your spot on the grid and join a community of dedicated NASCAR sim-racers on iRacing!</p>
           <a href="join.html" class="btn btn-primary join-home-btn">Apply Now &nbsp;&rarr;</a>
         </div>
-        <div class="join-home-cta-logo">
-          <img src="assets/snr-logo-new.png" alt="SNR Racing League" class="join-home-logo-img">
+        <div class="join-home-cta-stats" aria-label="League by the numbers">
+          <div class="cta-stat"><strong>150+</strong><span>League events</span></div>
+          <div class="cta-stat"><strong>40+</strong><span>Race winners</span></div>
+          <div class="cta-stat"><strong>6</strong><span>Seasons</span></div>
         </div>
       </div>
     </div>
@@ -115,44 +145,32 @@
 
   </div>
 
-  <!-- Countdown Section -->
+  <!-- Hall of Champions -->
   <div class="section-container">
-    <div class="countdown-section">
-      <div class="countdown-header">
-        <h2 class="section-title">Next Race: Coming Soon</h2>
-        <div class="next-race-badge">SNR 500 &mdash; Season 7</div>
-      </div>
-      <div class="countdown-card">
-        <div class="countdown-track">
-          <div class="track-info">
-            <h3 class="track-name">Daytona International Speedway</h3>
-            <p class="track-date">Saturday, January 30, 2027 — 10:00 PM EST</p>
-            <p class="track-detail">2.5-mile superspeedway &mdash; SNR 500</p>
-          </div>
-        </div>
-        <!-- Countdown timer hidden for now -->
-      </div>
-    </div>
+    <h2 class="section-title">Hall of Champions</h2>
+    <div class="champions-grid" id="hallOfChampions"></div>
+  </div>
 
+  <div class="section-container">
     <!-- Series Info -->
     <div class="series-info">
       <div class="info-card">
-        <div class="info-icon">🏎️</div>
+        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 14.5V21M9.6 11H3.5M14.4 11h6.1"/></svg></div>
         <h4>Cars</h4>
         <p>Season 7 Car TBA</p>
       </div>
       <div class="info-card">
-        <div class="info-icon">📅</div>
+        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h4>Race Night</h4>
         <p>Every Saturday at 10PM EST</p>
       </div>
       <div class="info-card">
-        <div class="info-icon">🏁</div>
+        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg></div>
         <h4>Season 7</h4>
         <p>Coming Soon</p>
       </div>
       <div class="info-card">
-        <div class="info-icon">🎮</div>
+        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg></div>
         <h4>Platform</h4>
         <p>iRacing Simulation</p>
       </div>
@@ -164,7 +182,7 @@
 <section class="page" id="page-standings" style="display:none;">
   <div class="page-header">
     <h1 class="page-title">Season 7 <span class="text-accent">Standings</span></h1>
-    <p class="page-subtitle">Season 7 standings begin after Race 1 — Season 6 final standings are on the History page</p>
+    <p class="page-subtitle">Season 7 standings begin after Race 1 — the Season 6 final standings are shown below</p>
   </div>
   <div class="section-container">
     <!-- Live Standings + Results — Side by Side -->
@@ -188,11 +206,7 @@
           <div class="srh-iframe-dot"></div>
           <span class="srh-iframe-text">Driver Standings</span>
         </div>
-        <div class="srh-iframe-scaler" style="height:auto;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;">
-          <!-- Season 7: replace this placeholder with the SimRacer Hub standings iframe
-               (season_standings.php?season_id=<Season 7 id>&ifn=1) once Race 1 is scored. -->
-          <p style="margin:0;color:#888;">Season 7 standings will appear here after Race 1.</p>
-        </div>
+        <div class="s6-final" id="s6Final"></div>
       </div>
 
     </div>
@@ -348,7 +362,7 @@
 <section class="page" id="page-history" style="display:none;">
   <div class="page-header">
     <h1 class="page-title">Historical <span class="text-accent">Standings</span></h1>
-    <p class="page-subtitle">5 seasons of Saturday Night Racing history</p>
+    <p class="page-subtitle">6 seasons of Saturday Night Racing history</p>
   </div>
   <div class="section-container">
     <div class="season-tabs" id="seasonTabs">
@@ -388,7 +402,7 @@
 <section class="page" id="page-rules" style="display:none;">
   <div class="page-header">
     <h1 class="page-title">League <span class="text-accent">Rules</span></h1>
-    <p class="page-subtitle">Saturday Night Racing Cup Series — Season 6 Rulebook</p>
+    <p class="page-subtitle">Saturday Night Racing Cup Series — Official Rulebook</p>
   </div>
   <div class="section-container">
     <div class="rules-container">
@@ -644,11 +658,8 @@
     <div class="sponsors-tier primary-sponsors">
       <div class="sponsor-item">
         <a href="https://www.teamboss.net/" target="_blank" rel="noopener">
-          <img src="assets/sponsors/teamboss.png" alt="TeamBoss" class="sponsor-logo" style="max-height:110px;max-width:320px;">
+          <img src="assets/sponsors/teamboss.png" alt="TeamBoss" class="sponsor-logo">
         </a>
-      </div>
-      <div class="sponsor-item">
-        <img src="assets/sponsors/mj-distributors.png" alt="M&J Distributors Matco Tools" class="sponsor-logo">
       </div>
     </div>
 
@@ -666,7 +677,7 @@
       </div>
       <div class="sponsor-item">
         <a href="https://www.youtube.com/@JUICYSPYDRnetwork" target="_blank" rel="noopener">
-          <img src="assets/sponsors/juicyspydr.png" alt="JuicySpydr Studios" class="sponsor-logo" style="max-height:80px;">
+          <img src="assets/sponsors/juicyspydr.png" alt="JuicySpydr Studios" class="sponsor-logo">
         </a>
       </div>
       <div class="sponsor-item">
@@ -683,6 +694,7 @@
 <script src="site-chrome.js"></script>
 
 <script src="app.js"></script>
+<script src="polish.js"></script>
 <script>
 /* Hero intro: plays once per browser session, skipped for reduced motion.
    Add ?intro=1 to the address to force it (handy for previews). */
