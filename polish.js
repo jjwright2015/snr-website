@@ -5,11 +5,12 @@
   /* ---- Season 6 final standings on the Standings page ---- */
   var s6 = document.getElementById('s6Final');
   if (s6 && typeof historicalData !== 'undefined' && historicalData.season6) {
-    var rows = historicalData.season6.slice(0, 10).map(function (r) {
-      return '<tr><td>' + r.pos + '</td><td>' + esc(r.driver) + '</td><td>' + r.points + '</td><td>' + r.wins + '</td></tr>';
+    var list = typeof topStandings === 'function' ? topStandings(historicalData.season6) : historicalData.season6.slice(0, 43);
+    var rows = list.map(function (r) {
+      return '<tr><td>' + r.pos + '</td><td>' + esc(r.driver) + '</td><td>' + r.points + '</td><td>' + r.wins + '</td><td>' + r.top5 + '</td><td>' + r.top10 + '</td></tr>';
     }).join('');
-    s6.innerHTML = '<p class="s6-note">Season 7 standings will appear here after Race 1. Final Season 6 standings:</p>' +
-      '<table class="s6-table"><thead><tr><th>Pos</th><th>Driver</th><th>Pts</th><th>Wins</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    s6.innerHTML = '<p class="s6-note">Season 7 standings will appear here after Race 1. Final Season 6 standings (top ' + list.length + '):</p>' +
+      '<div class="s6-scroll"><table class="s6-table"><thead><tr><th>Pos</th><th>Driver</th><th>Pts</th><th>Wins</th><th>Top 5</th><th>Top 10</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
   }
 
   /* ---- Collapsible news recaps ---- */

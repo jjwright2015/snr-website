@@ -2290,6 +2290,8 @@ img { max-width: 100%; height: auto; display: block; }
 .s6-table th { font-family: var(--font-display); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
 .s6-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); }
 .s6-table th:nth-child(n+3), .s6-table td:nth-child(n+3) { text-align: right; }
+.s6-scroll { max-height: 790px; overflow-y: auto; border-top: 1px solid var(--border); }
+.s6-table thead th { position: sticky; top: 0; background: var(--surface); z-index: 1; }
 .s6-table tr:first-child td { color: var(--accent-gold); font-weight: 600; }
 
 /* news: collapsible recaps */
@@ -2327,3 +2329,5 @@ img { max-width: 100%; height: auto; display: block; }
   .secondary-sponsors .sponsor-logo { max-width: 135px; max-height: 48px; }
   .primary-sponsors .sponsor-logo { max-height: 72px; max-width: 220px; }
 }
+
+@media (max-width: 768px) { .s6-scroll { max-height: 500px; } }
