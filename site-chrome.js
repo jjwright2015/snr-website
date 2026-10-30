@@ -49,11 +49,8 @@
     '<nav class="main-nav" id="mainNav">\n' +
     '  <div class="nav-inner">\n' +
     '    <a href="' + (onHome ? '#home' : 'index.html#home') + '" class="nav-brand">\n' +
-    '      <img src="assets/snr-logo-new.png" alt="SNR Logo" class="nav-logo">\n' +
-    '      <div class="nav-brand-text">\n' +
-    '        <span class="brand-name">Saturday Night Racing</span>\n' +
-    '        <span class="brand-series">Cup Series</span>\n' +
-    '      </div>\n' +
+    '      <img src="assets/brand/snr-sticker.svg" alt="Saturday Night Racing League" class="nav-logo nav-sticker" width="196" height="43">\n' +
+    '      <span class="nav-series-tag">Cup Series</span>\n' +
     '    </a>\n' +
     '    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">\n' +
     '      <span></span><span></span><span></span>\n' +
@@ -78,7 +75,7 @@
     '  <div class="footer-inner">\n' +
     '    <div class="footer-top">\n' +
     '      <div class="footer-brand">\n' +
-    '        <img src="assets/snr-logo-new.png" alt="SNR Logo" class="footer-logo">\n' +
+    '        <img src="assets/brand/snr-avatar.svg" alt="SNR" class="footer-logo footer-avatar" width="64" height="64">\n' +
     '        <div>\n' +
     '          <strong>Saturday Night Racing Cup Series</strong>\n' +
     '          <p>' + SEASON_LINE + '</p>\n' +

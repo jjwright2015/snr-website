@@ -2331,3 +2331,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 768px) { .s6-scroll { max-height: 500px; } }
+
+/* ═══════════════ BRAND LOGOS (Oct 30 2026) ═══════════════ */
+.nav-logo.nav-sticker { width:auto; height:43px; border-radius:0; background:none; }
+.nav-series-tag { font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); border:1px solid rgba(201,162,39,.45); border-radius:4px; padding:3px 7px; white-space:nowrap; }
+@media (max-width:1100px){ .nav-logo.nav-sticker { height:36px; } }
+@media (max-width:1250px) and (min-width:769px){ .nav-series-tag { display:none; } }
+@media (max-width:420px){ .nav-logo.nav-sticker { height:32px; } .nav-series-tag { display:none; } }
+.hero-logo-center { width:440px; max-width:86vw; padding:0; border-radius:0; box-shadow:none !important; animation:logoGlowShape 4s ease-in-out infinite alternate; }
+@keyframes logoGlowShape { 0% { filter:drop-shadow(0 0 10px rgba(201,162,39,.30)) drop-shadow(0 6px 16px rgba(0,0,0,.8)); } 100% { filter:drop-shadow(0 0 22px rgba(232,186,44,.55)) drop-shadow(0 6px 20px rgba(0,0,0,.9)); } }
+@media (max-width:768px){ .hero-logo-center { width:300px; } }
+.footer-logo.footer-avatar { height:64px; width:64px; border-radius:50%; }
+.site-footer { position:relative; }
+.site-footer::before { content:""; position:absolute; left:0; right:0; top:0; height:12px; background:repeating-conic-gradient(#2a2a2a 0 25%, #0c0c0c 0 50%) 0 0/12px 12px; -webkit-mask:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent); mask:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent); opacity:.9; }
+.join-home-cta { position:relative; overflow:hidden; isolation:isolate; }
+.join-home-cta::after { content:""; position:absolute; right:-80px; bottom:-60px; width:560px; height:330px; background:url("assets/brand/tire-flag.svg") no-repeat right bottom/contain; opacity:.10; z-index:-1; pointer-events:none; -webkit-mask:radial-gradient(ellipse at 70% 70%,#000 35%,transparent 72%); mask:radial-gradient(ellipse at 70% 70%,#000 35%,transparent 72%); }
+@media (max-width:768px){ .join-home-cta::after { width:360px; height:212px; right:-60px; bottom:-30px; } }
