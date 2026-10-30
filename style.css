@@ -14,15 +14,15 @@
   --text: #f0f0f0;
   --text-muted: #888888;
   --text-dim: #666;
-  --accent: #C9A227;
-  --accent-hover: #a8841c;
-  --accent-gold: #E8BA2C;
+  --accent: #EADC5A;
+  --accent-hover: #D6C744;
+  --accent-gold: #EADC5A;
   --accent-teal: #00BCD4;
   --accent-green: #27ae60;
   --silver: #C0C0C0;
   --bronze: #CD7F32;
-  --suspended-bg: rgba(201, 162, 39, 0.10);
-  --suspended-border: rgba(201, 162, 39, 0.35);
+  --suspended-bg: rgba(234, 220, 90, 0.10);
+  --suspended-border: rgba(234, 220, 90, 0.35);
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body: 'Inter', sans-serif;
   --nav-height: 64px;
@@ -43,8 +43,8 @@
   --text: #1a1a1a;
   --text-muted: #666;
   --text-dim: #999;
-  --suspended-bg: rgba(201, 162, 39, 0.08);
-  --suspended-border: rgba(201, 162, 39, 0.2);
+  --suspended-bg: rgba(234, 220, 90, 0.08);
+  --suspended-border: rgba(234, 220, 90, 0.2);
 }
 
 /* --- Reset & Base --- */
@@ -313,7 +313,7 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateX(-50%);
   width: 800px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(234, 220, 90, 0.15) 0%, transparent 70%);
   pointer-events: none;
   z-index: 2;
 }
@@ -339,13 +339,13 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 8px;
   background: transparent;
   padding: 8px 12px;
-  box-shadow: 0 0 24px rgba(201, 162, 39, 0.4), 0 4px 20px rgba(0,0,0,0.8);
+  box-shadow: 0 0 24px rgba(234, 220, 90, 0.4), 0 4px 20px rgba(0,0,0,0.8);
   animation: logoGlow 4s ease-in-out infinite alternate;
 }
 
 @keyframes logoGlow {
-  0%   { box-shadow: 0 0 16px rgba(201, 162, 39, 0.30), 0 4px 16px rgba(0,0,0,0.8); }
-  100% { box-shadow: 0 0 32px rgba(232, 186, 44, 0.55), 0 4px 20px rgba(0,0,0,0.9); }
+  0%   { box-shadow: 0 0 16px rgba(234, 220, 90, 0.30), 0 4px 16px rgba(0,0,0,0.8); }
+  100% { box-shadow: 0 0 32px rgba(234, 220, 90, 0.55), 0 4px 20px rgba(0,0,0,0.9); }
 }
 
 /* Watermark hidden — JPG logo can't be made transparent */
@@ -407,10 +407,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: #111;
   border-color: var(--accent);
 }
-.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #111; }
 
 .btn-outline {
   background: transparent;
@@ -765,7 +765,7 @@ img { max-width: 100%; height: auto; display: block; }
   right: 8px;
 }
 
-.race-badge.next-badge { background: var(--accent); color: #fff; }
+.race-badge.next-badge { background: var(--accent); color: #111; }
 .race-badge.chase-badge { background: var(--accent-gold); color: #000; }
 .race-badge.champ-badge { background: var(--accent-gold); color: #000; }
 .race-badge.complete-badge { background: rgba(39, 174, 96, 0.15); color: var(--accent-green); }
@@ -921,10 +921,10 @@ img { max-width: 100%; height: auto; display: block; }
 /* Chase eligible — Top 14 in The Chase */
 .chase-eligible { 
   border-left: 3px solid var(--accent-gold);
-  background: rgba(201, 162, 39, 0.06);
+  background: rgba(234, 220, 90, 0.06);
 }
 .chase-eligible:hover {
-  background: rgba(201, 162, 39, 0.12) !important;
+  background: rgba(234, 220, 90, 0.12) !important;
 }
 .chase-eligible .driver-name {
   color: #f0d060;
@@ -944,7 +944,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-transform: uppercase;
   letter-spacing: 0.5px;
   background: var(--accent);
-  color: #fff;
+  color: #111;
   padding: 2px 8px;
   border-radius: 3px;
   margin-left: 8px;
@@ -1052,7 +1052,7 @@ img { max-width: 100%; height: auto; display: block; }
 .season-tab.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #111;
 }
 
 .champion-card {
@@ -1585,7 +1585,7 @@ img { max-width: 100%; height: auto; display: block; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
 
 /* Selection */
-::selection { background: var(--accent); color: #fff; }
+::selection { background: var(--accent); color: #111; }
 
 /* ── Sponsors Section ───────────────────────────────────────────── */
 .sponsors-section {
@@ -2334,12 +2334,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ═══════════════ BRAND LOGOS (Oct 30 2026) ═══════════════ */
 .nav-logo.nav-sticker { width:auto; height:43px; border-radius:0; background:none; }
-.nav-series-tag { font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); border:1px solid rgba(201,162,39,.45); border-radius:4px; padding:3px 7px; white-space:nowrap; }
+.nav-series-tag { font-family:var(--font-display); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent); border:1px solid rgba(234, 220, 90,.45); border-radius:4px; padding:3px 7px; white-space:nowrap; }
 @media (max-width:1100px){ .nav-logo.nav-sticker { height:36px; } }
 @media (max-width:1250px) and (min-width:769px){ .nav-series-tag { display:none; } }
 @media (max-width:420px){ .nav-logo.nav-sticker { height:32px; } .nav-series-tag { display:none; } }
 .hero-logo-center { width:440px; max-width:86vw; padding:0; border-radius:0; box-shadow:none !important; animation:logoGlowShape 4s ease-in-out infinite alternate; }
-@keyframes logoGlowShape { 0% { filter:drop-shadow(0 0 10px rgba(201,162,39,.30)) drop-shadow(0 6px 16px rgba(0,0,0,.8)); } 100% { filter:drop-shadow(0 0 22px rgba(232,186,44,.55)) drop-shadow(0 6px 20px rgba(0,0,0,.9)); } }
+@keyframes logoGlowShape { 0% { filter:drop-shadow(0 0 10px rgba(234, 220, 90,.30)) drop-shadow(0 6px 16px rgba(0,0,0,.8)); } 100% { filter:drop-shadow(0 0 22px rgba(234, 220, 90,.55)) drop-shadow(0 6px 20px rgba(0,0,0,.9)); } }
 @media (max-width:768px){ .hero-logo-center { width:300px; } }
 .footer-logo.footer-avatar { height:64px; width:64px; border-radius:50%; }
 .site-footer { position:relative; }
@@ -2347,3 +2347,11 @@ img { max-width: 100%; height: auto; display: block; }
 .join-home-cta { position:relative; overflow:hidden; isolation:isolate; }
 .join-home-cta::after { content:""; position:absolute; right:-80px; bottom:-60px; width:560px; height:330px; background:url("assets/brand/tire-flag.svg") no-repeat right bottom/contain; opacity:.10; z-index:-1; pointer-events:none; -webkit-mask:radial-gradient(ellipse at 70% 70%,#000 35%,transparent 72%); mask:radial-gradient(ellipse at 70% 70%,#000 35%,transparent 72%); }
 @media (max-width:768px){ .join-home-cta::after { width:360px; height:212px; right:-60px; bottom:-30px; } }
+
+/* ═══════════════ LOGO YELLOW, ACCENT-ONLY (Oct 30 2026) ═══════════════ */
+/* Yellow marks what matters (buttons, active tabs, #1s, one word per title); headings read white. */
+.rule-item h4, .join-info-card h4 { color: var(--text); }
+.join-cta-title { color: var(--text); }
+.news-body p strong { color: #fff; }
+.news-chase-h { color: var(--text) !important; border-left: 3px solid var(--accent); padding-left: 10px; }
+@keyframes logoGlowShape { 0% { filter:drop-shadow(0 0 6px rgba(234,220,90,.16)) drop-shadow(0 6px 16px rgba(0,0,0,.85)); } 100% { filter:drop-shadow(0 0 14px rgba(234,220,90,.30)) drop-shadow(0 6px 18px rgba(0,0,0,.9)); } }
