@@ -1522,7 +1522,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
   
   .nav-link.active::after { display: none; }
-  .nav-link.active { background: rgba(232, 41, 43, 0.1); }
+  .nav-link.active { background: rgba(234, 220, 90, 0.1); }
   
   .theme-toggle { margin-left: 0; margin-top: 12px; }
   

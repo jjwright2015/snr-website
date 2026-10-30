@@ -23,8 +23,10 @@
   var COPYRIGHT   = '© 2027 Saturday Night Racing League. All rights reserved.';
   var SPONSOR     = 'Presented by M&amp;J Distributors &middot; Matco Tools';
 
-  var file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  var onHome = file === '' || file === 'index.html';
+  // Cloudflare serves pages without ".html" (snrleague.com/news), so compare names with the extension stripped
+  function base(n) { return (n || '').toLowerCase().replace(/\.html?$/, '') || 'index'; }
+  var file = base(location.pathname.split('/').pop());
+  var onHome = file === 'index';
   var hash = (location.hash || '').replace('#', '') || 'home';
 
   function hrefFor(it) {
@@ -33,7 +35,7 @@
   }
   function isActive(it) {
     if (it.external) return false;
-    if (it.href) return it.href.toLowerCase() === file;
+    if (it.href) return base(it.href) === file;
     return onHome && it.page === hash;
   }
   var visible = NAV.filter(function (i) { return !i.hidden; });
