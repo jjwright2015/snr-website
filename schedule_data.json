@@ -1,0 +1,588 @@
+{
+ "season": 7,
+ "timeLabel": "10:00 PM ET",
+ "events": [
+  {
+   "round": 1,
+   "date": "2027-01-30",
+   "start": "2027-01-31T03:00:00Z",
+   "track": "Daytona International Speedway",
+   "name": "SNR 500",
+   "label": "Season Opener",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Andy Telgenhof",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Bailey Turner"
+     ],
+     "wins": 3
+    }
+   }
+  },
+  {
+   "round": 2,
+   "date": "2027-02-06",
+   "start": "2027-02-07T03:00:00Z",
+   "track": "Homestead-Miami Speedway",
+   "name": "Homestead-Miami Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 3,
+    "last": {
+     "name": "Joshua Banks",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright",
+      "Joshua Banks",
+      "Ryan Carwile"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "off": true,
+   "date": "2027-02-13",
+   "note": "NASCAR Clash weekend"
+  },
+  {
+   "round": 3,
+   "date": "2027-02-20",
+   "start": "2027-02-21T03:00:00Z",
+   "track": "Atlanta Motor Speedway (2008)",
+   "name": "Atlanta Motor Speedway (2008)",
+   "label": "",
+   "note": "2008 intermediate layout",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Joshua Banks",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Brian Chambliss",
+      "Chad Clinger",
+      "Jeff J. Wright",
+      "Joshua Banks",
+      "Rhea Massey",
+      "Ryan Carwile"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 4,
+   "date": "2027-02-27",
+   "start": "2027-02-28T03:00:00Z",
+   "track": "Darlington Raceway",
+   "name": "Darlington Raceway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 4,
+    "last": {
+     "name": "Joshua Banks",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 5,
+   "date": "2027-03-06",
+   "start": "2027-03-07T03:00:00Z",
+   "track": "Road America",
+   "name": "Road America",
+   "label": "SNR Debut",
+   "note": "",
+   "chase": false
+  },
+  {
+   "round": 6,
+   "date": "2027-03-13",
+   "start": "2027-03-14T03:00:00Z",
+   "track": "Chicagoland Speedway",
+   "name": "Chicagoland Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Jeff J. Wright",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright"
+     ],
+     "wins": 3
+    }
+   }
+  },
+  {
+   "round": 7,
+   "date": "2027-03-20",
+   "start": "2027-03-21T02:00:00Z",
+   "track": "Iowa Speedway",
+   "name": "Iowa Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 5,
+    "last": {
+     "name": "Jeff J. Wright",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright"
+     ],
+     "wins": 3
+    }
+   }
+  },
+  {
+   "off": true,
+   "date": "2027-03-27",
+   "note": "Easter weekend"
+  },
+  {
+   "round": 8,
+   "date": "2027-04-03",
+   "start": "2027-04-04T02:00:00Z",
+   "track": "Texas Motor Speedway",
+   "name": "Texas Motor Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 3,
+    "last": {
+     "name": "A.J. Stravato",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "A.J. Stravato",
+      "Bailey Turner",
+      "Jeff J. Wright"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 9,
+   "date": "2027-04-10",
+   "start": "2027-04-11T02:00:00Z",
+   "track": "Bristol Motor Speedway",
+   "name": "Bristol Motor Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 5,
+    "last": {
+     "name": "Bailey Turner",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Bailey Turner"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 10,
+   "date": "2027-04-17",
+   "start": "2027-04-18T02:00:00Z",
+   "track": "New Hampshire Motor Speedway",
+   "name": "New Hampshire Motor Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 3,
+    "last": {
+     "name": "Bailey Turner",
+     "season": 4
+    },
+    "mostWins": {
+     "names": [
+      "Bailey Turner"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 11,
+   "date": "2027-04-24",
+   "start": "2027-04-25T02:00:00Z",
+   "track": "Michigan International Speedway",
+   "name": "Michigan International Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 4,
+    "last": {
+     "name": "Phillip Brewer",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "A.J. Stravato",
+      "Bailey Turner",
+      "Chad Clinger",
+      "Phillip Brewer"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 12,
+   "date": "2027-05-01",
+   "start": "2027-05-02T02:00:00Z",
+   "track": "Watkins Glen International",
+   "name": "Watkins Glen International",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 2,
+    "last": {
+     "name": "Aaron Smith II",
+     "season": 3
+    },
+    "mostWins": {
+     "names": [
+      "Aaron Smith II",
+      "Joseph McWhorter"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "off": true,
+   "date": "2027-05-08",
+   "note": "Mother's Day weekend"
+  },
+  {
+   "round": 13,
+   "date": "2027-05-15",
+   "start": "2027-05-16T02:00:00Z",
+   "track": "Kansas Speedway",
+   "name": "Kansas Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Joshua Banks",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright",
+      "Joshua Banks"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 14,
+   "date": "2027-05-22",
+   "start": "2027-05-23T02:00:00Z",
+   "track": "Talladega Superspeedway",
+   "name": "Talladega Superspeedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Elliott Butler",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Adam Cabot"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 15,
+   "date": "2027-05-29",
+   "start": "2027-05-30T02:00:00Z",
+   "track": "Charlotte Motor Speedway",
+   "name": "Charlotte 300",
+   "label": "Memorial Day Weekend",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 4,
+    "last": {
+     "name": "Jeff J. Wright",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Enathian Ferrada",
+      "Jeff J. Wright",
+      "Joseph McWhorter",
+      "Joshua L Adams"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 16,
+   "date": "2027-06-05",
+   "start": "2027-06-06T02:00:00Z",
+   "track": "Dover Motor Speedway",
+   "name": "Dover Motor Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "A.J. Stravato",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Adam Cabot"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 17,
+   "date": "2027-06-12",
+   "start": "2027-06-13T02:00:00Z",
+   "track": "Indianapolis Motor Speedway",
+   "name": "Indianapolis Motor Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 1,
+    "last": {
+     "name": "A.J. Stravato",
+     "season": 3
+    },
+    "mostWins": {
+     "names": [
+      "A.J. Stravato"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 18,
+   "date": "2027-06-19",
+   "start": "2027-06-20T02:00:00Z",
+   "track": "Phoenix Raceway",
+   "name": "Phoenix Raceway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 2,
+    "last": {
+     "name": "Jeff J. Wright",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Chad Clinger",
+      "Jeff J. Wright"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 19,
+   "date": "2027-06-26",
+   "start": "2027-06-27T02:00:00Z",
+   "track": "Kentucky Speedway",
+   "name": "Kentucky Speedway",
+   "label": "",
+   "note": "",
+   "chase": false,
+   "history": {
+    "races": 3,
+    "last": {
+     "name": "J R Shepherd",
+     "season": 5
+    },
+    "mostWins": {
+     "names": [
+      "J R Shepherd",
+      "Michael Sturgill",
+      "Seth Hatchel"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "off": true,
+   "date": "2027-07-03",
+   "note": "Independence Day weekend"
+  },
+  {
+   "round": 20,
+   "date": "2027-07-10",
+   "start": "2027-07-11T02:00:00Z",
+   "track": "Las Vegas Motor Speedway",
+   "name": "Las Vegas Motor Speedway",
+   "label": "Chase Race 1",
+   "note": "",
+   "chase": true,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Jeff J. Wright",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Jeff J. Wright"
+     ],
+     "wins": 4
+    }
+   }
+  },
+  {
+   "round": 21,
+   "date": "2027-07-17",
+   "start": "2027-07-18T02:00:00Z",
+   "track": "EchoPark Speedway",
+   "name": "EchoPark Speedway",
+   "label": "Chase Race 2",
+   "note": "Superspeedway layout",
+   "chase": true,
+   "history": {
+    "races": 1,
+    "last": {
+     "name": "Andy Telgenhof",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Andy Telgenhof"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 22,
+   "date": "2027-07-24",
+   "start": "2027-07-25T02:00:00Z",
+   "track": "Richmond Raceway",
+   "name": "Richmond Raceway",
+   "label": "Chase Race 3",
+   "note": "",
+   "chase": true,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Joshua Banks",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Joshua Banks"
+     ],
+     "wins": 2
+    }
+   }
+  },
+  {
+   "round": 23,
+   "date": "2027-07-31",
+   "start": "2027-08-01T02:00:00Z",
+   "track": "Nashville Superspeedway",
+   "name": "Nashville Superspeedway",
+   "label": "Chase Race 4",
+   "note": "",
+   "chase": true,
+   "history": {
+    "races": 3,
+    "last": {
+     "name": "Bailey Turner",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Bailey Turner",
+      "Jeff J. Wright",
+      "Joshua Banks"
+     ],
+     "wins": 1
+    }
+   }
+  },
+  {
+   "round": 24,
+   "date": "2027-08-07",
+   "start": "2027-08-08T02:00:00Z",
+   "track": "Auto Club Speedway",
+   "name": "Auto Club Speedway",
+   "label": "Championship Finale",
+   "note": "",
+   "chase": true,
+   "history": {
+    "races": 6,
+    "last": {
+     "name": "Bailey Turner",
+     "season": 6
+    },
+    "mostWins": {
+     "names": [
+      "Bailey Turner"
+     ],
+     "wins": 3
+    }
+   }
+  }
+ ],
+ "built": "2026-11-09"
+}
