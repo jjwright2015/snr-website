@@ -11,6 +11,8 @@
    "label": "Season Opener",
    "note": "",
    "chase": false,
+   "type": "Superspeedway",
+   "logo": "assets/tracks/daytona.png",
    "history": {
     "races": 6,
     "last": {
@@ -34,6 +36,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
    "history": {
     "races": 3,
     "last": {
@@ -59,11 +62,13 @@
    "round": 3,
    "date": "2027-02-20",
    "start": "2027-02-21T03:00:00Z",
-   "track": "Atlanta Motor Speedway (2008)",
-   "name": "Atlanta Motor Speedway (2008)",
+   "track": "Atlanta Motor Speedway",
+   "name": "Atlanta Motor Speedway",
    "label": "",
-   "note": "2008 intermediate layout",
+   "note": "2008 layout",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/atlanta-2008.png",
    "history": {
     "races": 6,
     "last": {
@@ -92,6 +97,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/darlington.png",
    "history": {
     "races": 4,
     "last": {
@@ -114,7 +121,9 @@
    "name": "Road America",
    "label": "SNR Debut",
    "note": "",
-   "chase": false
+   "chase": false,
+   "type": "Road course",
+   "logo": "assets/tracks/road-america.png"
   },
   {
    "round": 6,
@@ -125,6 +134,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
    "history": {
     "races": 6,
     "last": {
@@ -148,6 +158,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Short track",
+   "logo": "assets/tracks/iowa.png",
    "history": {
     "races": 5,
     "last": {
@@ -176,6 +188,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/texas.png",
    "history": {
     "races": 3,
     "last": {
@@ -201,6 +215,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Short track",
+   "logo": "assets/tracks/bristol.png",
    "history": {
     "races": 5,
     "last": {
@@ -224,6 +240,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Short track",
    "history": {
     "races": 3,
     "last": {
@@ -247,6 +264,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
    "history": {
     "races": 4,
     "last": {
@@ -273,6 +291,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Road course",
+   "logo": "assets/tracks/watkins-glen.png",
    "history": {
     "races": 2,
     "last": {
@@ -302,6 +322,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/kansas.png",
    "history": {
     "races": 6,
     "last": {
@@ -326,6 +348,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Superspeedway",
+   "logo": "assets/tracks/talladega.png",
    "history": {
     "races": 6,
     "last": {
@@ -349,6 +373,8 @@
    "label": "Memorial Day Weekend",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/charlotte.png",
    "history": {
     "races": 4,
     "last": {
@@ -375,6 +401,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Short track",
+   "logo": "assets/tracks/dover.png",
    "history": {
     "races": 6,
     "last": {
@@ -398,6 +426,8 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
+   "logo": "assets/tracks/indianapolis.png",
    "history": {
     "races": 1,
     "last": {
@@ -421,6 +451,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Short track",
    "history": {
     "races": 2,
     "last": {
@@ -445,6 +476,7 @@
    "label": "",
    "note": "",
    "chase": false,
+   "type": "Intermediate",
    "history": {
     "races": 3,
     "last": {
@@ -475,6 +507,8 @@
    "label": "Chase Race 1",
    "note": "",
    "chase": true,
+   "type": "Intermediate",
+   "logo": "assets/tracks/las-vegas.png",
    "history": {
     "races": 6,
     "last": {
@@ -498,6 +532,8 @@
    "label": "Chase Race 2",
    "note": "Superspeedway layout",
    "chase": true,
+   "type": "Superspeedway",
+   "logo": "assets/tracks/echopark.png",
    "history": {
     "races": 1,
     "last": {
@@ -521,6 +557,7 @@
    "label": "Chase Race 3",
    "note": "",
    "chase": true,
+   "type": "Short track",
    "history": {
     "races": 6,
     "last": {
@@ -544,6 +581,8 @@
    "label": "Chase Race 4",
    "note": "",
    "chase": true,
+   "type": "Intermediate",
+   "logo": "assets/tracks/nashville.png",
    "history": {
     "races": 3,
     "last": {
@@ -569,6 +608,7 @@
    "label": "Championship Finale",
    "note": "",
    "chase": true,
+   "type": "Intermediate",
    "history": {
     "races": 6,
     "last": {
@@ -584,5 +624,5 @@
    }
   }
  ],
- "built": "2026-11-09"
+ "built": "2026-11-10"
 }

@@ -33,13 +33,13 @@
   .sc-month h2 { font-family:var(--font-display); font-size:30px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin:0; display:inline-block; padding-bottom:8px; border-bottom:2px solid var(--accent); }
   .sc-chase { margin:34px 0 10px; display:flex; align-items:center; gap:14px; color:var(--accent); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:2px; text-transform:uppercase; }
   .sc-chase::before, .sc-chase::after { content:""; flex:1; height:12px; background:repeating-conic-gradient(#2a2a2a 0 25%, #0c0c0c 0 50%) 0 0/12px 12px; border-radius:2px; }
-  .sc-row { display:grid; grid-template-columns:132px minmax(0,1.1fr) 196px minmax(0,1.15fr) 150px; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 20px; margin-bottom:10px; position:relative; }
-  .sc-row.next { border-color:rgba(234,220,90,.55); box-shadow:0 0 0 1px rgba(234,220,90,.25), 0 8px 24px rgba(0,0,0,.35); }
+  .sc-row { display:grid; grid-template-columns:150px minmax(0,1.1fr) 196px minmax(0,1.15fr) 150px; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 20px; margin-bottom:10px; position:relative; }
+  .sc-row.next:hover, .sc-row.next { border-color:rgba(234,220,90,.55); box-shadow:0 0 0 1px rgba(234,220,90,.25), 0 8px 24px rgba(0,0,0,.35); }
   .sc-row.done .sc-date .d { color:var(--text); }
   .sc-date .w { font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
   .sc-date .d { font-family:var(--font-display); font-size:26px; font-weight:800; line-height:1.05; text-transform:uppercase; }
   .sc-date .t { font-size:14px; color:var(--text); margin-top:2px; }
-  .sc-date .lt { font-size:12px; color:var(--text-muted); }
+  .sc-date .lt { font-size:11.5px; color:var(--text-muted); white-space:nowrap; }
   .sc-ev .rn { font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .sc-ev h3 { font-family:var(--font-display); font-size:23px; font-weight:700; line-height:1.1; margin:3px 0 2px; }
   .sc-ev .trk { font-size:13px; letter-spacing:.6px; text-transform:uppercase; color:var(--text-muted); }
@@ -47,7 +47,21 @@
   .sc-pill.solid { background:var(--accent); color:#111; border-color:var(--accent); }
   .sc-ph { width:196px; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; background:linear-gradient(135deg,var(--surface-2),var(--bg)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
   .sc-ph img { width:100%; height:100%; object-fit:cover; display:block; }
-  .sc-ph img.logo { width:auto; height:56%; object-fit:contain; opacity:.35; filter:grayscale(.4); }
+  .sc-ph.plate { background:#fff; border-color:#fff; }
+  .sc-ph.name { flex-direction:column; gap:3px; padding:0 10px; text-align:center; color:#111; }
+  .sc-ph.name b { font-family:var(--font-display); font-weight:800; font-size:25px; line-height:1; letter-spacing:.5px; text-transform:uppercase; }
+  .sc-ph.name b.long { font-size:19px; }
+  .sc-ph.name i { font-style:normal; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#555; }
+  .sc-ph { position:relative; }
+  .sc-ph .badge { position:absolute; left:6px; bottom:6px; width:34%; height:auto; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,.55); }
+  .sc-row { transition:border-color .15s ease, transform .15s ease; }
+  .sc-row:hover { border-color:#444; }
+  .sc-row.next::before { content:""; position:absolute; left:-1px; top:14px; bottom:14px; width:4px; border-radius:0 4px 4px 0; background:var(--accent); }
+  .sc-act:empty { display:none !important; }
+  .sc-prog { width:100%; max-width:420px; height:6px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin:0 auto 6px; }
+  .sc-prog i { display:block; height:100%; background:var(--accent); border-radius:999px; }
+  .sc-jump { color:var(--accent); text-decoration:none; font-weight:600; }
+  .sc-jump:hover { text-decoration:underline; }
   .sc-win .lab { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
   .sc-win .first { font-size:17px; text-transform:uppercase; line-height:1.1; margin-top:4px; }
   .sc-win { min-width:0; }
@@ -71,6 +85,7 @@
   @media (max-width: 600px) {
     .sc-row { grid-template-columns:1fr 128px; grid-template-areas:"date ph" "ev ev" "win win" "act act"; padding:14px; gap:10px 12px; }
     .sc-ph { width:128px; }
+    .sc-ph.name b { font-size:17px; } .sc-ph.name b.long { font-size:13px; } .sc-ph.name i { font-size:8px; letter-spacing:1.5px; }
     .sc-date .d { font-size:22px; }
     .sc-ev h3 { font-size:21px; }
     .sc-win .last { font-size:26px; }
@@ -134,9 +149,16 @@ hamburger.addEventListener('click', function () {
     var h = '<div class="sc-row' + (isNext ? ' next' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
     h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d">' + MON[d.getMonth()] + '. ' + d.getDate() + '</div>' +
          '<div class="t">' + (r ? 'Final' : '10:00 PM ET') + '</div>' + (r ? '' : '<div class="lt">' + esc(localTime(e.start)) + '</div>') + '</div>';
-    h += '<div class="sc-ev"><div class="rn">Race ' + e.round + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
-    h += '<div class="sc-ph">' + (e.photo ? '<img src="' + esc(e.photo) + '" alt="' + esc(r ? r.winner : e.name) + ' victory burnout" loading="lazy">'
-                                          : '<img class="logo" src="assets/brand/snr-avatar.svg" alt="">') + '</div>';
+    h += '<div class="sc-ev"><div class="rn">Race ' + e.round + (e.type ? ' &middot; ' + esc(e.type) : '') + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
+    if (e.photo) {
+      h += '<div class="sc-ph"><img src="' + esc(e.photo) + '" alt="' + esc(r ? r.winner : e.name) + ' victory burnout" loading="lazy">' +
+           (e.logo ? '<img class="badge" src="' + esc(e.logo) + '" alt="" loading="lazy">' : '') + '</div>';
+    } else if (e.logo) {
+      h += '<div class="sc-ph plate"><img src="' + esc(e.logo) + '" alt="' + esc(e.track) + ' logo" loading="lazy" width="640" height="360"></div>';
+    } else {
+      var m = /^(.*?)\s+((?:Motor |International )?(?:Speedway|Raceway|Superspeedway).*)$/.exec(e.track) || [0, e.track, ''];
+      h += '<div class="sc-ph plate name"><b' + (m[1].length > 9 ? ' class="long"' : '') + '>' + esc(m[1]) + '</b>' + (m[2] ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
+    }
     if (r) {
       var n = split(r.winner), stat = [];
       if (r.start) stat.push('Started P' + r.start);
@@ -182,10 +204,10 @@ hamburger.addEventListener('click', function () {
       if (e.result) done++;
       else if (!next && new Date(e.start).getTime() + 4 * 3600e3 > now) next = e;
     });
-    var meta = '';
+    var meta = '<div class="sc-prog" title="' + done + ' of ' + races + ' races complete"><i style="width:' + (100 * done / races) + '%"></i></div><div style="flex-basis:100%;height:0"></div>';
     if (next) {
       var days = Math.ceil((new Date(next.start).getTime() - now) / 864e5);
-      meta += '<span>Next: <b>' + esc(next.name) + '</b> &middot; ' + (days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : 'in ' + days + ' days') + '</span>';
+      meta += '<span>Next: <a class="sc-jump" href="#race-' + next.round + '">' + esc(next.name) + '</a> &middot; ' + (days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : 'in ' + days + ' days') + '</span>';
     }
     meta += '<span><b>' + done + '</b> of ' + races + ' races complete</span>';
     meta += '<button type="button" class="sc-cal" id="scCal">&#128197; Add to calendar</button>';
