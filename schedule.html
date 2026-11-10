@@ -126,7 +126,7 @@ hamburger.addEventListener('click', function () {
 });
 
 (function () {
-  var MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  var MON = ['JAN.','FEB.','MAR.','APR.','MAY','JUN.','JUL.','AUG.','SEP.','OCT.','NOV.','DEC.'];
   var MONTH = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
@@ -147,7 +147,7 @@ hamburger.addEventListener('click', function () {
     var sub = e.name !== e.track ? e.track : (e.note || '');
     if (e.name !== e.track && e.note) sub += ' &middot; ' + esc(e.note);
     var h = '<div class="sc-row' + (isNext ? ' next' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
-    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d">' + MON[d.getMonth()] + '. ' + d.getDate() + '</div>' +
+    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d">' + MON[d.getMonth()] + ' ' + d.getDate() + '</div>' +
          '<div class="t">' + (r ? 'Final' : '10:00 PM ET') + '</div>' + (r ? '' : '<div class="lt">' + esc(localTime(e.start)) + '</div>') + '</div>';
     h += '<div class="sc-ev"><div class="rn">Race ' + e.round + (e.type ? ' &middot; ' + esc(e.type) : '') + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
     if (e.photo) {
@@ -220,7 +220,7 @@ hamburger.addEventListener('click', function () {
       if (e.round === 20) { out += '<div class="sc-chase">The Chase</div>'; }
       if (m !== month && e.round !== 20) { out += '<div class="sc-month"><h2>' + MONTH[m] + '</h2></div>'; }
       month = m;
-      if (e.off) { var d = ymd(e.date); out += '<div class="sc-off"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + '. ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
+      if (e.off) { var d = ymd(e.date); out += '<div class="sc-off"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + ' ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
       out += row(e, e === next);
     });
     document.getElementById('scList').innerHTML = out;
