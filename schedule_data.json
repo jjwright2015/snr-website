@@ -37,6 +37,7 @@
    "note": "",
    "chase": false,
    "type": "Intermediate",
+   "logo": "assets/tracks/homestead.png",
    "history": {
     "races": 3,
     "last": {
