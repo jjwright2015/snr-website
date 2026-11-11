@@ -564,6 +564,7 @@
    "note": "",
    "chase": true,
    "type": "Short track",
+   "logo": "assets/tracks/richmond.png",
    "history": {
     "races": 6,
     "last": {
