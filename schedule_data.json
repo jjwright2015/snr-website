@@ -243,6 +243,7 @@
    "note": "",
    "chase": false,
    "type": "Short track",
+   "logo": "assets/tracks/new-hampshire.png",
    "history": {
     "races": 3,
     "last": {
