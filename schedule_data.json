@@ -456,6 +456,7 @@
    "note": "",
    "chase": false,
    "type": "Short track",
+   "logo": "assets/tracks/phoenix.png",
    "history": {
     "races": 2,
     "last": {
