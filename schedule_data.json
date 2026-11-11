@@ -616,6 +616,7 @@
    "note": "",
    "chase": true,
    "type": "Intermediate",
+   "logo": "assets/tracks/auto-club.png",
    "history": {
     "races": 6,
     "last": {
