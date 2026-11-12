@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Season 7 Schedule — Saturday Night Racing League</title>
-  <meta name="description" content="Season 7 schedule for the Saturday Night Racing League Cup Series: 24 Saturday-night races, winners, results and race recaps.">
+  <title>Schedule — Saturday Night Racing League</title>
+  <meta name="description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saturday Night Racing League">
   <meta property="og:title" content="Schedule — Saturday Night Racing League">
-  <meta property="og:description" content="Season 7 schedule for the Saturday Night Racing League Cup Series: 24 Saturday-night races, winners, results and race recaps.">
+  <meta property="og:description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
   <meta property="og:image" content="https://snrleague.com/assets/brand/og-card.jpg">
   <meta property="og:url" content="https://snrleague.com/schedule.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Schedule — Saturday Night Racing League">
-  <meta name="twitter:description" content="Season 7 schedule for the Saturday Night Racing League Cup Series: 24 Saturday-night races, winners, results and race recaps.">
+  <meta name="twitter:description" content="Race schedule for the Saturday Night Racing League Cup Series, live from SimRacerHub.">
   <meta name="twitter:image" content="https://snrleague.com/assets/brand/og-card.jpg">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,90 +23,29 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b0f14">
-  <style>
-  .sc-wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px 60px; }
-  .sc-meta { display:flex; flex-wrap:wrap; gap:10px 18px; justify-content:center; align-items:center; margin:-6px 0 26px; color:var(--text-muted); font-size:14px; }
-  .sc-meta b { color:var(--text); font-weight:600; }
-  .sc-cal { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#111; border:0; border-radius:999px; padding:9px 16px; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.5px; text-transform:uppercase; cursor:pointer; }
-  .sc-cal:hover { background:var(--accent-hover); }
-  .sc-month { text-align:center; margin:40px 0 18px; }
-  .sc-month h2 { font-family:var(--font-display); font-size:30px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin:0; display:inline-block; padding-bottom:8px; border-bottom:2px solid var(--accent); }
-  .sc-chase { margin:34px 0 10px; display:flex; align-items:center; gap:14px; color:var(--accent); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:2px; text-transform:uppercase; }
-  .sc-chase::before, .sc-chase::after { content:""; flex:1; height:12px; background:repeating-conic-gradient(#2a2a2a 0 25%, #0c0c0c 0 50%) 0 0/12px 12px; border-radius:2px; }
-  .sc-row { display:grid; grid-template-columns:150px minmax(0,1.1fr) 196px minmax(0,1.15fr) 150px; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 20px; margin-bottom:10px; position:relative; }
-  .sc-row.next:hover, .sc-row.next { border-color:rgba(234,220,90,.55); box-shadow:0 0 0 1px rgba(234,220,90,.25), 0 8px 24px rgba(0,0,0,.35); }
-  .sc-row.done .sc-date .d { color:var(--text); }
-  .sc-date .w { font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-date .d { font-family:var(--font-display); font-size:26px; font-weight:800; line-height:1.05; text-transform:uppercase; }
-  .sc-date .t { font-size:14px; color:var(--text); margin-top:2px; }
-  .sc-date .lt { font-size:11.5px; color:var(--text-muted); white-space:nowrap; }
-  .sc-ev .rn { font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  .sc-ev h3 { font-family:var(--font-display); font-size:23px; font-weight:700; line-height:1.1; margin:3px 0 2px; }
-  .sc-ev .trk { font-size:13px; letter-spacing:.6px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-pill { display:inline-block; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 8px; border-radius:999px; border:1px solid rgba(234,220,90,.5); color:var(--accent); }
-  .sc-pill.solid { background:var(--accent); color:#111; border-color:var(--accent); }
-  .sc-ph { width:196px; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; background:linear-gradient(135deg,var(--surface-2),var(--bg)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
-  .sc-ph img { width:100%; height:100%; object-fit:cover; display:block; }
-  .sc-ph.plate { background:none; border-color:transparent; }
-  .sc-ph.plate img { object-fit:contain; }
-  .sc-ph.name { flex-direction:column; gap:3px; padding:0 10px; text-align:center; color:var(--text); border:1px dashed var(--border); }
-  .sc-ph.name b { font-family:var(--font-display); font-weight:800; font-size:25px; line-height:1; letter-spacing:.5px; text-transform:uppercase; }
-  .sc-ph.name b.long { font-size:19px; }
-  .sc-ph.name i { font-style:normal; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-ph { position:relative; }
-  .sc-ph .badge { position:absolute; left:2px; bottom:0; width:42%; height:auto; object-fit:contain; filter:drop-shadow(0 2px 5px rgba(0,0,0,.7)); }
-  .sc-row { transition:border-color .15s ease, transform .15s ease; }
-  .sc-row:hover { border-color:#444; }
-  .sc-row.next::before { content:""; position:absolute; left:-1px; top:14px; bottom:14px; width:4px; border-radius:0 4px 4px 0; background:var(--accent); }
-  .sc-act:empty { display:none !important; }
-  .sc-prog { width:100%; max-width:420px; height:6px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin:0 auto 6px; }
-  .sc-prog i { display:block; height:100%; background:var(--accent); border-radius:999px; }
-  .sc-jump { color:var(--accent); text-decoration:none; font-weight:600; }
-  .sc-jump:hover { text-decoration:underline; }
-  .sc-win .lab { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-win .first { font-size:17px; text-transform:uppercase; line-height:1.1; margin-top:4px; }
-  .sc-win { min-width:0; }
-  .sc-win .last { overflow-wrap:anywhere; font-family:var(--font-display); font-size:28px; font-weight:800; text-transform:uppercase; line-height:1; color:var(--text); }
-  .sc-win .stat { font-size:12.5px; color:var(--text-muted); margin-top:5px; }
-  .sc-win .hist { font-size:14px; color:var(--text); margin-top:4px; line-height:1.35; }
-  .sc-win .hist span { color:var(--text-muted); }
-  .sc-act { display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
-  .sc-act .soon { text-align:left !important; }
-  .sc-act a { font-family:var(--font-display); font-weight:700; font-size:16px; letter-spacing:.6px; text-transform:uppercase; color:var(--text); text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; }
-  .sc-act a::after { content:"\203A"; color:var(--accent); font-size:22px; line-height:0; position:relative; top:-1px; }
-  .sc-act a:hover { color:var(--accent); }
-  .sc-act .soon { font-size:12.5px; color:var(--text-muted); text-align:right; }
-  .sc-off { display:flex; align-items:center; gap:18px; padding:10px 20px; margin-bottom:10px; border:1px dashed var(--border); border-radius:var(--radius-lg); color:var(--text-muted); font-size:14px; }
-  .sc-off b { font-family:var(--font-display); font-size:17px; color:var(--text-muted); letter-spacing:.5px; text-transform:uppercase; min-width:132px; }
-  @media (max-width: 1020px) {
-    .sc-row { grid-template-columns:120px minmax(0,1fr) 170px; grid-template-areas:"date ev ph" "date win ph" "act act act"; row-gap:8px; }
-    .sc-date{grid-area:date} .sc-ev{grid-area:ev} .sc-ph{grid-area:ph; width:170px} .sc-win{grid-area:win} .sc-act{grid-area:act; flex-direction:row; gap:22px; border-top:1px solid var(--border); padding-top:10px}
-    .sc-act .soon { text-align:left; }
-  }
-  @media (max-width: 600px) {
-    .sc-row { grid-template-columns:1fr 128px; grid-template-areas:"date ph" "ev ev" "win win" "act act"; padding:14px; gap:10px 12px; }
-    .sc-ph { width:128px; }
-    .sc-ph.name b { font-size:17px; } .sc-ph.name b.long { font-size:13px; } .sc-ph.name i { font-size:8px; letter-spacing:1.5px; }
-    .sc-date .d { font-size:22px; }
-    .sc-ev h3 { font-size:21px; }
-    .sc-win .last { font-size:26px; }
-    .sc-off { flex-direction:column; align-items:flex-start; gap:2px; padding:10px 14px; }
-    .sc-month h2 { font-size:26px; }
-  }
-  </style>
 </head>
 <body>
 <div id="site-nav"></div>
 <script src="site-chrome.js"></script>
 
 <div class="standalone-page" style="padding-top:80px;">
-<div class="sc-wrap">
+<div class="section-container">
   <div class="page-header">
-    <h1 class="page-title">Season 7 <span class="text-accent">Schedule</span></h1>
-    <p class="page-subtitle">24 races &middot; Saturday nights at 10:00 PM ET &middot; NASCAR Next Gen Cup car</p>
+    <h1 class="page-title">Race <span class="text-accent">Schedule</span></h1>
+    <p class="page-subtitle">Live from SimRacerHub &mdash; every Saturday night at 10:00 PM ET</p>
   </div>
-  <div class="sc-meta" id="scMeta"></div>
-  <div id="scList"><p style="text-align:center;color:var(--text-muted)">Loading schedule&hellip;</p></div>
+
+  <!-- Season id is a placeholder (Season 6) until the Season 7 schedule is posted on SimRacerHub. -->
+  <div class="srh-iframe-block">
+    <div class="srh-iframe-label">
+      <div class="srh-iframe-dot"></div>
+      <span class="srh-iframe-text">Season Schedule</span>
+      <a href="https://www.simracerhub.com/scoring/season_schedule.php?season_id=28637" target="_blank" rel="noopener" class="srh-iframe-link">Open on SimRacerHub &#8599;</a>
+    </div>
+    <div class="srh-iframe-scaler">
+      <iframe src="https://www.simracerhub.com/scoring/season_schedule.php?season_id=28637&ifn=1" scrolling="yes" title="SNR Race Schedule"></iframe>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -125,111 +64,6 @@ hamburger.addEventListener('click', function () {
   hamburger.classList.toggle('open');
   navLinks.classList.toggle('open');
 });
-
-(function () {
-  var MON = ['JAN.','FEB.','MAR.','APR.','MAY','JUN.','JUL.','AUG.','SEP.','OCT.','NOV.','DEC.'];
-  var MONTH = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-  function ymd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
-  var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-  var eastern = /^America\/(New_York|Detroit|Toronto|Indiana|Kentucky|Nassau|Montreal)/.test(tz);
-  function localTime(iso) {
-    if (eastern || !iso) return '';
-    try { return new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) + ' your time'; } catch (e) { return ''; }
-  }
-  function split(name) { var i = name.lastIndexOf(' '); return i < 0 ? ['', name] : [name.slice(0, i), name.slice(i + 1)]; }
-
-  function row(e, isNext) {
-    var d = ymd(e.date), r = e.result;
-    var pills = '';
-    if (isNext) pills += '<span class="sc-pill solid">Next race</span>';
-    if (e.label) pills += '<span class="sc-pill">' + esc(e.label) + '</span>';
-    var sub = e.name !== e.track ? e.track : (e.note || '');
-    if (e.name !== e.track && e.note) sub += ' &middot; ' + esc(e.note);
-    var h = '<div class="sc-row' + (isNext ? ' next' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
-    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d">' + MON[d.getMonth()] + ' ' + d.getDate() + '</div>' +
-         '<div class="t">' + (r ? 'Final' : '10:00 PM ET') + '</div>' + (r ? '' : '<div class="lt">' + esc(localTime(e.start)) + '</div>') + '</div>';
-    h += '<div class="sc-ev"><div class="rn">Race ' + e.round + (e.type ? ' &middot; ' + esc(e.type) : '') + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
-    if (e.photo) {
-      h += '<div class="sc-ph"><img src="' + esc(e.photo) + '" alt="' + esc(r ? r.winner : e.name) + ' victory burnout" loading="lazy">' +
-           (e.logo ? '<img class="badge" src="' + esc(e.logo) + '" alt="" loading="lazy">' : '') + '</div>';
-    } else if (e.logo) {
-      h += '<div class="sc-ph plate"><img src="' + esc(e.logo) + '" alt="' + esc(e.track) + ' logo" loading="lazy" width="640" height="360"></div>';
-    } else {
-      var m = /^(.*?)\s+((?:Motor |International )?(?:Speedway|Raceway|Superspeedway).*)$/.exec(e.track) || [0, e.track, ''];
-      h += '<div class="sc-ph plate name"><b' + (m[1].length > 9 ? ' class="long"' : '') + '>' + esc(m[1]) + '</b>' + (m[2] ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
-    }
-    if (r) {
-      var n = split(r.winner), stat = [];
-      if (r.start) stat.push('Started P' + r.start);
-      if (r.led) stat.push('Led ' + r.led + (r.laps ? ' of ' + r.laps : '') + ' laps');
-      h += '<div class="sc-win"><div class="lab">Winner</div><div class="first">' + esc(n[0]) + '</div><div class="last">' + esc(n[1]) + '</div>' +
-           (stat.length ? '<div class="stat">' + stat.join(' &middot; ') + '</div>' : '') + '</div>';
-    } else if (e.history) {
-      var hi = e.history, most = hi.mostWins;
-      h += '<div class="sc-win"><div class="lab">SNR track history</div><div class="hist">Last winner: ' + esc(hi.last.name) + ' <span>(S' + hi.last.season + ')</span>' +
-           (most && most.wins > 1 ? '<br>Most wins: ' + esc(most.names.join(', ')) + ' <span>(' + most.wins + ')</span>' : '') +
-           '<br><span>' + hi.races + ' previous SNR race' + (hi.races === 1 ? '' : 's') + ' here</span></div></div>';
-    } else {
-      h += '<div class="sc-win"><div class="lab">SNR track history</div><div class="hist">First SNR race at this track</div></div>';
-    }
-    var acts = '';
-    if (e.results_url) acts += '<a href="' + esc(e.results_url) + '" target="_blank" rel="noopener">Race results</a>';
-    if (e.recap_url) acts += '<a href="' + esc(e.recap_url) + '">Race recap</a>';
-    if (!acts && (r || isNext)) acts = '<div class="soon">' + (r ? 'Results and recap coming soon' : 'Results and recap posted after the race') + '</div>';
-    h += '<div class="sc-act">' + acts + '</div></div>';
-    return h;
-  }
-
-  function ics(data) {
-    var L = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SNR League//Schedule//EN','CALSCALE:GREGORIAN','X-WR-CALNAME:SNR Cup Series Season ' + data.season];
-    data.events.forEach(function (e) {
-      if (e.off) return;
-      var s = e.start.replace(/[-:]/g, '').replace('.000', ''), en = new Date(new Date(e.start).getTime() + 2.5 * 3600e3).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-      L.push('BEGIN:VEVENT','UID:snr-s' + data.season + '-r' + e.round + '@snrleague.com','DTSTAMP:' + s,'DTSTART:' + s,'DTEND:' + en,
-             'SUMMARY:SNR Race ' + e.round + ': ' + e.name + (e.label ? ' (' + e.label + ')' : ''),
-             'LOCATION:' + e.track,'DESCRIPTION:Saturday Night Racing League Cup Series on iRacing. Live on VSPEED. https://snrleague.com/schedule','END:VEVENT');
-    });
-    L.push('END:VCALENDAR');
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([L.join('\r\n')], { type: 'text/calendar' }));
-    a.download = 'snr-season-' + data.season + '-schedule.ics';
-    document.body.appendChild(a); a.click(); a.remove();
-  }
-
-  fetch('schedule_data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
-    var now = Date.now(), next = null, done = 0, races = 0;
-    data.events.forEach(function (e) {
-      if (e.off) return; races++;
-      if (e.result) done++;
-      else if (!next && new Date(e.start).getTime() + 4 * 3600e3 > now) next = e;
-    });
-    var meta = '<div class="sc-prog" title="' + done + ' of ' + races + ' races complete"><i style="width:' + (100 * done / races) + '%"></i></div><div style="flex-basis:100%;height:0"></div>';
-    if (next) {
-      var days = Math.ceil((new Date(next.start).getTime() - now) / 864e5);
-      meta += '<span>Next: <a class="sc-jump" href="#race-' + next.round + '">' + esc(next.name) + '</a> &middot; ' + (days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : 'in ' + days + ' days') + '</span>';
-    }
-    meta += '<span><b>' + done + '</b> of ' + races + ' races complete</span>';
-    meta += '<button type="button" class="sc-cal" id="scCal">&#128197; Add to calendar</button>';
-    document.getElementById('scMeta').innerHTML = meta;
-    document.getElementById('scCal').addEventListener('click', function () { ics(data); });
-
-    var out = '', month = -1;
-    data.events.forEach(function (e) {
-      var m = ymd(e.date).getMonth();
-      if (e.round === 20) { out += '<div class="sc-chase">The Chase</div>'; }
-      if (m !== month && e.round !== 20) { out += '<div class="sc-month"><h2>' + MONTH[m] + '</h2></div>'; }
-      month = m;
-      if (e.off) { var d = ymd(e.date); out += '<div class="sc-off"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + ' ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
-      out += row(e, e === next);
-    });
-    document.getElementById('scList').innerHTML = out;
-    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView({ block: 'center' }); }
-  }).catch(function () {
-    document.getElementById('scList').innerHTML = '<p style="text-align:center;color:var(--text-muted)">The schedule could not load. Please refresh the page.</p>';
-  });
-})();
 </script>
 </body>
 </html>
