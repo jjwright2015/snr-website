@@ -79,20 +79,63 @@
   .sc-act .soon { font-size:12.5px; color:var(--text-muted); text-align:right; }
   .sc-off { display:flex; align-items:center; gap:18px; padding:10px 20px; margin-bottom:10px; border:1px dashed var(--border); border-radius:var(--radius-lg); color:var(--text-muted); font-size:14px; }
   .sc-off b { font-family:var(--font-display); font-size:17px; color:var(--text-muted); letter-spacing:.5px; text-transform:uppercase; min-width:132px; }
+  .sc-when, .sc-more { display:none; }
   @media (max-width: 1020px) {
     .sc-row { grid-template-columns:120px minmax(0,1fr) 170px; grid-template-areas:"date ev ph" "date win ph" "act act act"; row-gap:8px; }
     .sc-date{grid-area:date} .sc-ev{grid-area:ev} .sc-ph{grid-area:ph; width:170px} .sc-win{grid-area:win} .sc-act{grid-area:act; flex-direction:row; gap:22px; border-top:1px solid var(--border); padding-top:10px}
     .sc-act .soon { text-align:left; }
   }
+  /* Phones: one compact line per race (date, name, logo). Tap a race for track history, local time and links. */
   @media (max-width: 600px) {
-    .sc-row { grid-template-columns:1fr 128px; grid-template-areas:"date ph" "ev ev" "win win" "act act"; padding:14px; gap:10px 12px; }
-    .sc-ph { width:128px; }
-    .sc-ph.name b { font-size:17px; } .sc-ph.name b.long { font-size:13px; } .sc-ph.name i { font-size:8px; letter-spacing:1.5px; }
-    .sc-date .d { font-size:22px; }
-    .sc-ev h3 { font-size:21px; }
-    .sc-win .last { font-size:26px; }
-    .sc-off { flex-direction:column; align-items:flex-start; gap:2px; padding:10px 14px; }
-    .sc-month h2 { font-size:26px; }
+    .sc-wrap { padding:0 12px 48px; }
+    .sc-wrap .page-subtitle { font-size:14px; }
+    .sc-meta { gap:8px 14px; margin:-4px 0 14px; font-size:13px; }
+    .sc-meta .sc-count { display:none; }
+    .sc-cal { padding:6px 12px; font-size:13px; background:none; color:var(--accent); border:1px solid rgba(234,220,90,.5); }
+    .sc-cal:hover { background:rgba(234,220,90,.12); }
+    .sc-month { text-align:left; margin:22px 0 8px; display:flex; align-items:center; gap:10px; }
+    .sc-month h2 { font-size:17px; letter-spacing:2px; padding:0; border:0; color:var(--accent); }
+    .sc-month::after { content:""; flex:1; height:1px; background:var(--border); }
+    .sc-chase { margin:22px 0 8px; font-size:17px; gap:10px; }
+    .sc-chase::before, .sc-chase::after { height:8px; background-size:8px 8px; }
+    .sc-row { grid-template-columns:44px minmax(0,1fr) 88px 22px; grid-template-areas:"date ev ph more" "when when when when" "win win win win" "act act act act"; gap:0 10px; padding:9px 6px 9px 10px; margin-bottom:6px; border-radius:var(--radius); cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .sc-row.next::before { top:9px; bottom:9px; width:3px; }
+    .sc-date { grid-area:date; text-align:center; border-right:1px solid var(--border); padding-right:10px; align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
+    .sc-date .w, .sc-date .t, .sc-date .lt { display:none; }
+    .sc-date .d { font-size:24px; line-height:1; }
+    .sc-date .d .mo { display:block; font-family:var(--font-body); font-size:10.5px; font-weight:600; letter-spacing:1px; color:var(--text-muted); margin-bottom:3px; }
+    .sc-row.next .sc-date .d .dn { color:var(--accent); }
+    .sc-ev { grid-area:ev; min-width:0; }
+    .sc-ev .rn { font-size:10.5px; letter-spacing:.8px; gap:3px 5px; }
+    .sc-ev h3 { font-size:18px; line-height:1.08; margin:2px 0 0; }
+    .sc-ev .trk { font-size:11px; letter-spacing:.4px; margin-top:2px; }
+    .sc-ev .trk:empty { display:none; }
+    .sc-pill { font-size:9.5px; letter-spacing:.6px; padding:1px 6px; }
+    .sc-ph { grid-area:ph; width:88px; align-self:center; border-radius:6px; }
+    .sc-ph.name b { font-size:14px; } .sc-ph.name b.long { font-size:11px; } .sc-ph.name i { font-size:7px; letter-spacing:1px; }
+    .sc-more { grid-area:more; display:flex; align-items:center; justify-content:center; align-self:stretch; width:22px; padding:0; background:none; border:0; color:var(--text-muted); cursor:pointer; }
+    .sc-more svg { width:14px; height:14px; transition:transform .15s ease; }
+    .sc-row.open .sc-more svg { transform:rotate(180deg); }
+    .sc-row.open .sc-more { color:var(--accent); }
+    .sc-when { grid-area:when; display:none; font-size:12.5px; color:var(--text); margin-top:9px; padding-top:9px; border-top:1px solid var(--border); }
+    .sc-when span { color:var(--text-muted); }
+    .sc-win { grid-area:win; display:none; margin-top:6px; }
+    .sc-win .lab { font-size:10px; letter-spacing:1.2px; }
+    .sc-win .hist { font-size:12.5px; margin-top:2px; }
+    .sc-act { grid-area:act; display:none; flex-direction:row; flex-wrap:wrap; gap:6px 20px; border-top:0; padding-top:0; margin-top:8px; }
+    .sc-act a { font-size:14px; }
+    .sc-act .soon { font-size:11.5px; }
+    .sc-row.open .sc-when, .sc-row.open .sc-win { display:block; }
+    .sc-row.open .sc-act { display:flex; }
+    /* Finished races always show the winner and links */
+    .sc-row.done .sc-win { display:flex; flex-wrap:wrap; align-items:baseline; gap:0 6px; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
+    .sc-row.done .sc-win .lab { margin-right:2px; }
+    .sc-row.done .sc-win .first, .sc-row.done .sc-win .last { font-family:var(--font-display); font-size:18px; font-weight:800; line-height:1.1; margin:0; }
+    .sc-row.done .sc-win .stat { display:none; flex-basis:100%; font-size:11.5px; margin-top:2px; }
+    .sc-row.done.open .sc-win .stat { display:block; }
+    .sc-row.done .sc-act { display:flex; }
+    .sc-off { gap:8px; padding:5px 10px; margin-bottom:6px; font-size:12px; border-radius:var(--radius); }
+    .sc-off b { font-size:13px; min-width:0; }
   }
   </style>
 </head>
@@ -148,8 +191,8 @@ hamburger.addEventListener('click', function () {
     if (e.label) pills += '<span class="sc-pill">' + esc(e.label) + '</span>';
     var sub = e.name !== e.track ? e.track : (e.note || '');
     if (e.name !== e.track && e.note) sub += ' &middot; ' + esc(e.note);
-    var h = '<div class="sc-row' + (isNext ? ' next' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
-    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d">' + MON[d.getMonth()] + ' ' + d.getDate() + '</div>' +
+    var h = '<div class="sc-row' + (isNext ? ' next open' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
+    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d"><span class="mo">' + MON[d.getMonth()] + '</span> <span class="dn">' + d.getDate() + '</span></div>' +
          '<div class="t">' + (r ? 'Final' : '10:00 PM ET') + '</div>' + (r ? '' : '<div class="lt">' + esc(localTime(e.start)) + '</div>') + '</div>';
     h += '<div class="sc-ev"><div class="rn">Race ' + e.round + (e.type ? ' &middot; ' + esc(e.type) : '') + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
     if (e.photo) {
@@ -161,6 +204,9 @@ hamburger.addEventListener('click', function () {
       var m = /^(.*?)\s+((?:Motor |International )?(?:Speedway|Raceway|Superspeedway).*)$/.exec(e.track) || [0, e.track, ''];
       h += '<div class="sc-ph plate name"><b' + (m[1].length > 9 ? ' class="long"' : '') + '>' + esc(m[1]) + '</b>' + (m[2] ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
     }
+    var lt = localTime(e.start);
+    h += '<button type="button" class="sc-more" aria-expanded="' + (isNext ? 'true' : 'false') + '" aria-label="Details for race ' + e.round + '"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></button>';
+    if (!r) h += '<div class="sc-when">' + DAY[d.getDay()] + ' &middot; 10:00 PM ET' + (lt ? ' <span>&middot; ' + esc(lt) + '</span>' : '') + '</div>';
     if (r) {
       var n = split(r.winner), stat = [];
       if (r.start) stat.push('Started P' + r.start);
@@ -211,7 +257,7 @@ hamburger.addEventListener('click', function () {
       var days = Math.ceil((new Date(next.start).getTime() - now) / 864e5);
       meta += '<span>Next: <a class="sc-jump" href="#race-' + next.round + '">' + esc(next.name) + '</a> &middot; ' + (days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : 'in ' + days + ' days') + '</span>';
     }
-    meta += '<span><b>' + done + '</b> of ' + races + ' races complete</span>';
+    meta += '<span class="sc-count"><b>' + done + '</b> of ' + races + ' races complete</span>';
     meta += '<button type="button" class="sc-cal" id="scCal">&#128197; Add to calendar</button>';
     document.getElementById('scMeta').innerHTML = meta;
     document.getElementById('scCal').addEventListener('click', function () { ics(data); });
@@ -225,8 +271,22 @@ hamburger.addEventListener('click', function () {
       if (e.off) { var d = ymd(e.date); out += '<div class="sc-off"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + ' ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
       out += row(e, e === next);
     });
-    document.getElementById('scList').innerHTML = out;
-    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView({ block: 'center' }); }
+    var list = document.getElementById('scList');
+    list.innerHTML = out;
+    // Phones show one line per race; tapping a race opens its details (no visible effect on wider screens).
+    function setOpen(rowEl, on) {
+      rowEl.classList.toggle('open', on);
+      var b = rowEl.querySelector('.sc-more'); if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
+    list.addEventListener('click', function (ev) {
+      if (ev.target.closest('a')) return;
+      var rowEl = ev.target.closest('.sc-row'); if (rowEl) setOpen(rowEl, !rowEl.classList.contains('open'));
+    });
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) { if (t.classList.contains('sc-row')) setOpen(t, true); t.scrollIntoView({ block: 'center' }); } }
+    document.getElementById('scMeta').addEventListener('click', function (ev) {
+      var a = ev.target.closest('.sc-jump'); if (!a) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) setOpen(t, true);
+    });
   }).catch(function () {
     document.getElementById('scList').innerHTML = '<p style="text-align:center;color:var(--text-muted)">The schedule could not load. Please refresh the page.</p>';
   });
