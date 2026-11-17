@@ -21,7 +21,7 @@
 
   var SEASON_LINE = 'Season 7 — iRacing';
   var COPYRIGHT   = '© 2027 Saturday Night Racing League. All rights reserved.';
-  var SPONSOR     = 'Presented by M&amp;J Distributors &middot; Matco Tools';
+  var SPONSOR     = '';   // title-sponsor credit line; leave empty when there is none
 
   // Cloudflare serves pages without ".html" (snrleague.com/news), so compare names with the extension stripped
   function base(n) { return (n || '').toLowerCase().replace(/\.html?$/, '') || 'index'; }
@@ -86,7 +86,7 @@
     '      <div class="footer-links">\n        ' + footLinks + '\n      </div>\n' +
     '    </div>\n' +
     '    <div class="footer-bottom">\n' +
-    '      <p class="footer-sponsor">' + SPONSOR + '</p>\n' +
+    (SPONSOR ? '      <p class="footer-sponsor">' + SPONSOR + '</p>\n' : '') +
     '      <p>' + COPYRIGHT + '</p>\n' +
     '    </div>\n' +
     '  </div>\n' +
