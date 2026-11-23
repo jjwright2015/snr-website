@@ -51,87 +51,74 @@
     </div>
     <div class="hero-content">
       <div class="hero-series-logo"><img src="assets/brand/snr-logo.svg" alt="Saturday Night Racing League" class="hero-logo-center" width="420" height="233"></div>
-      <div class="hero-badge">Season 7 Coming Soon - Apply Now!</div>
-      <p class="hero-subtitle"></p>
+      <h1 class="sr-only">Saturday Night Racing League &mdash; NASCAR iRacing Cup Series</h1>
+      <a href="schedule.html" class="hero-badge hero-badge-link" id="heroBadge">Season 7 starts January 30 at Daytona &rarr;</a>
+      <p class="hero-tagline">NASCAR iRacing league &middot; Saturdays 10&nbsp;PM&nbsp;ET &middot; Live on VSPEED</p>
       <div class="hero-actions">
-        <a href="#standings" class="btn btn-primary">View Standings</a>
-        <a href="news.html" class="btn btn-primary">Latest News</a>
+        <a href="schedule.html" class="btn btn-primary">Season 7 Schedule</a>
+        <a href="https://www.youtube.com/VSPEED" target="_blank" rel="noopener" class="btn btn-outline hero-watch">&#9654;&nbsp; Watch Live on VSPEED</a>
       </div>
     </div>
   </div>
 
-    <!-- Join CTA -->
+    <!-- Next race (filled from schedule_data.json by polish.js) -->
     <div class="section-container">
-      <div class="join-home-cta">
-        <div class="join-home-cta-text">
-          <div class="join-home-cta-badge">Season 7 &mdash; Applications Open</div>
-          <h2 class="join-home-cta-title">Apply to Race in the Next Season of Saturday Night Racing League</h2>
-          <p class="join-home-cta-sub">Established in 2023, Saturday Night Racing League has hosted 150+ official league events, featuring competitive NASCAR Fixed-Setup racing broadcast live on VSPEED&rsquo;s YouTube channel every Saturday night at 10:00 PM EST. Roster spots are limited, and we are currently accepting driver applications for the upcoming season. Submit your application today to earn your spot on the grid and join a community of dedicated NASCAR sim-racers on iRacing!</p>
-          <a href="join.html" class="btn btn-primary join-home-btn">Apply Now &nbsp;&rarr;</a>
-        </div>
-        <div class="join-home-cta-stats" aria-label="League by the numbers">
-          <div class="cta-stat"><strong>150+</strong><span>League events</span></div>
-          <div class="cta-stat"><strong>40+</strong><span>Race winners</span></div>
-          <div class="cta-stat"><strong>6</strong><span>Seasons</span></div>
-        </div>
-      </div>
+      <div class="nr" id="nextRace" hidden></div>
     </div>
 
   <!-- Latest News -->
   <div class="section-container">
-    <div class="news-section">
+    <div class="hn-head">
       <h2 class="section-title">Latest News</h2>
-      <div class="news-card">
-        <div class="news-meta">
-          <span class="news-race-badge">Chase Race 5 &mdash; Season Finale &mdash; Kansas Speedway</span>
-          <span class="news-date">August 8, 2026</span>
-        </div>
-        <h3 class="news-headline">Banks Goes Perfect at Kansas &mdash; Captures 2nd SNR Cup Series Championship</h3>
-        <div class="news-image-wrap">
-          <img src="assets/race22-kansas-banks-championship-grid.jpg" alt="Joshua Banks wins the Season 6 Championship at Kansas Speedway" class="news-image" style="max-height:none;object-fit:contain;background:#0a0a0a;">
-        </div>
-        <div class="news-body">
-          <p>Joshua Banks turned in the drive of his career when it mattered most. The two-time SNR Cup Series champion won the pole, led a race-high 62 laps, and won the Season 6 finale at Kansas Speedway &mdash; but the road to Victory Lane and the championship was anything but smooth.</p>
-          <p>Early in the race, contact with Jeff J. Wright for the lead on lap 15 sent Banks sliding through the infield in a moment that looked like it may have ended his championship hopes on the spot. Banks managed to save the car, but the damage was done &mdash; he fell all the way back to 14th place. What followed was one of the most impressive drives in league history, as Banks methodically worked his way back through the field, retook the race lead, and never looked back the rest of the way.</p>
-          <p>The championship battle was just as dramatic on points. Bailey Turner entered the night holding a 10-point lead over Banks, but a decision to stay out on older tires during a lap 8 caution shuffled Turner to the back of the field. Turner mounted an impressive charge of his own, clawing his way back to a 4th-place finish &mdash; but it wasn&rsquo;t enough. Banks&rsquo; win vaulted him past Turner by 5 points at the checkered flag, capturing the Season 6 championship.</p>
-          <p>It&rsquo;s the 5th win of the season for Banks and his 2nd career victory at Kansas Speedway. Dakota Floyd2 was the only other driver to lead significant laps, pacing the field for 35 laps and coming home 2nd. Kenny Kibbey rounded out the podium in 3rd, with Turner in 4th and A.J. Stravato in 5th. J R Shepherd, Angelo Hronis, Jeff J. Wright, Justin Richie, and Reggie Ortega completed the top 10. Only a single caution flew on the night, for 3 laps, as seven different drivers traded the lead over nine lead changes.</p>
-          <p><strong>Final Season 6 Championship Standings:</strong></p>
-          <p>Joshua Banks closes out Season 6 as champion with 2,240 points, edging Bailey Turner by just 5 points at 2,235 in one of the tightest title fights in league history. Phillip Brewer secured 3rd in the final standings at 2,202, followed by Jeff J. Wright in 4th at 2,197 and J R Shepherd in 5th at 2,189. Kenny Kibbey finished 6th at 2,174, Dakota Floyd2 7th at 2,168, and Elliott Butler 8th at 2,161. A.J. Stravato closed out 9th at 2,154, with Angelo Hronis 10th at 2,140. Justin Richie, Chuck Sweeting, Caleb Weekley, and Seth Hatchel rounded out the Chase field in 11th through 14th.</p>
-          <p>Congratulations to Joshua Banks and every driver who battled through a hard-fought Season 6. Stay tuned to the Saturday Night Racing League for Season 7 announcements &mdash; and be sure to head to the <a href="join.html" style="color:var(--accent);text-decoration:none;font-weight:700;">Join the League</a> page to apply for your spot on the grid!</p>
-          <div class="news-broadcast">
-            <span class="broadcast-arrow">&#8595;</span>
-            <a href="https://www.youtube.com/watch?v=mdwds0PCP7M" target="_blank" rel="noopener" class="btn btn-primary broadcast-btn">Watch the Full Race Broadcast Here!</a>
-            <a href="https://www.simracerhub.com/scoring/season_race.php?schedule_id=349100" target="_blank" rel="noopener" class="btn btn-outline broadcast-btn">View Full Race Results Here</a>
-          </div>
-        </div>
-      </div>
     </div>
-
-
+    <div class="hn-grid">
+        <a class="hn-card" href="news.html#banks-goes-perfect-at-kansas-captures-2nd-snr-cup-series-cha">
+          <div class="hn-img"><img src="assets/race22-kansas-banks-championship-grid.jpg" alt="Joshua Banks wins the Season 6 Championship at Kansas Speedway" loading="lazy"></div>
+          <div class="hn-body">
+            <div class="hn-meta"><span class="hn-badge">Chase Race 5 &mdash; Season Finale &mdash; Kansas Speedway</span><span class="hn-date">August 8, 2026</span></div>
+            <h3 class="hn-title">Banks Goes Perfect at Kansas &mdash; Captures 2nd SNR Cup Series Championship</h3>
+            <p class="hn-ex">Joshua Banks turned in the drive of his career when it mattered most. The two-time SNR Cup Series champion won the pole, led a race-high 62 laps, and&hellip;</p>
+            <span class="hn-more">Read recap &rarr;</span>
+          </div>
+        </a>
+        <a class="hn-card" href="news.html#turner-digs-deep-at-bristol-passes-late-for-4th-win-of-the-s">
+          <div class="hn-img"><img src="assets/race21-bristol-turner-win.jpg" alt="Bailey Turner wins at Bristol Motor Speedway" loading="lazy"></div>
+          <div class="hn-body">
+            <div class="hn-meta"><span class="hn-badge">Chase Race 4 &mdash; Bristol Motor Speedway</span><span class="hn-date">August 1, 2026</span></div>
+            <h3 class="hn-title">Turner Digs Deep at Bristol &mdash; Passes Late for 4th Win of the Season</h3>
+            <p class="hn-ex">Bailey Turner is putting together a championship-caliber close to the season. The points leader added another trophy to his case Saturday Night at&hellip;</p>
+            <span class="hn-more">Read recap &rarr;</span>
+          </div>
+        </a>
+        <a class="hn-card" href="news.html#brewer-breaks-through-first-career-cup-series-win-at-michiga">
+          <div class="hn-img"><img src="assets/race20-michigan-brewer-win.jpg" alt="Phillip Brewer wins at Michigan International Speedway" loading="lazy"></div>
+          <div class="hn-body">
+            <div class="hn-meta"><span class="hn-badge">Chase Race 3 &mdash; Michigan International Speedway</span><span class="hn-date">July 25, 2026</span></div>
+            <h3 class="hn-title">Brewer Breaks Through &mdash; First Career Cup Series Win at Michigan in Overtime Thriller</h3>
+            <p class="hn-ex">Phillip Brewer is a Saturday Night Racing League Cup Series winner. The former SNR Challenger Series Champion broke through for his first career Cup&hellip;</p>
+            <span class="hn-more">Read recap &rarr;</span>
+          </div>
+        </a>
+    </div>
+    <div class="hn-all"><a href="news.html" class="btn btn-outline">All news &amp; recaps &rarr;</a></div>
   </div>
 
+  <!-- League at a glance -->
   <div class="section-container">
-    <!-- Series Info -->
-    <div class="series-info">
-      <div class="info-card">
-        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 14.5V21M9.6 11H3.5M14.4 11h6.1"/></svg></div>
-        <h4>Cars</h4>
-        <p>Season 7 Car TBA</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h4>Race Night</h4>
-        <p>Every Saturday at 10PM EST</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg></div>
-        <h4>Season 7</h4>
-        <p>Coming Soon</p>
-      </div>
-      <div class="info-card">
-        <div class="info-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg></div>
-        <h4>Platform</h4>
-        <p>iRacing Simulation</p>
+    <div class="glance">
+      <a class="glance-champ" href="news.html#banks-goes-perfect-at-kansas-captures-2nd-snr-cup-series-cha">
+        <img src="assets/driver_joshua_banks.jpg" alt="Joshua Banks's car" loading="lazy">
+        <div class="glance-champ-text">
+          <span class="glance-kicker">Defending champion</span>
+          <strong>Joshua Banks</strong>
+          <span>2&times; SNR Cup Series champion &middot; 5 wins in Season 6</span>
+        </div>
+      </a>
+      <div class="glance-stats" aria-label="League by the numbers">
+        <div class="cta-stat"><strong>6</strong><span>Seasons</span></div>
+        <div class="cta-stat"><strong>150+</strong><span>League events</span></div>
+        <div class="cta-stat"><strong>40+</strong><span>Race winners</span></div>
+        <div class="cta-stat"><strong>24</strong><span>Races in Season 7</span></div>
       </div>
     </div>
   </div>
@@ -182,6 +169,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Andy Telgenhof</span>
           </div>
+          <div class="result-detail">Started P16 &middot; led 8 of 203 laps &middot; 9 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Justin Carey</span>
@@ -195,6 +183,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Bailey Turner</span>
           </div>
+          <div class="result-detail">Started P17 &middot; led 13 of 112 laps &middot; 6 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Justin Michael</span>
@@ -208,7 +197,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Jeff J. Wright</span>
           </div>
-          <div class="result-detail">Led 113 of 156 laps</div>
+          <div class="result-detail">Started P7 &middot; led 113 of 156 laps &middot; 6 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Phillip Brewer</span>
@@ -222,7 +211,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Jeff J. Wright</span>
           </div>
-          <div class="result-detail">Led 90 of 140 laps</div>
+          <div class="result-detail">Started P7 &middot; led 90 of 140 laps &middot; 4 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Chad Clinger</span>
@@ -236,7 +225,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Joshua Banks</span>
           </div>
-          <div class="result-detail">Led 119 of 159 laps</div>
+          <div class="result-detail">Started P2 &middot; led 119 of 159 laps &middot; 5 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">James Lehman</span>
@@ -250,7 +239,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Bailey Turner</span>
           </div>
-          <div class="result-detail">Led 132 of 250 laps</div>
+          <div class="result-detail">Started P3 &middot; led 132 of 250 laps &middot; 19 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">J R Shepherd</span>
@@ -264,7 +253,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Jeff J. Wright</span>
           </div>
-          <div class="result-detail">Led 131 laps · 4 cautions</div>
+          <div class="result-detail">Started P6 &middot; led 131 of 175 laps &middot; 4 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Phillip Brewer</span>
@@ -278,10 +267,10 @@
             <span class="result-label">Winner</span>
             <span class="result-name">A.J. Stravato</span>
           </div>
-          <div class="result-detail">126 laps led by J R Shepherd · 2 cautions</div>
+          <div class="result-detail">Started P12 &middot; led 1 of 150 laps &middot; 1 caution</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
-            <span class="result-name">TBD</span>
+            <span class="result-name">Justin Richie</span>
           </div>
         </div>
         <div class="result-card completed">
@@ -292,7 +281,7 @@
             <span class="result-label">Winner</span>
             <span class="result-name">Andy Telgenhof</span>
           </div>
-          <div class="result-detail">Started P32 · 130 laps</div>
+          <div class="result-detail">Started P32 &middot; led 3 of 130 laps &middot; 1 caution</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">Jeff J. Wright</span>
@@ -306,10 +295,178 @@
             <span class="result-label">Winner</span>
             <span class="result-name">A.J. Stravato</span>
           </div>
-          <div class="result-detail">Led 109 of 140 laps · 4 cautions</div>
+          <div class="result-detail">Started P5 &middot; led 109 of 140 laps &middot; 3 cautions</div>
           <div class="result-pole">
             <span class="result-label">Pole</span>
             <span class="result-name">J R Shepherd</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 11</div>
+          <div class="result-track">Dover Motor Speedway</div>
+          <div class="result-date">May 16, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">A.J. Stravato</span>
+          </div>
+          <div class="result-detail">Started P4 &middot; led 35 of 180 laps &middot; 2 cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Seth Hatchel</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 12</div>
+          <div class="result-track">Charlotte Motor Speedway</div>
+          <div class="result-date">May 23, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+          <div class="result-detail">Started P3 &middot; led 150 of 200 laps &middot; 1 caution</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Phillip Brewer</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 13</div>
+          <div class="result-track">Nashville Superspeedway</div>
+          <div class="result-date">May 30, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Bailey Turner</span>
+          </div>
+          <div class="result-detail">Started P4 &middot; led 64 of 150 laps &middot; no cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">J R Shepherd</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 14</div>
+          <div class="result-track">Atlanta Motor Speedway (2008 layout)</div>
+          <div class="result-date">June 6, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+          <div class="result-detail">Started P13 &middot; led 68 of 167 laps &middot; 1 caution</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Kenny Kibbey</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 15</div>
+          <div class="result-track">Sonoma Raceway</div>
+          <div class="result-date">June 13, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+          <div class="result-detail">Started P1 &middot; led 55 of 55 laps &middot; no cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 16</div>
+          <div class="result-track">Richmond Raceway</div>
+          <div class="result-date">June 20, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+          <div class="result-detail">Started P16 &middot; led 48 of 200 laps &middot; 7 cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+        </div>
+        <div class="result-card completed">
+          <div class="result-race">Race 17</div>
+          <div class="result-track">Chicagoland Speedway</div>
+          <div class="result-date">June 27, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+          <div class="result-detail">Started P1 &middot; led 118 of 143 laps &middot; 3 cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Jeff J. Wright</span>
+          </div>
+        </div>
+        <div class="result-card completed chase">
+          <div class="result-race">Race 18<span class="result-chase">Chase Race 1</span></div>
+          <div class="result-track">Talladega Superspeedway</div>
+          <div class="result-date">July 11, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Elliott Butler</span>
+          </div>
+          <div class="result-detail">Started P19 &middot; led 30 of 94 laps &middot; 1 caution</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Bailey Turner</span>
+          </div>
+        </div>
+        <div class="result-card completed chase">
+          <div class="result-race">Race 19<span class="result-chase">Chase Race 2</span></div>
+          <div class="result-track">Homestead-Miami Speedway</div>
+          <div class="result-date">July 18, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+          <div class="result-detail">Started P1 &middot; led 35 of 140 laps &middot; 1 caution</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+        </div>
+        <div class="result-card completed chase">
+          <div class="result-race">Race 20<span class="result-chase">Chase Race 3</span></div>
+          <div class="result-track">Michigan International Speedway</div>
+          <div class="result-date">July 25, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Phillip Brewer</span>
+          </div>
+          <div class="result-detail">Started P1 &middot; led 29 of 104 laps &middot; 6 cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Phillip Brewer</span>
+          </div>
+        </div>
+        <div class="result-card completed chase">
+          <div class="result-race">Race 21<span class="result-chase">Chase Race 4</span></div>
+          <div class="result-track">Bristol Motor Speedway</div>
+          <div class="result-date">August 1, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Bailey Turner</span>
+          </div>
+          <div class="result-detail">Started P16 &middot; led 27 of 200 laps &middot; 11 cautions</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Dakota Floyd2</span>
+          </div>
+        </div>
+        <div class="result-card completed chase">
+          <div class="result-race">Race 22<span class="result-chase">Chase Race 5 &middot; Finale</span></div>
+          <div class="result-track">Kansas Speedway</div>
+          <div class="result-date">August 8, 2026</div>
+          <div class="result-winner">
+            <span class="result-label">Winner</span>
+            <span class="result-name">Joshua Banks</span>
+          </div>
+          <div class="result-detail">Started P1 &middot; led 62 of 140 laps &middot; 1 caution</div>
+          <div class="result-pole">
+            <span class="result-label">Pole</span>
+            <span class="result-name">Joshua Banks</span>
           </div>
         </div>
       </div>
