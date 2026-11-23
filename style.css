@@ -2432,4 +2432,4 @@ img { max-width: 100%; height: auto; display: block; }
 .want-logo { height: 12px; }
 @media (max-width: 768px) { .want-list { width: auto; } }
 @media (max-width: 768px) { .want-note { flex-wrap: wrap; white-space: normal; row-gap: 4px; } }
-.want-logo[alt="PayPal"] { height: 16px; }   /* its P icon is tall, so the word needs more height to match VSPEED */
+.want-logo[alt="PayPal"] { height: 34px; }   /* stacked logo: needs height for the word to read */

@@ -27,7 +27,7 @@
   /* An item can show a small logo after its note: logo: { src: 'assets/…', alt: 'Name' } */
   var WANT = [
     { label: 'Apply to the league',     href: 'join.html',     note: 'Driver application' },
-    { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via', logo: { src: 'assets/brand/paypal-white.png', alt: 'PayPal' }, external: true },
+    { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via', logo: { src: 'assets/brand/paypal-stacked.png', alt: 'PayPal' }, external: true },
     { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Sponsorship request form', external: true },
     { label: 'Watch races live',        href: YOUTUBE_URL,     note: 'Saturdays 10 PM ET on', logo: { src: 'assets/sponsors/vspeed.png', alt: 'VSPEED' }, external: true },
     { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true }
