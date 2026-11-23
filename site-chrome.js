@@ -24,11 +24,12 @@
   var SPONSOR_URL = 'https://tally.so/r/RWDV2l';   // where sponsor enquiries go (email as mailto:, a form, or Discord)
   var DISCORD_URL = '';       // Discord invite link; empty = not shown
   var YOUTUBE_URL = 'https://www.youtube.com/VSPEED';
+  /* An item can show a small logo after its note: logo: { src: 'assets/…', alt: 'Name' } */
   var WANT = [
     { label: 'Apply to the league',     href: 'join.html',     note: 'Driver application' },
     { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via PayPal', external: true },
     { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Sponsorship request form', external: true },
-    { label: 'Watch races live',        href: YOUTUBE_URL,     note: 'Saturdays 10 PM ET on VSPEED', external: true },
+    { label: 'Watch races live',        href: YOUTUBE_URL,     note: 'Saturdays 10 PM ET on', logo: { src: 'assets/sponsors/vspeed.png', alt: 'VSPEED' }, external: true },
     { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true }
   ];
 
@@ -67,7 +68,7 @@
     var dp = w.page && onHome ? ' data-page="' + w.page + '"' : '';
     return '<a role="menuitem" class="want-item' + (todo ? ' want-todo' : '') + '" href="' + href + '"' + ext + dp + '>' +
       '<span class="want-label">' + w.label + (w.external && !todo ? ' <span class="want-ext" aria-hidden="true">&#8599;</span>' : '') + '</span>' +
-      (todo ? '<span class="want-note want-note-todo">Link needed</span>' : (w.note ? '<span class="want-note">' + w.note + '</span>' : '')) +
+      (todo ? '<span class="want-note want-note-todo">Link needed</span>' : (w.note ? '<span class="want-note">' + w.note + (w.logo ? ' <img class="want-logo" src="' + w.logo.src + '" alt="' + w.logo.alt + '">' : '') + '</span>' : '')) +
       '</a>';
   }).join('');
   var wantHtml =

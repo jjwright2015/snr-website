@@ -2425,3 +2425,10 @@ img { max-width: 100%; height: auto; display: block; }
 .nr-btns .btn { white-space: nowrap; }
 @media (max-width: 900px) { .nr { grid-template-columns: 160px minmax(0,1fr); } }
 @media (max-width: 600px) { .nr { grid-template-columns: 1fr; } }
+.want-note { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.want-logo { height: 13px; width: auto; display: inline-block; vertical-align: middle; }
+.want-list { width: 315px; }
+.want-note { flex-wrap: nowrap; white-space: nowrap; }
+.want-logo { height: 12px; }
+@media (max-width: 768px) { .want-list { width: auto; } }
+@media (max-width: 768px) { .want-note { flex-wrap: wrap; white-space: normal; row-gap: 4px; } }
