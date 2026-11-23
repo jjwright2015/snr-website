@@ -29,9 +29,7 @@
     { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via PayPal', external: true },
     { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Sponsorship request form', external: true },
     { label: 'Watch races live',        href: YOUTUBE_URL,     note: 'Saturdays 10 PM ET on VSPEED', external: true },
-    { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true },
-    { label: 'See the Season 7 schedule', href: 'schedule.html' },
-    { label: 'Read the rules',          page: 'rules' }
+    { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true }
   ];
 
   var SEASON_LINE = 'Season 7 — iRacing';
