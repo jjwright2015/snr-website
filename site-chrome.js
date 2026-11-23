@@ -21,13 +21,13 @@
   /* "I want to…" menu (top right). Put the real link in `href`.
      An item whose href is empty is left out; 'TODO' shows a "link needed" tag (review only). */
   var PAYPAL_URL  = 'https://www.paypal.com/paypalme/saturdaynightracing';   // league PayPal link for entry fees
-  var SPONSOR_URL = 'TODO';   // where sponsor enquiries go (email as mailto:, a form, or Discord)
+  var SPONSOR_URL = 'https://tally.so/r/RWDV2l';   // where sponsor enquiries go (email as mailto:, a form, or Discord)
   var DISCORD_URL = '';       // Discord invite link; empty = not shown
   var YOUTUBE_URL = 'https://www.youtube.com/VSPEED';
   var WANT = [
     { label: 'Apply to the league',     href: 'join.html',     note: 'Driver application' },
     { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via PayPal', external: true },
-    { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Partner with SNR', external: true },
+    { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Sponsorship request form', external: true },
     { label: 'Watch races live',        href: YOUTUBE_URL,     note: 'Saturdays 10 PM ET on VSPEED', external: true },
     { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true },
     { label: 'See the Season 7 schedule', href: 'schedule.html' },
