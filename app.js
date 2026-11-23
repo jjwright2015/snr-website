@@ -63,7 +63,6 @@ function _safeInit(label, fn) {
 }
 document.addEventListener('DOMContentLoaded', () => {
   _safeInit('initHamburger',       initHamburger);
-  _safeInit('initThemeToggle',     initThemeToggle);
   _safeInit('initRouter',          initRouter);
   _safeInit('initCountdown',       initCountdown);
   _safeInit('renderSchedule',      renderSchedule);
@@ -450,18 +449,6 @@ function initRuleAccordions() {
         chevron.style.transform = 'rotate(180deg)';
       }
     });
-  });
-}
-
-// --- Theme Toggle ---
-function initThemeToggle() {
-  const btn = document.getElementById('themeToggle');
-  const html = document.documentElement;
-  try { html.setAttribute('data-theme', 'dark'); } catch (e) {}
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
   });
 }
 

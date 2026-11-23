@@ -155,7 +155,6 @@ button.rc-line{cursor:pointer}
   var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
   var root=document.documentElement;
   try{root.setAttribute('data-theme','dark')}catch(e){}
-  var tt=$('themeToggle');if(tt)tt.addEventListener('click',function(){var n=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{}catch(e){}});
   var hb=$('hamburger'),nl=$('navLinks');if(hb&&nl)hb.addEventListener('click',function(){hb.classList.toggle('open');nl.classList.toggle('open')});
   var TABS=['Streaks','Single Race','Career','Season','Tracks'];
   function val(c,v){

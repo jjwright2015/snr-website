@@ -494,10 +494,6 @@
 // Theme
 const html = document.documentElement;
 html.setAttribute('data-theme', 'dark');
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-});
 // Hamburger
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');

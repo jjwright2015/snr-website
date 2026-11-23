@@ -160,14 +160,9 @@
   var ord = function (n) { var v = n % 100, s = ['th','st','nd','rd']; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
   var TYPE = { 'Superspeedway':'Superspeedways', 'Intermediate':'Intermediates', 'Short track':'Short tracks', 'Road course':'Road courses' };
 
-  // chrome handlers (nav + theme) — site-chrome.js only writes the markup
+  // chrome handlers (nav) — site-chrome.js only writes the markup
   var root = document.documentElement;
   try { root.setAttribute('data-theme', 'dark'); } catch (e) {}
-  var tt = $('themeToggle');
-  if (tt) tt.addEventListener('click', function () {
-    var n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', n);
-  });
   var hb = $('hamburger'), nl = $('navLinks');
   if (hb && nl) hb.addEventListener('click', function () { hb.classList.toggle('open'); nl.classList.toggle('open'); });
 
