@@ -2260,6 +2260,7 @@ img { max-width: 100%; height: auto; display: block; }
 .sponsors-tier.title-sponsor .sponsor-logo, .sponsors-tier .title-logo { filter: none; opacity: 1; max-height: 96px; max-width: none; }
 .sponsors-tier .sponsor-item:hover { transform: none; }
 .primary-sponsors .sponsor-logo { max-height: 90px; max-width: 280px; }
+.primary-sponsors .sponsor-logo-wide { max-width: 440px; }  /* long, short wordmarks (VSPEED) need width to read */
 .secondary-sponsors { gap: 40px; }
 .secondary-sponsors .sponsor-logo-tall { max-height: 84px; }  /* shield-shaped logos need more height to read */
 .sponsors-label { color: var(--text-dim); }
@@ -2312,6 +2313,7 @@ img { max-width: 100%; height: auto; display: block; }
   .secondary-sponsors .sponsor-logo { max-width: 135px; max-height: 48px; }
   .secondary-sponsors .sponsor-logo-tall { max-height: 68px; }
   .primary-sponsors .sponsor-logo { max-height: 72px; max-width: 220px; }
+  .primary-sponsors .sponsor-logo-wide { max-width: 300px; }
 }
 
 @media (max-width: 768px) { .s6-scroll { max-height: 500px; } }
