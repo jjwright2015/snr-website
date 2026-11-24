@@ -2513,7 +2513,6 @@ img { max-width: 100%; height: auto; display: block; }
 .art-body { max-width: 640px; font-size: 18px; line-height: 1.7; color: #cdcdcd; letter-spacing: .005em; }
 .art-body p { margin: 0 0 1.25em; }
 .art-body p strong { color: #f2f2f2; font-weight: 600; }
-.art-body > p:first-child { font-size: 20px; line-height: 1.6; color: #e8e8e8; }
 .art-actions { max-width: 640px; }
 .art-sub { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; color: #fff; margin: 1.8em 0 .5em; padding-left: 12px; border-left: 3px solid var(--accent); line-height: 1.2; }
 /* standings tables */
@@ -2528,7 +2527,6 @@ img { max-width: 100%; height: auto; display: block; }
 .art-table tr.lead td:first-child { color: var(--accent); }
 @media (max-width: 600px) {
   .art-body { font-size: 17px; line-height: 1.65; }
-  .art-body > p:first-child { font-size: 18.5px; }
   .art-sub { font-size: 19px; }
   .art-table { font-size: 14.5px; }
   .art-table th, .art-table td { padding: 8px 10px; }
