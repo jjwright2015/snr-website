@@ -12,7 +12,7 @@
     { label: 'Schedule',    href: 'schedule.html', hidden: true },   // hidden until the Season 7 schedule announcement (then remove hidden)
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
-    { label: "Pick'em",     href: 'https://pickem.snrleague.com/#/', external: true, hidden: true }, // hidden for now; free fantasy lineup game (points only) in the Pick'em app
+    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true, hidden: true }, // hidden for now; SNR Fantasy Live (presented by Full Throttle Frames), free fantasy lineup game (points only)
     { label: 'Records',     href: 'records.html', hidden: true }, // hidden for now
     { label: 'History',     page: 'history',      hidden: true }, // hidden for now
     { label: 'Rules',       page: 'rules' }                      // home page (hash route)
