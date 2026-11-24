@@ -132,6 +132,40 @@
   mount('site-nav', navHtml);
   mount('site-footer', footHtml);
 
+  /* Phone menu: the X stays on top of the panel, tapping outside or Esc closes it,
+     and the page behind can't scroll while it is open. Pages toggle the 'open' class
+     themselves; this watches for it, so it works the same on every page. */
+  var nlEl = document.getElementById('navLinks'), hbEl = document.getElementById('hamburger');
+  if (nlEl && hbEl && !window.__snrMenuWired) {
+    window.__snrMenuWired = true;
+    var backdrop = document.createElement('div'); backdrop.className = 'nav-backdrop'; document.body.appendChild(backdrop);
+    var lockY = 0, locked = false, lockHash = '';
+    var closeMenu = function () { nlEl.classList.remove('open'); hbEl.classList.remove('open'); };
+    var sync = function () {
+      var open = nlEl.classList.contains('open');
+      hbEl.classList.toggle('open', open);
+      hbEl.setAttribute('aria-expanded', String(open));
+      hbEl.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      backdrop.classList.toggle('show', open);
+      if (open && !locked) {
+        lockY = window.scrollY; locked = true; lockHash = location.hash;
+        document.body.style.top = -lockY + 'px'; document.body.classList.add('menu-open');
+      } else if (!open && locked) {
+        locked = false; document.body.classList.remove('menu-open'); document.body.style.top = '';
+        var html = document.documentElement, sb = html.style.scrollBehavior; html.style.scrollBehavior = 'auto';
+        // a menu tap that switched sections (e.g. Rules) starts at the top; otherwise return to where the reader was
+        window.scrollTo(0, location.hash !== lockHash ? 0 : lockY); html.style.scrollBehavior = sb;
+      }
+    };
+    new MutationObserver(sync).observe(nlEl, { attributes: true, attributeFilter: ['class'] });
+    backdrop.addEventListener('click', closeMenu);
+    // a tap anywhere outside the panel and the X (including the top bar) closes it
+    document.addEventListener('click', function (e) { if (nlEl.classList.contains('open') && !nlEl.contains(e.target) && !hbEl.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nlEl.classList.contains('open')) { closeMenu(); hbEl.focus(); } });
+    window.addEventListener('resize', function () { if (window.innerWidth > 768 && nlEl.classList.contains('open')) closeMenu(); });
+    sync();
+  }
+
   /* "I want to…" dropdown: click to open, click outside or Esc to close */
   var wm = document.getElementById('wantMenu'), wb = document.getElementById('wantBtn');
   // pages include this file twice (once for the nav, once for the footer): wire the menu only once

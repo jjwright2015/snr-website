@@ -2436,3 +2436,14 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 768px) { .want-note { flex-wrap: wrap; white-space: normal; row-gap: 4px; } }
 .want-logo[alt="PayPal"] { height: 26px; }
 .nr[hidden] { display: none !important; }   /* no empty box before the next-race data loads */
+
+/* Phone menu: X on top, dimmed backdrop (tap to close), page behind locked */
+.nav-backdrop { display: none; }
+@media (max-width: 768px) {
+  .hamburger { position: relative; z-index: 1100; }
+  .nav-links { height: 100vh; height: 100dvh; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .nav-backdrop { display: block; position: fixed; inset: 0; z-index: 999;   /* just under the nav bar (1000), which holds the panel */ background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+  .nav-backdrop.show { opacity: 1; pointer-events: auto; }
+  body.menu-open { position: fixed; left: 0; right: 0; width: 100%; overflow: hidden; }
+}
+@media (max-width: 768px) { .nav-links { background: #0b0b0b !important; } }   /* solid panel: page text no longer shows through */
