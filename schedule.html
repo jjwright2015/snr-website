@@ -25,114 +25,134 @@
   <meta name="theme-color" content="#0b0f14">
   <style>
   .sc-wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px 60px; }
-  .sc-meta { display:flex; flex-wrap:wrap; gap:10px 18px; justify-content:center; align-items:center; margin:-6px 0 26px; color:var(--text-muted); font-size:14px; }
+  .sc-meta { display:flex; flex-wrap:wrap; gap:10px 18px; justify-content:center; align-items:center; margin:-6px 0 18px; color:var(--text-muted); font-size:14px; }
   .sc-meta b { color:var(--text); font-weight:600; }
-  .sc-cal { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#111; border:0; border-radius:999px; padding:9px 16px; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.5px; text-transform:uppercase; cursor:pointer; }
+  .sc-cal { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#111; border:0; border-radius:999px; padding:9px 16px; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.5px; text-transform:uppercase; cursor:pointer; text-decoration:none; }
   .sc-cal:hover { background:var(--accent-hover); }
-  .sc-month { text-align:center; margin:40px 0 18px; }
-  .sc-month h2 { font-family:var(--font-display); font-size:30px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin:0; display:inline-block; padding-bottom:8px; border-bottom:2px solid var(--accent); }
-  .sc-chase { margin:34px 0 10px; display:flex; align-items:center; gap:14px; color:var(--accent); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:2px; text-transform:uppercase; }
-  .sc-chase::before, .sc-chase::after { content:""; flex:1; height:12px; background:repeating-conic-gradient(#2a2a2a 0 25%, #0c0c0c 0 50%) 0 0/12px 12px; border-radius:2px; }
-  .sc-row { display:grid; grid-template-columns:150px minmax(0,1.1fr) 196px minmax(0,1.15fr) 150px; align-items:center; gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:14px 20px; margin-bottom:10px; position:relative; }
-  .sc-row.next:hover, .sc-row.next { border-color:rgba(234,220,90,.55); box-shadow:0 0 0 1px rgba(234,220,90,.25), 0 8px 24px rgba(0,0,0,.35); }
-  .sc-row.done .sc-date .d { color:var(--text); }
-  .sc-date .w { font-size:13px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-date .d { font-family:var(--font-display); font-size:26px; font-weight:800; line-height:1.05; text-transform:uppercase; }
-  .sc-date .t { font-size:14px; color:var(--text); margin-top:2px; }
-  .sc-date .lt { font-size:11.5px; color:var(--text-muted); white-space:nowrap; }
-  .sc-ev .rn { font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  .sc-ev h3 { font-family:var(--font-display); font-size:23px; font-weight:700; line-height:1.1; margin:3px 0 2px; }
-  .sc-ev .trk { font-size:13px; letter-spacing:.6px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-pill { display:inline-block; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 8px; border-radius:999px; border:1px solid rgba(234,220,90,.5); color:var(--accent); }
-  .sc-pill.solid { background:var(--accent); color:#111; border-color:var(--accent); }
-  .sc-ph { width:196px; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; background:linear-gradient(135deg,var(--surface-2),var(--bg)); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
-  .sc-ph img { width:100%; height:100%; object-fit:cover; display:block; }
-  .sc-ph.plate { background:none; border-color:transparent; }
-  .sc-ph.plate img { object-fit:contain; }
-  .sc-ph.name { flex-direction:column; gap:3px; padding:0 10px; text-align:center; color:var(--text); border:1px dashed var(--border); }
-  .sc-ph.name b { font-family:var(--font-display); font-weight:800; font-size:25px; line-height:1; letter-spacing:.5px; text-transform:uppercase; }
-  .sc-ph.name b.long { font-size:19px; }
-  .sc-ph.name i { font-style:normal; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-ph { position:relative; }
-  .sc-ph .badge { position:absolute; left:2px; bottom:0; width:42%; height:auto; object-fit:contain; filter:drop-shadow(0 2px 5px rgba(0,0,0,.7)); }
-  .sc-row { transition:border-color .15s ease, transform .15s ease; }
-  .sc-row:hover { border-color:#444; }
-  .sc-row.next::before { content:""; position:absolute; left:-1px; top:14px; bottom:14px; width:4px; border-radius:0 4px 4px 0; background:var(--accent); }
-  .sc-act:empty { display:none !important; }
+  .sc-cal.ghost { background:none; color:var(--accent); border:1px solid rgba(234,220,90,.5); }
+  .sc-cal.ghost:hover { background:rgba(234,220,90,.12); }
   .sc-prog { width:100%; max-width:420px; height:6px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin:0 auto 6px; }
   .sc-prog i { display:block; height:100%; background:var(--accent); border-radius:999px; }
   .sc-jump { color:var(--accent); text-decoration:none; font-weight:600; }
   .sc-jump:hover { text-decoration:underline; }
-  .sc-win .lab { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
-  .sc-win .first { font-size:17px; text-transform:uppercase; line-height:1.1; margin-top:4px; }
-  .sc-win { min-width:0; }
-  .sc-win .last { overflow-wrap:anywhere; font-family:var(--font-display); font-size:28px; font-weight:800; text-transform:uppercase; line-height:1; color:var(--text); }
-  .sc-win .stat { font-size:12.5px; color:var(--text-muted); margin-top:5px; }
-  .sc-win .hist { font-size:14px; color:var(--text); margin-top:4px; line-height:1.35; }
-  .sc-win .hist span { color:var(--text-muted); }
-  .sc-act { display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
-  .sc-act .soon { text-align:left !important; }
-  .sc-act a { font-family:var(--font-display); font-weight:700; font-size:16px; letter-spacing:.6px; text-transform:uppercase; color:var(--text); text-decoration:none; white-space:nowrap; display:inline-flex; align-items:center; gap:6px; }
-  .sc-act a::after { content:"\203A"; color:var(--accent); font-size:22px; line-height:0; position:relative; top:-1px; }
-  .sc-act a:hover { color:var(--accent); }
-  .sc-act .soon { font-size:12.5px; color:var(--text-muted); text-align:right; }
-  .sc-off { display:flex; align-items:center; gap:18px; padding:10px 20px; margin-bottom:10px; border:1px dashed var(--border); border-radius:var(--radius-lg); color:var(--text-muted); font-size:14px; }
-  .sc-off b { font-family:var(--font-display); font-size:17px; color:var(--text-muted); letter-spacing:.5px; text-transform:uppercase; min-width:132px; }
-  .sc-when, .sc-more { display:none; }
+
+  /* official schedule graphic (shown once GRAPHIC is set below) */
+  .sc-graphic { margin:0 auto 26px; max-width:760px; text-align:center; }
+  .sc-graphic img { width:100%; height:auto; border-radius:var(--radius-lg); border:1px solid var(--border); display:block; }
+  .sc-graphic figcaption { margin-top:12px; }
+
+  /* sticky month bar */
+  .sc-months { position:sticky; top:var(--nav-height); z-index:20; display:flex; justify-content:center; gap:6px; padding:10px 4px; margin:0 -4px 6px; background:rgba(10,10,10,.92); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--border); overflow-x:auto; scrollbar-width:none; }
+  .sc-months::-webkit-scrollbar { display:none; }
+  .sc-months a { flex:none; font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); text-decoration:none; padding:6px 14px; border-radius:999px; border:1px solid transparent; }
+  .sc-months a:hover { color:var(--text); border-color:var(--border-light); }
+  .sc-months a.on { color:#111; background:var(--accent); }
+  .sc-months a.chase { color:var(--accent); }
+  .sc-months a.chase.on { color:#111; }
+
+  .sc-month, .sc-chase, .sc-row { scroll-margin-top:calc(var(--nav-height) + 70px); }
+  .sc-month { text-align:center; margin:30px 0 14px; }
+  .sc-month h2 { font-family:var(--font-display); font-size:28px; font-weight:800; letter-spacing:1px; text-transform:uppercase; margin:0; display:inline-block; padding-bottom:6px; border-bottom:2px solid var(--accent); }
+  .sc-chase { margin:30px 0 12px; display:flex; align-items:center; gap:14px; color:var(--accent); font-family:var(--font-display); font-weight:800; font-size:20px; letter-spacing:2px; text-transform:uppercase; }
+  .sc-chase::before, .sc-chase::after { content:""; flex:1; height:12px; background:repeating-conic-gradient(#2a2a2a 0 25%, #0c0c0c 0 50%) 0 0/12px 12px; border-radius:2px; }
+
+  /* completed races fold away during the season */
+  .sc-past-toggle { display:block; margin:6px auto 4px; background:none; border:1px dashed var(--border-light); color:var(--text-muted); border-radius:999px; padding:7px 16px; font-size:13.5px; cursor:pointer; }
+  .sc-past-toggle:hover { color:var(--text); border-color:var(--accent); }
+  #scList.fold .past { display:none !important; }
+
+  /* race rows */
+  .sc-row { display:grid; grid-template-columns:78px minmax(0,1.25fr) 150px minmax(0,1fr) auto; grid-template-areas:"date ev ph info tools" "det det det det det"; align-items:center; column-gap:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:10px 14px 10px 18px; margin-bottom:8px; position:relative; cursor:pointer; transition:border-color .15s ease; -webkit-tap-highlight-color:transparent; }
+  .sc-row:hover { border-color:#444; }
+  .sc-row.next, .sc-row.next:hover { border-color:rgba(234,220,90,.55); box-shadow:0 0 0 1px rgba(234,220,90,.25), 0 8px 24px rgba(0,0,0,.35); }
+  .sc-row.next::before { content:""; position:absolute; left:-1px; top:12px; bottom:12px; width:4px; border-radius:0 4px 4px 0; background:var(--accent); }
+  .sc-date { grid-area:date; text-align:center; border-right:1px solid var(--border); padding-right:16px; align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
+  .sc-date .mo { display:block; font-size:12px; font-weight:600; letter-spacing:1.2px; color:var(--text-muted); }
+  .sc-date .dn { display:block; font-family:var(--font-display); font-size:32px; font-weight:800; line-height:1; }
+  .sc-row.next .sc-date .dn { color:var(--accent); }
+  .sc-ev { grid-area:ev; min-width:0; }
+  .sc-ev .rn { font-size:12px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .sc-ev h3 { font-family:var(--font-display); font-size:22px; font-weight:700; line-height:1.1; margin:3px 0 1px; }
+  .sc-ev .trk { font-size:12.5px; letter-spacing:.6px; text-transform:uppercase; color:var(--text-muted); }
+  .sc-ev .trk:empty { display:none; }
+  .sc-pill { display:inline-block; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 8px; border-radius:999px; border:1px solid rgba(234,220,90,.5); color:var(--accent); }
+  .sc-pill.solid { background:var(--accent); color:#111; border-color:var(--accent); }
+  .sc-ph { grid-area:ph; width:150px; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; display:flex; align-items:center; justify-content:center; position:relative; }
+  .sc-ph img { width:100%; height:100%; object-fit:cover; display:block; }
+  .sc-ph.plate img { object-fit:contain; }
+  .sc-ph.photo { border:1px solid var(--border); }
+  .sc-ph .badge { position:absolute; left:2px; bottom:0; width:42%; height:auto; object-fit:contain; filter:drop-shadow(0 2px 5px rgba(0,0,0,.7)); }
+  .sc-ph.name { flex-direction:column; gap:3px; padding:0 10px; text-align:center; color:var(--text); border:1px dashed var(--border); }
+  .sc-ph.name b { font-family:var(--font-display); font-weight:800; font-size:22px; line-height:1; text-transform:uppercase; }
+  .sc-ph.name i { font-style:normal; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+  .sc-info { grid-area:info; min-width:0; }
+  .sc-info .lab { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
+  .sc-info .val { font-size:15px; color:var(--text); margin-top:3px; line-height:1.3; }
+  .sc-info .val span { color:var(--text-muted); }
+  .sc-info .win { font-family:var(--font-display); font-size:22px; font-weight:800; text-transform:uppercase; line-height:1.05; margin-top:2px; overflow-wrap:anywhere; }
+  .sc-info .stat { font-size:12.5px; color:var(--text-muted); margin-top:3px; }
+  .sc-tools { grid-area:tools; display:flex; align-items:center; gap:2px; }
+  .sc-ico { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; background:none; border:0; color:var(--text-muted); cursor:pointer; }
+  .sc-ico:hover { color:var(--accent); background:var(--surface-2); }
+  .sc-ico svg { width:17px; height:17px; }
+  .sc-more svg { transition:transform .15s ease; }
+  .sc-row.open .sc-more svg { transform:rotate(180deg); }
+  .sc-row.open .sc-more { color:var(--accent); }
+  .sc-det { grid-area:det; display:none; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); font-size:13.5px; color:var(--text); flex-wrap:wrap; align-items:center; gap:6px 26px; cursor:default; }
+  .sc-row.open .sc-det { display:flex; }
+  .sc-det span.m { color:var(--text-muted); }
+  .sc-det .links { display:flex; gap:20px; margin-left:auto; }
+  .sc-det .links a, .sc-det .addcal { font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.6px; text-transform:uppercase; color:var(--text); text-decoration:none; background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+  .sc-det .links a::after { content:"\203A"; color:var(--accent); font-size:20px; line-height:0; }
+  .sc-det .links a:hover, .sc-det .addcal:hover { color:var(--accent); }
+  .sc-det .soon { color:var(--text-muted); font-size:12.5px; }
+  .sc-det .addcal { display:none; }
+  .sc-off { display:flex; align-items:center; gap:18px; padding:8px 18px; margin-bottom:8px; border:1px dashed var(--border); border-radius:var(--radius-lg); color:var(--text-muted); font-size:13.5px; }
+  .sc-off b { font-family:var(--font-display); font-size:16px; color:var(--text-muted); letter-spacing:.5px; text-transform:uppercase; min-width:78px; }
+
   @media (max-width: 1020px) {
-    .sc-row { grid-template-columns:120px minmax(0,1fr) 170px; grid-template-areas:"date ev ph" "date win ph" "act act act"; row-gap:8px; }
-    .sc-date{grid-area:date} .sc-ev{grid-area:ev} .sc-ph{grid-area:ph; width:170px} .sc-win{grid-area:win} .sc-act{grid-area:act; flex-direction:row; gap:22px; border-top:1px solid var(--border); padding-top:10px}
-    .sc-act .soon { text-align:left; }
+    .sc-row { grid-template-columns:70px minmax(0,1fr) 150px auto; grid-template-areas:"date ev ph tools" "date info info tools" "det det det det"; row-gap:6px; }
+    .sc-ph { width:150px; }
   }
-  /* Phones: one compact line per race (date, name, logo). Tap a race for track history, local time and links. */
+  /* Phones: one compact line per race; tap for details */
   @media (max-width: 600px) {
     .sc-wrap { padding:0 12px 48px; }
     .sc-wrap .page-subtitle { font-size:14px; }
-    .sc-meta { gap:8px 14px; margin:-4px 0 14px; font-size:13px; }
+    .sc-meta { gap:8px 14px; margin:-4px 0 12px; font-size:13px; }
     .sc-meta .sc-count { display:none; }
-    .sc-cal { padding:6px 12px; font-size:13px; background:none; color:var(--accent); border:1px solid rgba(234,220,90,.5); }
-    .sc-cal:hover { background:rgba(234,220,90,.12); }
-    .sc-month { text-align:left; margin:22px 0 8px; display:flex; align-items:center; gap:10px; }
+    .sc-meta .sc-cal { padding:6px 12px; font-size:13px; background:none; color:var(--accent); border:1px solid rgba(234,220,90,.5); }
+    .sc-months { justify-content:flex-start; gap:4px; padding:8px 4px; }
+    .sc-months a { font-size:13px; padding:5px 11px; }
+    .sc-month { text-align:left; margin:20px 0 8px; display:flex; align-items:center; gap:10px; }
     .sc-month h2 { font-size:17px; letter-spacing:2px; padding:0; border:0; color:var(--accent); }
     .sc-month::after { content:""; flex:1; height:1px; background:var(--border); }
-    .sc-chase { margin:22px 0 8px; font-size:17px; gap:10px; }
+    .sc-chase { margin:20px 0 8px; font-size:17px; gap:10px; }
     .sc-chase::before, .sc-chase::after { height:8px; background-size:8px 8px; }
-    .sc-row { grid-template-columns:44px minmax(0,1fr) 88px 22px; grid-template-areas:"date ev ph more" "when when when when" "win win win win" "act act act act"; gap:0 10px; padding:9px 6px 9px 10px; margin-bottom:6px; border-radius:var(--radius); cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    .sc-row { grid-template-columns:44px minmax(0,1fr) 88px 26px; grid-template-areas:"date ev ph tools" "info info info info" "det det det det"; column-gap:10px; row-gap:0; padding:9px 4px 9px 10px; margin-bottom:6px; border-radius:var(--radius); }
     .sc-row.next::before { top:9px; bottom:9px; width:3px; }
-    .sc-date { grid-area:date; text-align:center; border-right:1px solid var(--border); padding-right:10px; align-self:stretch; display:flex; flex-direction:column; justify-content:center; }
-    .sc-date .w, .sc-date .t, .sc-date .lt { display:none; }
-    .sc-date .d { font-size:24px; line-height:1; }
-    .sc-date .d .mo { display:block; font-family:var(--font-body); font-size:10.5px; font-weight:600; letter-spacing:1px; color:var(--text-muted); margin-bottom:3px; }
-    .sc-row.next .sc-date .d .dn { color:var(--accent); }
-    .sc-ev { grid-area:ev; min-width:0; }
+    .sc-date { padding-right:10px; }
+    .sc-date .mo { font-size:10.5px; letter-spacing:1px; margin-bottom:3px; }
+    .sc-date .dn { font-size:24px; }
     .sc-ev .rn { font-size:10.5px; letter-spacing:.8px; gap:3px 5px; }
     .sc-ev h3 { font-size:18px; line-height:1.08; margin:2px 0 0; }
     .sc-ev .trk { font-size:11px; letter-spacing:.4px; margin-top:2px; }
-    .sc-ev .trk:empty { display:none; }
     .sc-pill { font-size:9.5px; letter-spacing:.6px; padding:1px 6px; }
-    .sc-ph { grid-area:ph; width:88px; align-self:center; border-radius:6px; }
-    .sc-ph.name b { font-size:14px; } .sc-ph.name b.long { font-size:11px; } .sc-ph.name i { font-size:7px; letter-spacing:1px; }
-    .sc-more { grid-area:more; display:flex; align-items:center; justify-content:center; align-self:stretch; width:22px; padding:0; background:none; border:0; color:var(--text-muted); cursor:pointer; }
-    .sc-more svg { width:14px; height:14px; transition:transform .15s ease; }
-    .sc-row.open .sc-more svg { transform:rotate(180deg); }
-    .sc-row.open .sc-more { color:var(--accent); }
-    .sc-when { grid-area:when; display:none; font-size:12.5px; color:var(--text); margin-top:9px; padding-top:9px; border-top:1px solid var(--border); }
-    .sc-when span { color:var(--text-muted); }
-    .sc-win { grid-area:win; display:none; margin-top:6px; }
-    .sc-win .lab { font-size:10px; letter-spacing:1.2px; }
-    .sc-win .hist { font-size:12.5px; margin-top:2px; }
-    .sc-act { grid-area:act; display:none; flex-direction:row; flex-wrap:wrap; gap:6px 20px; border-top:0; padding-top:0; margin-top:8px; }
-    .sc-act a { font-size:14px; }
-    .sc-act .soon { font-size:11.5px; }
-    .sc-row.open .sc-when, .sc-row.open .sc-win { display:block; }
-    .sc-row.open .sc-act { display:flex; }
-    /* Finished races always show the winner and links */
-    .sc-row.done .sc-win { display:flex; flex-wrap:wrap; align-items:baseline; gap:0 6px; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
-    .sc-row.done .sc-win .lab { margin-right:2px; }
-    .sc-row.done .sc-win .first, .sc-row.done .sc-win .last { font-family:var(--font-display); font-size:18px; font-weight:800; line-height:1.1; margin:0; }
-    .sc-row.done .sc-win .stat { display:none; flex-basis:100%; font-size:11.5px; margin-top:2px; }
-    .sc-row.done.open .sc-win .stat { display:block; }
-    .sc-row.done .sc-act { display:flex; }
+    .sc-ph { width:88px; border-radius:6px; }
+    .sc-ph.name b { font-size:13px; } .sc-ph.name i { font-size:7px; letter-spacing:1px; }
+    .sc-tools .sc-calone { display:none; }
+    .sc-ico { width:26px; height:100%; }
+    .sc-ico svg { width:14px; height:14px; }
+    .sc-info { display:none; margin-top:8px; }
+    .sc-row.open .sc-info, .sc-row.done .sc-info { display:block; }
+    .sc-row.done .sc-info { padding-top:8px; border-top:1px solid var(--border); }
+    .sc-info .val { font-size:13px; }
+    .sc-info .win { font-size:18px; }
+    .sc-det { margin-top:8px; padding-top:8px; font-size:12.5px; gap:6px 18px; }
+    .sc-row:not(.done) .sc-det { border-top:0; padding-top:0; }
+    .sc-det .links { margin-left:0; width:100%; gap:8px 18px; flex-wrap:wrap; align-items:center; }
+    .sc-det .soon { flex-basis:100%; }
+    .sc-det .links a, .sc-det .addcal { font-size:14px; }
+    .sc-det .addcal { display:inline-flex; color:var(--accent); }
     .sc-off { gap:8px; padding:5px 10px; margin-bottom:6px; font-size:12px; border-radius:var(--radius); }
     .sc-off b { font-size:13px; min-width:0; }
   }
@@ -166,6 +186,10 @@ hamburger.addEventListener('click', function () {
 });
 
 (function () {
+  /* The official schedule graphic. When it is released, upload it to assets/ and set src, e.g.
+     { src: 'assets/season7-schedule.jpg', alt: 'SNR Cup Series Season 7 schedule' } */
+  var GRAPHIC = null;
+
   var MON = ['JAN.','FEB.','MAR.','APR.','MAY','JUN.','JUL.','AUG.','SEP.','OCT.','NOV.','DEC.'];
   var MONTH = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -177,57 +201,63 @@ hamburger.addEventListener('click', function () {
     if (eastern || !iso) return '';
     try { return new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) + ' your time'; } catch (e) { return ''; }
   }
-  function split(name) { var i = name.lastIndexOf(' '); return i < 0 ? ['', name] : [name.slice(0, i), name.slice(i + 1)]; }
+  var ICON_CAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M12 14v4M10 16h4"/></svg>';
+  var ICON_CHEV = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg>';
 
   function row(e, isNext) {
     var d = ymd(e.date), r = e.result;
     var pills = '';
     if (isNext) pills += '<span class="sc-pill solid">Next race</span>';
     if (e.label) pills += '<span class="sc-pill">' + esc(e.label) + '</span>';
-    var sub = e.name !== e.track ? e.track : (e.note || '');
-    if (e.name !== e.track && e.note) sub += ' &middot; ' + esc(e.note);
-    var h = '<div class="sc-row' + (isNext ? ' next open' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '">';
-    h += '<div class="sc-date"><div class="w">' + DAY[d.getDay()] + '</div><div class="d"><span class="mo">' + MON[d.getMonth()] + '</span> <span class="dn">' + d.getDate() + '</span></div>' +
-         '<div class="t">' + (r ? 'Final' : '10:00 PM ET') + '</div>' + (r ? '' : '<div class="lt">' + esc(localTime(e.start)) + '</div>') + '</div>';
+    // a note that only repeats the track type ("Superspeedway layout" on a superspeedway) is left out
+    var note = e.note && !(e.type && e.note.toLowerCase().indexOf(e.type.toLowerCase()) >= 0) ? e.note : '';
+    var sub = e.name !== e.track ? esc(e.track) + (note ? ' &middot; ' + esc(note) : '') : esc(note);
+    var h = '<div class="sc-row' + (isNext ? ' next open' : '') + (r ? ' done' : '') + '" id="race-' + e.round + '" data-round="' + e.round + '">';
+    h += '<div class="sc-date"><span class="mo">' + MON[d.getMonth()] + '</span><span class="dn">' + d.getDate() + '</span></div>';
     h += '<div class="sc-ev"><div class="rn">Race ' + e.round + (e.type ? ' &middot; ' + esc(e.type) : '') + ' ' + pills + '</div><h3>' + esc(e.name) + '</h3><div class="trk">' + sub + '</div></div>';
     if (e.photo) {
-      h += '<div class="sc-ph"><img src="' + esc(e.photo) + '" alt="' + esc(r ? r.winner : e.name) + ' victory burnout" loading="lazy">' +
+      h += '<div class="sc-ph photo"><img src="' + esc(e.photo) + '" alt="' + esc(r ? r.winner : e.name) + ' victory burnout" loading="lazy">' +
            (e.logo ? '<img class="badge" src="' + esc(e.logo) + '" alt="" loading="lazy">' : '') + '</div>';
     } else if (e.logo) {
       h += '<div class="sc-ph plate"><img src="' + esc(e.logo) + '" alt="' + esc(e.track) + ' logo" loading="lazy" width="640" height="360"></div>';
     } else {
       var m = /^(.*?)\s+((?:Motor |International )?(?:Speedway|Raceway|Superspeedway).*)$/.exec(e.track) || [0, e.track, ''];
-      h += '<div class="sc-ph plate name"><b' + (m[1].length > 9 ? ' class="long"' : '') + '>' + esc(m[1]) + '</b>' + (m[2] ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
+      h += '<div class="sc-ph plate name"><b>' + esc(m[1]) + '</b>' + (m[2] ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
     }
-    var lt = localTime(e.start);
-    h += '<button type="button" class="sc-more" aria-expanded="' + (isNext ? 'true' : 'false') + '" aria-label="Details for race ' + e.round + '"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l5 5 5-5"/></svg></button>';
-    if (!r) h += '<div class="sc-when">' + DAY[d.getDay()] + ' &middot; 10:00 PM ET' + (lt ? ' <span>&middot; ' + esc(lt) + '</span>' : '') + '</div>';
+    // one-line summary: winner once raced, otherwise the last SNR winner at the track
+    var hi = e.history;
     if (r) {
-      var n = split(r.winner), stat = [];
+      var stat = [];
       if (r.start) stat.push('Started P' + r.start);
       if (r.led) stat.push('Led ' + r.led + (r.laps ? ' of ' + r.laps : '') + ' laps');
-      h += '<div class="sc-win"><div class="lab">Winner</div><div class="first">' + esc(n[0]) + '</div><div class="last">' + esc(n[1]) + '</div>' +
-           (stat.length ? '<div class="stat">' + stat.join(' &middot; ') + '</div>' : '') + '</div>';
-    } else if (e.history) {
-      var hi = e.history, most = hi.mostWins;
-      h += '<div class="sc-win"><div class="lab">SNR track history</div><div class="hist">Last winner: ' + esc(hi.last.name) + ' <span>(S' + hi.last.season + ')</span>' +
-           (most && most.wins > 1 ? '<br>Most wins: ' + esc(most.names.join(', ')) + ' <span>(' + most.wins + ')</span>' : '') +
-           '<br><span>' + hi.races + ' previous SNR race' + (hi.races === 1 ? '' : 's') + ' here</span></div></div>';
+      h += '<div class="sc-info"><div class="lab">Winner</div><div class="win">' + esc(r.winner) + '</div>' + (stat.length ? '<div class="stat">' + stat.join(' &middot; ') + '</div>' : '') + '</div>';
+    } else if (hi) {
+      h += '<div class="sc-info"><div class="lab">Last SNR winner here</div><div class="val">' + esc(hi.last.name) + ' <span>(S' + hi.last.season + ')</span></div></div>';
     } else {
-      h += '<div class="sc-win"><div class="lab">SNR track history</div><div class="hist">First SNR race at this track</div></div>';
+      h += '<div class="sc-info"><div class="lab">SNR track history</div><div class="val">First SNR race at this track</div></div>';
     }
-    var acts = '';
-    if (e.results_url) acts += '<a href="' + esc(e.results_url) + '" target="_blank" rel="noopener">Race results</a>';
-    if (e.recap_url) acts += '<a href="' + esc(e.recap_url) + '">Race recap</a>';
-    if (!acts && (r || isNext)) acts = '<div class="soon">' + (r ? 'Results and recap coming soon' : 'Results and recap posted after the race') + '</div>';
-    h += '<div class="sc-act">' + acts + '</div></div>';
+    h += '<div class="sc-tools">' + (r ? '' : '<button type="button" class="sc-ico sc-calone" data-cal="' + e.round + '" title="Add this race to your calendar" aria-label="Add race ' + e.round + ' to your calendar">' + ICON_CAL + '</button>') +
+         '<button type="button" class="sc-ico sc-more" aria-expanded="' + (isNext ? 'true' : 'false') + '" aria-label="Details for race ' + e.round + '">' + ICON_CHEV + '</button></div>';
+    // details (tap / click a race)
+    var det = [], lt = localTime(e.start);
+    if (!r) det.push('<span>' + DAY[d.getDay()] + ' &middot; 10:00 PM ET' + (lt ? ' <span class="m">&middot; ' + esc(lt) + '</span>' : '') + '</span>');
+    if (hi) {
+      var most = hi.mostWins;
+      if (most && most.wins > 1) det.push('<span><span class="m">Most wins:</span> ' + esc(most.names.join(', ')) + ' <span class="m">(' + most.wins + ')</span></span>');
+      det.push('<span class="m">' + hi.races + ' previous SNR race' + (hi.races === 1 ? '' : 's') + ' here</span>');
+    }
+    var links = '';
+    if (e.results_url) links += '<a href="' + esc(e.results_url) + '" target="_blank" rel="noopener">Race results</a>';
+    if (e.recap_url) links += '<a href="' + esc(e.recap_url) + '">Race recap</a>';
+    if (!links) links = '<span class="soon">' + (r ? 'Results and recap coming soon' : 'Results and recap posted after the race') + '</span>';
+    if (!r) links += '<button type="button" class="addcal" data-cal="' + e.round + '">' + ICON_CAL.replace('aria-hidden', 'width="15" height="15" aria-hidden') + ' Add to calendar</button>';
+    h += '<div class="sc-det">' + det.join('') + '<span class="links">' + links + '</span></div></div>';
     return h;
   }
 
-  function ics(data) {
+  function ics(data, list, name) {
     var L = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SNR League//Schedule//EN','CALSCALE:GREGORIAN','X-WR-CALNAME:SNR Cup Series Season ' + data.season];
-    data.events.forEach(function (e) {
-      if (e.off) return;
+    list.forEach(function (e) {
       var s = e.start.replace(/[-:]/g, '').replace('.000', ''), en = new Date(new Date(e.start).getTime() + 2.5 * 3600e3).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
       L.push('BEGIN:VEVENT','UID:snr-s' + data.season + '-r' + e.round + '@snrleague.com','DTSTAMP:' + s,'DTSTART:' + s,'DTEND:' + en,
              'SUMMARY:SNR Race ' + e.round + ': ' + e.name + (e.label ? ' (' + e.label + ')' : ''),
@@ -236,53 +266,103 @@ hamburger.addEventListener('click', function () {
     L.push('END:VCALENDAR');
     var a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([L.join('\r\n')], { type: 'text/calendar' }));
-    a.download = 'snr-season-' + data.season + '-schedule.ics';
+    a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
   }
 
   fetch('schedule_data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
-    var now = Date.now(), next = null, done = 0, races = 0;
+    var now = Date.now(), next = null, done = 0, races = [];
     data.events.forEach(function (e) {
-      if (e.off) return; races++;
+      if (e.off) return; races.push(e);
       if (e.result) done++;
       else if (!next && new Date(e.start).getTime() + 4 * 3600e3 > now) next = e;
     });
-    var meta = '<div class="sc-prog" title="' + done + ' of ' + races + ' races complete"><i style="width:' + (100 * done / races) + '%"></i></div><div style="flex-basis:100%;height:0"></div>';
+    var byRound = {}; races.forEach(function (e) { byRound[e.round] = e; });
+
+    var meta = '';
+    if (done > 0) meta += '<div class="sc-prog" title="' + done + ' of ' + races.length + ' races complete"><i style="width:' + (100 * done / races.length) + '%"></i></div><div style="flex-basis:100%;height:0"></div>';
     if (next) {
       var days = Math.ceil((new Date(next.start).getTime() - now) / 864e5);
       meta += '<span>Next: <a class="sc-jump" href="#race-' + next.round + '">' + esc(next.name) + '</a> &middot; ' + (days <= 0 ? 'tonight' : days === 1 ? 'tomorrow' : 'in ' + days + ' days') + '</span>';
     }
-    meta += '<span class="sc-count"><b>' + done + '</b> of ' + races + ' races complete</span>';
-    meta += '<button type="button" class="sc-cal" id="scCal">&#128197; Add to calendar</button>';
+    if (done > 0) meta += '<span class="sc-count"><b>' + done + '</b> of ' + races.length + ' races complete</span>';
+    meta += '<button type="button" class="sc-cal" id="scCal">&#128197; Add season to calendar</button>';
     document.getElementById('scMeta').innerHTML = meta;
-    document.getElementById('scCal').addEventListener('click', function () { ics(data); });
+    document.getElementById('scCal').addEventListener('click', function () { ics(data, races, 'snr-season-' + data.season + '-schedule.ics'); });
 
-    var out = '', month = -1;
+    if (GRAPHIC && GRAPHIC.src) {
+      var g = document.createElement('figure'); g.className = 'sc-graphic';
+      g.innerHTML = '<a href="' + esc(GRAPHIC.src) + '" target="_blank" rel="noopener"><img src="' + esc(GRAPHIC.src) + '" alt="' + esc(GRAPHIC.alt || 'Season schedule graphic') + '"></a>' +
+        '<figcaption><a class="sc-cal ghost" href="' + esc(GRAPHIC.src) + '" download>&#11015; Download schedule graphic</a></figcaption>';
+      document.getElementById('scMeta').after(g);
+    }
+
+    // build the list; everything before the next race is "past" (folds away once races have been run)
+    var out = '', month = -1, chips = [], isPast = !!next && done > 0, first = true;
     data.events.forEach(function (e) {
-      var m = ymd(e.date).getMonth();
-      if (e.round === 20) { out += '<div class="sc-chase">The Chase</div>'; }
-      if (m !== month && e.round !== 20) { out += '<div class="sc-month"><h2>' + MONTH[m] + '</h2></div>'; }
+      if (e === next) isPast = false;
+      var m = ymd(e.date).getMonth(), past = isPast ? ' past' : '';
+      if (e.round === 20) { out += '<div class="sc-chase" id="chase">The Chase</div>'; chips.push(['chase', 'The Chase']); }
+      else if (m !== month && !(e.round > 20)) { out += '<div class="sc-month" id="m-' + m + '"><h2>' + MONTH[m] + '</h2></div>'; chips.push(['m-' + m, MONTH[m].slice(0, 3)]); }
       month = m;
-      if (e.off) { var d = ymd(e.date); out += '<div class="sc-off"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + ' ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
-      out += row(e, e === next);
+      if (e.off) { var d = ymd(e.date); out += '<div class="sc-off' + past + '"><b>' + DAY[d.getDay()].slice(0, 3) + ' ' + MON[d.getMonth()] + ' ' + d.getDate() + '</b>Off week &middot; ' + esc(e.note) + '</div>'; return; }
+      out += row(e, e === next).replace('class="sc-row', 'class="sc-row' + past);
     });
     var list = document.getElementById('scList');
     list.innerHTML = out;
-    // Phones show one line per race; tapping a race opens its details (no visible effect on wider screens).
+    // a month or Chase heading folds too when everything under it is past
+    list.querySelectorAll('.sc-month, .sc-chase').forEach(function (hd) {
+      var el = hd.nextElementSibling, any = false, allPast = true;
+      while (el && !el.matches('.sc-month, .sc-chase')) { any = true; if (!el.classList.contains('past')) allPast = false; el = el.nextElementSibling; }
+      if (any && allPast) hd.classList.add('past');
+    });
+    var pastCount = list.querySelectorAll('.sc-row.past').length;
+    if (pastCount) {
+      list.classList.add('fold');
+      var tg = document.createElement('button'); tg.type = 'button'; tg.className = 'sc-past-toggle';
+      var label = function () { tg.textContent = list.classList.contains('fold') ? 'Show ' + pastCount + ' completed race' + (pastCount === 1 ? '' : 's') : 'Hide completed races'; };
+      label(); tg.addEventListener('click', function () { list.classList.toggle('fold'); label(); });
+      list.before(tg);
+    }
+
+    // sticky month bar
+    var bar = document.createElement('nav'); bar.className = 'sc-months'; bar.setAttribute('aria-label', 'Jump to month');
+    bar.innerHTML = chips.map(function (c) { return '<a href="#' + c[0] + '"' + (c[0] === 'chase' ? ' class="chase"' : '') + '>' + c[1] + '</a>'; }).join('');
+    (list.previousElementSibling && list.previousElementSibling.classList.contains('sc-past-toggle') ? list.previousElementSibling : list).before(bar);
+    bar.addEventListener('click', function (ev) {
+      var a = ev.target.closest('a'); if (!a) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (t && t.classList.contains('past') && list.classList.contains('fold')) { list.classList.remove('fold'); var tgl = document.querySelector('.sc-past-toggle'); if (tgl) tgl.textContent = 'Hide completed races'; }
+    });
+    var heads = Array.prototype.slice.call(list.querySelectorAll('.sc-month, .sc-chase'));
+    function spy() {
+      var y = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64) + bar.offsetHeight + 24, cur = null;
+      heads.forEach(function (h) { if (h.offsetParent && h.getBoundingClientRect().top <= y) cur = h.id; });
+      if (!cur && heads.length) { for (var i = 0; i < heads.length; i++) if (heads[i].offsetParent) { cur = heads[i].id; break; } }
+      bar.querySelectorAll('a').forEach(function (a) {
+        var on = a.getAttribute('href') === '#' + cur; a.classList.toggle('on', on);
+        if (on && bar.scrollWidth > bar.clientWidth) bar.scrollLeft = a.offsetLeft - bar.clientWidth / 2 + a.offsetWidth / 2;
+      });
+    }
+    window.addEventListener('scroll', spy, { passive: true }); spy();
+
     function setOpen(rowEl, on) {
       rowEl.classList.toggle('open', on);
       var b = rowEl.querySelector('.sc-more'); if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
     }
     list.addEventListener('click', function (ev) {
-      if (ev.target.closest('a')) return;
+      var c = ev.target.closest('[data-cal]');
+      if (c) { var e = byRound[c.getAttribute('data-cal')]; ics(data, [e], 'snr-race-' + e.round + '-' + e.track.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.ics'); return; }
+      if (ev.target.closest('a') || ev.target.closest('.sc-det')) return;
       var rowEl = ev.target.closest('.sc-row'); if (rowEl) setOpen(rowEl, !rowEl.classList.contains('open'));
     });
-    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) { if (t.classList.contains('sc-row')) setOpen(t, true); t.scrollIntoView({ block: 'center' }); } }
+    if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) { if (t.classList.contains('past')) list.classList.remove('fold'); if (t.classList.contains('sc-row')) setOpen(t, true); t.scrollIntoView({ block: 'center' }); } }
     document.getElementById('scMeta').addEventListener('click', function (ev) {
       var a = ev.target.closest('.sc-jump'); if (!a) return;
       var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) setOpen(t, true);
     });
-  }).catch(function () {
+  }).catch(function (err) {
+    console.error(err);
     document.getElementById('scList').innerHTML = '<p style="text-align:center;color:var(--text-muted)">The schedule could not load. Please refresh the page.</p>';
   });
 })();
