@@ -2433,5 +2433,3 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 768px) { .want-list { width: auto; } }
 @media (max-width: 768px) { .want-note { flex-wrap: wrap; white-space: normal; row-gap: 4px; } }
 .want-logo[alt="PayPal"] { height: 26px; }
-.nr[hidden], #nextRace[hidden] { display: none !important; }
-.nr-wrap[hidden] { display: none !important; }

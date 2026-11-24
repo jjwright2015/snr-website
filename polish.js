@@ -42,10 +42,6 @@
 
 /* Next race strip on the home page + hero badge, from schedule_data.json */
 (function () {
-  // Season 7 schedule not announced yet: keep the next-race strip and the dated badge off.
-  // Set to true when the schedule graphic is released (and swap schedule.html for schedule-s7.html).
-  var SCHEDULE_RELEASED = false;
-  if (!SCHEDULE_RELEASED) return;
   var box = document.getElementById('nextRace');
   var badge = document.getElementById('heroBadge');
   if (!box && !badge) return;
@@ -84,7 +80,7 @@
         '<div class="nr-count" aria-live="off"><div><b id="nrD">0</b><span>Days</span></div><div><b id="nrH">0</b><span>Hrs</span></div><div><b id="nrM">0</b><span>Min</span></div></div>' +
         '<div class="nr-btns"><a class="btn btn-primary" href="schedule.html">Full schedule</a><a class="btn btn-outline" href="https://www.youtube.com/VSPEED" target="_blank" rel="noopener">Watch live</a></div>' +
       '</div>';
-    box.hidden = false; if (box.parentElement) box.parentElement.hidden = false;
+    box.hidden = false;
     function tick() {
       var ms = Math.max(0, t.getTime() - Date.now());
       var m = Math.floor(ms / 60000);
