@@ -49,7 +49,7 @@
   }
   function isActive(it) {
     if (it.external) return false;
-    if (it.href) return base(it.href) === file;
+    if (it.href) return base(it.href) === file || (base(it.href) === 'news' && /^news-/.test(file));   // story pages light up Latest News
     return onHome && it.page === hash;
   }
   var visible = NAV.filter(function (i) { return !i.hidden; });
