@@ -2534,3 +2534,19 @@ img { max-width: 100%; height: auto; display: block; }
   .art-table th, .art-table td { padding: 8px 10px; }
   .art-table td:first-child, .art-table th:first-child { width: 44px; }
 }
+
+/* Hero: even spacing, matching buttons, VSPEED logo in the watch button */
+.hero-badge { margin-bottom: 0; }
+.hero-tagline { margin: 22px auto 28px; max-width: 520px; line-height: 1.5; }
+.hero-actions { gap: 14px; }
+.hero-actions .btn { width: 340px; height: 56px; justify-content: center; padding: 0 14px; }
+.hero-watch { gap: 10px; }
+.hero-watch-logo { height: 13px; width: auto; display: block; }
+.hero-watch-txt { white-space: nowrap; }
+@media (max-width: 600px) {
+  .hero-tagline { margin: 18px auto 22px; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+  .hero-actions .btn { width: 100%; max-width: 320px; padding: 0 14px; font-size: 14px; letter-spacing: 1px; }
+  .hero-watch { gap: 9px; }
+  .hero-watch-logo { height: 12px; }
+}
