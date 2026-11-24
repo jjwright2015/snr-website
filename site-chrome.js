@@ -9,7 +9,7 @@
   var NAV = [
     { label: 'Home',        page: 'home' },                      // home page (hash route)
     { label: 'Latest News', href: 'news.html' },
-    { label: 'Schedule',    href: 'schedule.html' },   // Season 7 schedule, built from schedule_data.json
+    { label: 'Schedule',    href: 'schedule.html', hidden: true },   // hidden until the Season 7 schedule announcement (then remove hidden)
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
     { label: "Pick'em",     href: 'https://pickem.snrleague.com/#/', external: true, hidden: true }, // hidden for now; free fantasy lineup game (points only) in the Pick'em app

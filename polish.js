@@ -42,6 +42,10 @@
 
 /* Next race strip on the home page + hero badge, from schedule_data.json */
 (function () {
+  // Season 7 schedule not announced yet: keep the next-race strip and the dated badge off.
+  // On release: set this to true, un-hide Schedule in site-chrome.js, and restore the hero badge/buttons in index.html.
+  var SCHEDULE_RELEASED = false;
+  if (!SCHEDULE_RELEASED) return;
   var box = document.getElementById('nextRace');
   var badge = document.getElementById('heroBadge');
   if (!box && !badge) return;
