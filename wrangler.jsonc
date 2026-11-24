@@ -1,0 +1,9 @@
+// Cloudflare Workers config for snrleague.com (a static site: every file in this folder is served as-is).
+// Without this file, only the production "deploy" command could guess the setup; preview builds failed.
+{
+  "name": "snr-website",
+  "compatibility_date": "2026-11-23",
+  "assets": {
+    "directory": "."
+  }
+}
