@@ -2508,3 +2508,29 @@ img { max-width: 100%; height: auto; display: block; }
   .art-hero { margin: 18px -16px 24px; border-radius: 0; border-left: 0; border-right: 0; }
   .art-actions .btn { flex: 1 1 100%; text-align: center; }
 }
+
+/* ══ Story reading comfort (Nov 2026) ══ */
+.art-body { max-width: 640px; font-size: 18px; line-height: 1.7; color: #cdcdcd; letter-spacing: .005em; }
+.art-body p { margin: 0 0 1.25em; }
+.art-body p strong { color: #f2f2f2; font-weight: 600; }
+.art-body > p:first-child { font-size: 20px; line-height: 1.6; color: #e8e8e8; }
+.art-actions { max-width: 640px; }
+.art-sub { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; color: #fff; margin: 1.8em 0 .5em; padding-left: 12px; border-left: 3px solid var(--accent); line-height: 1.2; }
+/* standings tables */
+.art-table-wrap { margin: 0 0 1.6em; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.art-table { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.art-table th { text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); background: var(--surface-2); padding: 10px 14px; }
+.art-table td { padding: 9px 14px; border-top: 1px solid var(--border); color: #d6d6d6; }
+.art-table td:first-child, .art-table th:first-child { width: 56px; color: var(--text-muted); }
+.art-table .n { text-align: right; white-space: nowrap; }
+.art-table tbody tr:nth-child(even) td { background: rgba(255,255,255,.02); }
+.art-table tr.lead td { color: #fff; font-weight: 600; }
+.art-table tr.lead td:first-child { color: var(--accent); }
+@media (max-width: 600px) {
+  .art-body { font-size: 17px; line-height: 1.65; }
+  .art-body > p:first-child { font-size: 18.5px; }
+  .art-sub { font-size: 19px; }
+  .art-table { font-size: 14.5px; }
+  .art-table th, .art-table td { padding: 8px 10px; }
+  .art-table td:first-child, .art-table th:first-child { width: 44px; }
+}
