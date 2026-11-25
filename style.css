@@ -2883,3 +2883,47 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
   .nx-lead .nx-title { font-size: 27px; }
 }
 @media (max-width: 600px) { .nx-lead .nx-body { padding: 20px 18px 22px; } .nx-lead .nx-title { font-size: 24px; } }
+
+/* Home hero, scaled down (Nov 25): about 25% smaller so the hero and the schedule ticker fit on one screen */
+@media (min-width: 769px) {
+  .hx-inner { max-width: 1160px; padding: 40px 24px 44px; gap: 44px; }
+  .hx-left { max-width: 560px; }
+  .hx-kicker { font-size: 16px; gap: 12px; }
+  .hx-kicker .hx-check { width: 36px; height: 15px; background-size: 7.5px 7.5px; }
+  .hx-title { margin-top: 10px; }
+  .hx-sticker { width: 470px; margin-left: -10px; }
+  .hx-cup { font-size: 80px; margin-top: 2px; }
+  .hx-plate { margin-top: 16px; gap: 16px; padding: 7px 34px 7px 30px; clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+  .hx-plate-label { font-size: 14px; }
+  .hx-plate-bar { height: 42px; }
+  .hx-plate img { height: 60px; }
+  .hx-btns { margin-top: 22px; gap: 12px; }
+  .hx-btns .btn { min-height: 46px; padding: 0 22px; font-size: 17px; }
+  .hx-btns .btn svg { width: 18px; height: 18px; }
+  .hx-partners { margin-top: 22px; padding: 12px 18px 10px; gap: 8px; }
+  .hx-partners-label { font-size: 11.5px; }
+  .hx-partners .partner.p-wide img { height: 22px; }
+  .hx-partners-row { padding-top: 8px; gap: 8px; }
+  .hx-partners-row .partner { height: 50px; }
+  .hx-partners-row .partner img { height: 32px; }
+  .hx-partners-row .partner.p-tall img { height: 46px; }
+  .hx-right { max-width: 380px; flex-basis: 340px; }
+  .fc { height: 490px; }
+  .fc-head { font-size: 13px; padding: 10px 16px; }
+  .fc-big { font-size: 52px; }
+  .fc-logo { width: 240px; height: 130px; }
+  .fc-date { font-size: 19px; }
+  .fc-count { font-size: 14px; }
+  .fc-tap { font-size: 13px; padding: 7px 15px; margin-top: 10px; }
+  .fc-foot { padding: 8px 16px; } .fc-foot img { height: 32px; }
+  .fc-back-title { font-size: 18px; }
+  .fc-backbtn { min-height: 38px; font-size: 13px; }
+  .fc-tab { min-height: 38px; font-size: 13px; }
+  .fc-win { height: 27px; } .fc-win span { font-size: 15px; }
+  .fc-lead-n { font-size: 14px; } .fc-lead-b > b { font-size: 19px; } .fc-lead-r span { font-size: 13.5px; } .fc-lead-r b { font-size: 15px; }
+  .fc-note { font-size: 13.5px; }
+  .tk-inner { height: 58px; }
+  .tk-title { font-size: 22px; }
+  .tk-track { font-size: 18px; } .tk-when { font-size: 13px; }
+  .tk-sponsor img { height: 44px; }
+}
