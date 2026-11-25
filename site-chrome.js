@@ -6,11 +6,21 @@
    To add a page, add one line to NAV.
    ────────────────────────────────────────────────────────────────────────── */
 (function () {
+  /* ONE switch for the Season 7 schedule announcement. false = schedule page, ticker and next-race card stay hidden.
+     Add ?preview=release to any page address to see the released version without publishing it. */
+  var SCHEDULE_RELEASED = false;
+  try { if (/[?&]preview=release\b/.test(location.search)) { SCHEDULE_RELEASED = true; sessionStorage.setItem('snrPreview', '1'); }
+        else if (sessionStorage.getItem('snrPreview') === '1') SCHEDULE_RELEASED = true; } catch (e) {}
+  window.SNR = window.SNR || {};
+  window.SNR.scheduleReleased = SCHEDULE_RELEASED;
+
+  /* Title sponsor, shown in the nav bar, the footer and the home page */
+  var TITLE = { name: "Banksy's SimGarage", logo: 'assets/sponsors/banksy-wordmark.png', url: 'https://www.youtube.com/@BanksySimGarage' };
+
   var NAV = [
-    { label: 'Home',        page: 'home' },                      // home page (hash route)
-    { label: 'Latest News', href: 'news.html' },
-    { label: 'Schedule',    href: 'schedule.html', hidden: true },   // hidden until the Season 7 schedule announcement (then remove hidden)
+    { label: 'Schedule',    href: 'schedule.html', hidden: !SCHEDULE_RELEASED },   // shows when SCHEDULE_RELEASED is true
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
+    { label: 'News',        href: 'news.html' },
     { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
     { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true, hidden: true }, // hidden for now; SNR Fantasy Live (presented by Full Throttle Frames), free fantasy lineup game (points only)
     { label: 'Records',     href: 'records.html', hidden: true }, // hidden for now
@@ -33,7 +43,7 @@
     { label: 'Join our Discord',        href: DISCORD_URL,     note: 'League chat & announcements', external: true }
   ];
 
-  var SEASON_LINE = 'Season 7 — iRacing';
+  var SEASON_LINE = 'Cup Series presented by ' + TITLE.name;
   var COPYRIGHT   = '© ' + new Date().getFullYear() + ' Saturday Night Racing League. All rights reserved.';
   var SPONSOR     = '';   // title-sponsor credit line; leave empty when there is none
 
@@ -79,20 +89,27 @@
       '<div class="want-list" id="wantList" role="menu">' + wantItems + '</div>' +
     '</div>';
 
+  var sponsorHtml = function (cls) {
+    return '<a class="' + cls + '" href="' + TITLE.url + '" target="_blank" rel="noopener">' +
+      '<span class="ts-label">Presented by</span><img src="' + TITLE.logo + '" alt="' + TITLE.name + '" width="664" height="211"></a>';
+  };
+
   var navHtml =
     '<nav class="main-nav" id="mainNav">\n' +
     '  <div class="nav-inner">\n' +
-    '    <a href="' + (onHome ? '#home' : 'index.html#home') + '" class="nav-brand">\n' +
-    '      <img src="assets/brand/snr-sticker.svg" alt="Saturday Night Racing League" class="nav-logo nav-sticker" width="196" height="43">\n' +
-    '      <span class="nav-series-tag">Cup Series</span>\n' +
+    '    <a href="' + (onHome ? '#home' : 'index.html#home') + '" class="nav-brand" aria-label="Saturday Night Racing League Cup Series, home">\n' +
+    '      <img src="assets/brand/snr-badge-wide.svg" alt="" class="nav-badge" width="260" height="145">\n' +
+    '      <span class="nav-series">Cup Series</span>\n' +
     '    </a>\n' +
-    '    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">\n' +
+    '    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">\n' +
     '      <span></span><span></span><span></span>\n' +
     '    </button>\n' +
     '    <div class="nav-links" id="navLinks">\n' +
     '      ' + links + '\n' +
     '      ' + wantHtml + '\n' +
+    '      ' + sponsorHtml('nav-sponsor nav-sponsor-menu') + '\n' +
     '    </div>\n' +
+    '    ' + sponsorHtml('nav-sponsor nav-sponsor-bar') + '\n' +
     '  </div>\n' +
     '</nav>';
 
@@ -101,26 +118,49 @@
     return '<a href="' + hrefFor(it) + '"' + ext + '>' + it.label + '</a>';
   }).join('\n        ');
 
+  var PARTNERS = [
+    { name: 'VSPEED', logo: 'assets/sponsors/vspeed-wide.png', url: YOUTUBE_URL, cls: 'p-wide' },
+    { name: "Walkin' & Rollin' Costumes", logo: 'assets/sponsors/walkin-rollin-2.png', url: 'https://walkinrollin.org/' },
+    { name: 'Clark Print Shop', logo: 'assets/sponsors/clark-print-shop-2.png', url: 'https://www.clarkprintshop.com/' },
+    { name: 'TeamBoss', logo: 'assets/sponsors/teamboss-2.png', url: 'https://www.teamboss.net/' },
+    { name: 'Full Throttle Frames, sim racing photography', logo: 'assets/sponsors/full-throttle-frames-2.png', url: '', cls: 'p-tall' }
+  ];
+  window.SNR.partners = PARTNERS;
+  window.SNR.partnerHtml = function (p) {
+    var img = '<img src="' + p.logo + '" alt="' + p.name.replace(/"/g, '&quot;') + '" loading="lazy">';
+    return p.url ? '<a class="partner ' + (p.cls || '') + '" href="' + p.url + '" target="_blank" rel="noopener">' + img + '</a>'
+                 : '<span class="partner ' + (p.cls || '') + '">' + img + '</span>';
+  };
+
+  var footLinks = visible.map(function (it) {
+    var ext = it.external ? ' target="_blank" rel="noopener"' : '';
+    return '<a href="' + hrefFor(it) + '"' + ext + '>' + it.label + '</a>';
+  }).concat(DISCORD_URL ? ['<a href="' + DISCORD_URL + '" target="_blank" rel="noopener">Discord</a>'] : [])
+    .concat(['<a href="' + YOUTUBE_URL + '" target="_blank" rel="noopener">YouTube</a>']).join('\n        ');
+
   var footHtml =
+    '<section class="site-partners" aria-label="League partners">\n' +
+    '  <div class="site-partners-inner">\n' +
+    '    <span class="site-partners-label">Our partners</span>\n' +
+    '    <div class="site-partners-row">' + PARTNERS.map(window.SNR.partnerHtml).join('') + '</div>\n' +
+    '  </div>\n' +
+    '</section>\n' +
     '<footer class="site-footer">\n' +
+    '  <div class="footer-checker" aria-hidden="true"></div>\n' +
     '  <div class="footer-inner">\n' +
     '    <div class="footer-top">\n' +
     '      <div class="footer-brand">\n' +
-    '        <img src="assets/brand/snr-avatar.svg" alt="SNR" class="footer-logo footer-avatar" width="64" height="64">\n' +
+    '        <img src="assets/brand/snr-avatar-round.svg" alt="" class="footer-avatar" width="56" height="56">\n' +
     '        <div>\n' +
-    '          <strong>Saturday Night Racing Cup Series</strong>\n' +
+    '          <strong>Saturday Night Racing League</strong>\n' +
     '          <p>' + SEASON_LINE + '</p>\n' +
     '        </div>\n' +
     '      </div>\n' +
-    '      <div class="footer-links">\n        ' + footLinks + '\n      </div>\n' +
-    '    </div>\n' +
-    '    <div class="footer-social">\n' +
-    '      <a href="' + YOUTUBE_URL + '" target="_blank" rel="noopener" class="footer-social-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg>Watch on VSPEED</a>\n' +
-    (DISCORD_URL ? '      <a href="' + DISCORD_URL + '" target="_blank" rel="noopener" class="footer-social-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a12.9 12.9 0 0 1-2 1l1.3 2a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8.3 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm7.4 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>Join our Discord</a>\n' : '') +
+    '      <nav class="footer-links" aria-label="Footer">\n        ' + footLinks + '\n      </nav>\n' +
     '    </div>\n' +
     '    <div class="footer-bottom">\n' +
-    (SPONSOR ? '      <p class="footer-sponsor">' + SPONSOR + '</p>\n' : '') +
     '      <p>' + COPYRIGHT + '</p>\n' +
+    '      ' + sponsorHtml('footer-sponsor') + '\n' +
     '    </div>\n' +
     '  </div>\n' +
     '</footer>';
@@ -129,6 +169,7 @@
     var el = document.getElementById(id);
     if (el) el.outerHTML = html;
   }
+  document.documentElement.classList.toggle('schedule-released', SCHEDULE_RELEASED);
   mount('site-nav', navHtml);
   mount('site-footer', footHtml);
 

@@ -25,7 +25,7 @@
   <meta name="twitter:title" content="Saturday Night Racing League – NASCAR iRacing League">
   <meta name="twitter:description" content="Intense NASCAR iRacing competition every Saturday night! Sim‑racers go door‑to‑door in the SNR Cup Series, broadcast live on VSPEED's YouTube channel.">
   <meta name="twitter:image" content="https://snrleague.com/assets/brand/og-card.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -40,31 +40,34 @@
 
 <!-- ==================== HOME PAGE ==================== -->
 <section class="page" id="page-home">
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-bg">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
-        <source src="assets/hero.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay"></div>
-      <div class="racing-stripes"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-series-logo"><img src="assets/brand/snr-logo.svg" alt="Saturday Night Racing League" class="hero-logo-center" width="420" height="233"></div>
-      <h1 class="sr-only">Saturday Night Racing League &mdash; NASCAR iRacing Cup Series</h1>
-      <div class="hero-badge" id="heroBadge">Season 7 coming soon</div>
-      <p class="hero-tagline">NASCAR iRacing league &middot; Saturdays 10&nbsp;PM&nbsp;ET</p>
-      <div class="hero-actions">
-        <a href="https://www.youtube.com/VSPEED" target="_blank" rel="noopener" class="btn btn-outline hero-watch" aria-label="Watch live on VSPEED"><span class="hero-watch-txt">&#9654;&nbsp; Watch live on</span><img src="assets/sponsors/vspeed.png" alt="" class="hero-watch-logo" width="720" height="70"></a>
-        <a href="news.html" class="btn btn-outline">Latest News</a>
+  <!-- Hero: Season 7 · SNR Cup Series presented by Banksy's SimGarage (filled by home.js) -->
+  <div class="hx">
+    <img class="hx-art" src="assets/brand/tire-flag-art.svg" alt="" aria-hidden="true">
+    <div class="hx-shade" aria-hidden="true"></div>
+    <div class="hx-inner">
+      <div class="hx-left">
+        <div class="hx-kicker"><span class="hx-check" aria-hidden="true"></span>Season 7 &middot; 2027</div>
+        <h1 class="hx-title">
+          <img src="assets/brand/snr-sticker-invert.svg" alt="Saturday Night Racing League" class="hx-sticker" width="640" height="150">
+          <span class="hx-cup">Cup Series</span>
+        </h1>
+        <a class="hx-plate" href="https://www.youtube.com/@BanksySimGarage" target="_blank" rel="noopener">
+          <span class="hx-plate-label">Presented by</span><span class="hx-plate-bar" aria-hidden="true"></span>
+          <img src="assets/sponsors/banksy-wordmark.png" alt="Banksy's SimGarage" width="664" height="211">
+        </a>
+        <div class="hx-btns" id="hxBtns">
+          <a href="schedule.html" class="btn btn-primary hx-sched"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>2027 Schedule</a>
+          <a href="news.html" class="btn btn-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M8 9h5M8 13h5"/></svg>League News</a>
+          <a href="https://www.youtube.com/VSPEED" target="_blank" rel="noopener" class="btn btn-outline hx-watch" aria-label="Watch live on VSPEED"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>Watch on <img src="assets/sponsors/vspeed-wide.png" alt="" class="hx-watch-logo"></a>
+        </div>
+        <div class="hx-partners" id="hxPartners"><span class="hx-partners-label">Our partners</span></div>
+      </div>
+      <div class="hx-right">
+        <div class="fc" id="raceCard"></div>
       </div>
     </div>
   </div>
-
-    <!-- Next race (filled from schedule_data.json by polish.js) -->
-    <div class="section-container">
-      <div class="nr" id="nextRace" hidden></div>
-    </div>
+  <div class="tk" id="schedTicker" hidden></div>
 
   <!-- Latest News -->
   <div class="section-container">
@@ -734,50 +737,11 @@
 </section>
 
 <!-- Footer -->
-<!-- Sponsors Section -->
-<section class="sponsors-section" id="sponsors">
-  <div class="sponsors-inner">
-    <div class="sponsors-header">
-      <span class="sponsors-label">OUR PARTNERS &amp; SPONSORS</span>
-    </div>
-
-    <!-- Primary Sponsors -->
-    <div class="sponsors-tier primary-sponsors">
-      <div class="sponsor-item">
-        <a href="https://www.youtube.com/VSPEED" target="_blank" rel="noopener">
-          <img src="assets/sponsors/vspeed.png" alt="VSPEED" class="sponsor-logo sponsor-logo-wide">
-        </a>
-      </div>
-    </div>
-
-    <!-- Secondary Sponsors -->
-    <div class="sponsors-tier secondary-sponsors">
-      <div class="sponsor-item">
-        <a href="https://walkinrollin.org/" target="_blank" rel="noopener">
-          <img src="assets/sponsors/walkin-rollin.png" alt="Walkin' &amp; Rollin' Costumes" class="sponsor-logo">
-        </a>
-      </div>
-      <div class="sponsor-item">
-        <a href="https://www.clarkprintshop.com/" target="_blank" rel="noopener">
-          <img src="assets/sponsors/clark-print-shop.png" alt="Clark Print Shop" class="sponsor-logo">
-        </a>
-      </div>
-      <div class="sponsor-item">
-        <a href="https://www.teamboss.net/" target="_blank" rel="noopener">
-          <img src="assets/sponsors/teamboss.png" alt="TeamBoss" class="sponsor-logo">
-        </a>
-      </div>
-      <div class="sponsor-item">
-        <img src="assets/sponsors/full-throttle-frames.png" alt="Full Throttle Frames — Sim Racing Photography" class="sponsor-logo sponsor-logo-tall">
-      </div>
-    </div>
-  </div>
-</section>
-
 <div id="site-footer"></div>
 <script src="site-chrome.js"></script>
 
 <script src="app.js"></script>
 <script src="polish.js"></script>
+<script src="home.js"></script>
 </body>
 </html>
