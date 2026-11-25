@@ -2867,3 +2867,19 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
    Saira 900 italic for big titles. Inter stays only for long reading text (news stories, rulebook). */
 :root { --font-body: 'Saira', 'Saira Condensed', system-ui, sans-serif; }
 .art-body, .rules-container p, .rules-container li { font-family: 'Inter', system-ui, sans-serif; }
+/* Featured story on the News page: keep the photo inside its column and give the text room */
+.nx-lead { grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); }
+.nx-lead .nx-img { aspect-ratio: auto; height: auto; min-height: 100%; width: 100%; min-width: 0; overflow: hidden; }
+.nx-lead .nx-img img { width: 100%; height: 100%; object-fit: cover; }
+.nx-lead .nx-img.contain img { object-fit: contain; }
+.nx-lead .nx-body { padding: 36px 40px; gap: 16px; }
+.nx-lead .nx-title { font-size: 32px; line-height: 1.12; letter-spacing: .01em; }
+.nx-lead .nx-ex { font-size: 16px; line-height: 1.65; }
+.nx-lead .nx-foot { margin-top: 10px; padding-top: 16px; border-top: 1px solid var(--border); }
+@media (max-width: 960px) {
+  .nx-lead { grid-template-columns: 1fr; }
+  .nx-lead .nx-img { aspect-ratio: 16/9; min-height: 0; }
+  .nx-lead .nx-body { padding: 24px 24px 26px; gap: 14px; }
+  .nx-lead .nx-title { font-size: 27px; }
+}
+@media (max-width: 600px) { .nx-lead .nx-body { padding: 20px 18px 22px; } .nx-lead .nx-title { font-size: 24px; } }
