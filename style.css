@@ -2863,3 +2863,7 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
   .fc-pane { gap: 8px; padding: 8px 12px 10px; }
   .fc-win { height: 28px; }
 }
+/* One type family across the site, as in the design: Saira for interface text, Saira Condensed for labels,
+   Saira 900 italic for big titles. Inter stays only for long reading text (news stories, rulebook). */
+:root { --font-body: 'Saira', 'Saira Condensed', system-ui, sans-serif; }
+.art-body, .rules-container p, .rules-container li { font-family: 'Inter', system-ui, sans-serif; }

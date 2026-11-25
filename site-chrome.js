@@ -8,7 +8,7 @@
 (function () {
   /* ONE switch for the Season 7 schedule announcement. false = schedule page, ticker and next-race card stay hidden.
      Add ?preview=release to any page address to see the released version without publishing it. */
-  var SCHEDULE_RELEASED = false;
+  var SCHEDULE_RELEASED = true;   // this branch launches with the schedule announcement
   try { if (/[?&]preview=release\b/.test(location.search)) { SCHEDULE_RELEASED = true; sessionStorage.setItem('snrPreview', '1'); }
         else if (sessionStorage.getItem('snrPreview') === '1') SCHEDULE_RELEASED = true; } catch (e) {}
   window.SNR = window.SNR || {};
