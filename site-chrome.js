@@ -123,7 +123,7 @@
     { name: "Walkin' & Rollin' Costumes", logo: 'assets/sponsors/walkin-rollin-2.png', url: 'https://walkinrollin.org/' },
     { name: 'Clark Print Shop', logo: 'assets/sponsors/clark-print-shop-2.png', url: 'https://www.clarkprintshop.com/' },
     { name: 'TeamBoss', logo: 'assets/sponsors/teamboss-2.png', url: 'https://www.teamboss.net/' },
-    { name: 'Full Throttle Frames, sim racing photography', logo: 'assets/sponsors/full-throttle-frames-2.png', url: '', cls: 'p-tall' }
+    { name: 'Full Throttle Frames, sim racing photography', logo: 'assets/sponsors/full-throttle-frames-2.png', url: 'https://x.com/fullthrottle54', cls: 'p-tall' }
   ];
   window.SNR.partners = PARTNERS;
   window.SNR.partnerHtml = function (p) {
