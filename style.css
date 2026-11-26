@@ -2975,3 +2975,67 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
   .nav-badge { height: 42px; }
   .nav-sponsor img { height: 36px; }
 }
+
+/* ===== Home hero fits the screen (Nov 26): the hero fills the window above the schedule ticker,
+   so the ticker sits at the bottom of the first screen. Shorter windows get a more compact hero. ===== */
+@media (min-width: 769px) {
+  .hx { min-height: calc(100vh - var(--nav-height) - 58px); min-height: calc(100svh - var(--nav-height) - 58px); display: flex; align-items: center; }
+  .hx-inner { width: 100%; padding: 28px 24px 32px; }
+  /* darker background so the card and logos stand out */
+  .hx-art { opacity: .45; }
+  .hx-shade { background: linear-gradient(90deg, rgba(5,6,8,.85) 0%, rgba(5,6,8,.62) 50%, rgba(5,6,8,.5) 100%), linear-gradient(180deg, rgba(5,6,8,0) 60%, rgba(5,6,8,.55) 100%); }
+}
+@media (min-width: 769px) and (max-height: 900px) {
+  .hx .snr-badge { --u: .68px; }
+  .hx-title.hx-badge-title { margin-top: 10px; }
+  .hx-btns { margin-top: 18px; }
+  .hx-partners { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 18px; padding: 10px 18px; }
+  .hx-partners-label { flex-basis: 100%; text-align: center; font-size: 10.5px; }
+  .hx-partners-top { display: contents; }
+  .hx-partners-row { display: contents; }
+  .hx-partners .partner { height: 40px; }
+  .hx-partners .partner img { height: 28px; max-width: 130px; }
+  .hx-partners .partner.p-wide img { height: 18px; }
+  .hx-partners .partner.p-tall img { height: 40px; }
+  .fc { height: 440px; }
+  .fc-big { font-size: 46px; }
+  .fc-logo { width: 220px; height: 112px; margin: 2px 0; }
+  .fc-main { gap: 4px; padding: 12px 18px; }
+}
+@media (min-width: 769px) and (max-height: 740px) {
+  .hx-inner { padding: 18px 24px 20px; }
+  .hx-kicker { font-size: 14px; }
+  .hx .snr-badge { --u: .56px; }
+  .hx-btns { margin-top: 14px; }
+  .hx-btns .btn { min-height: 42px; font-size: 16px; }
+  .hx-partners { margin-top: 14px; padding: 8px 16px; }
+  .hx-partners-label { display: none; }
+  .fc { height: 400px; }
+  .fc-big { font-size: 40px; }
+  .fc-logo { width: 200px; height: 96px; }
+  .fc-date { font-size: 17px; }
+  .fc-tap { margin-top: 6px; }
+}
+
+/* ===== Nav: 8 menu items need tighter spacing so the sponsor logo never gets cut off ===== */
+.main-nav .nav-inner { gap: 20px; }
+.main-nav .nav-links { gap: 4px 18px; min-width: 0; }
+.main-nav .nav-link { font-size: 15.5px; letter-spacing: .09em; }
+@media (max-width: 1700px) { .nav-sponsor-bar .ts-label { display: none; } }
+@media (max-width: 1440px) and (min-width: 769px) {
+  .main-nav .nav-inner { padding: 0 18px; gap: 16px; }
+  .nav-badge { height: 46px; } .nav-series { font-size: 22px; }
+  .main-nav .nav-links { gap: 4px 14px; }
+  .main-nav .nav-link { font-size: 14px; letter-spacing: .06em; }
+  .want-btn { font-size: 13.5px; padding: 8px 14px; }
+  .nav-sponsor img { height: 42px; }
+}
+@media (max-width: 1200px) and (min-width: 769px) { .nav-series { display: none; } }
+.nav-sponsor-bar .ts-label { display: none; }
+@media (min-width: 2000px) { .nav-sponsor-bar .ts-label { display: inline; } }
+@media (max-width: 1100px) and (min-width: 769px) { .nav-sponsor-bar { display: none; } .main-nav .nav-links { justify-content: flex-end; } }
+.main-nav .nav-inner { max-width: 1680px; }
+@media (max-width: 1680px) and (min-width: 1441px) {
+  .main-nav .nav-links { gap: 4px 15px; }
+  .main-nav .nav-link { font-size: 14.5px; letter-spacing: .07em; }
+}
