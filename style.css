@@ -3039,3 +3039,17 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
   .main-nav .nav-links { gap: 4px 15px; }
   .main-nav .nav-link { font-size: 14.5px; letter-spacing: .07em; }
 }
+
+/* Race card (Nov 26): focused on the race ahead. Both faces share one grid cell, so the card grows to fit
+   whichever side is taller and the back never needs scrolling. */
+.fc { height: auto !important; }
+.fc-in { display: grid; height: auto; }
+.fc-face { position: relative; inset: auto; grid-area: 1 / 1; min-height: 420px; }
+.fc-pane { overflow: visible; }
+.fc-last { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 6px; background: #151C23; box-shadow: inset 3px 0 0 var(--accent); font-family: var(--font-display); }
+.fc-last b { font-family: var(--font-head); font-weight: 900; font-style: italic; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #fff; }
+.fc-last-s { font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
+.fc-lead-grid.fc-lead-3 { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; }
+.fc-lead-3 .fc-lead { padding: 7px 9px; }
+.fc-lead-3 .fc-lead-l { font-size: 10px; letter-spacing: .14em; }
+.fc-lead-3 .fc-lead-n { font-size: 13.5px; }

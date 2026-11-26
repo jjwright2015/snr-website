@@ -71,12 +71,13 @@
       if (b.who.length === 1) names = b.who[0].driver;
       return '<div class="fc-lead fc-lead-b"><span class="fc-lead-l">' + label + '</span><span class="fc-lead-n">' + esc(names) + '</span><b class="y">' + fmt(b.m) + (b.who.length > 1 && b.who.length <= 2 ? ' each' : '') + '</b></div>';
     };
-    return '<span class="fc-sub">Race winners here &middot; ' + esc(h.races || '') + (h.races ? ' races' : '') + '</span>' +
-      '<div class="fc-wins">' + (winners.length ? winners.slice(0, 6).map(function (r, i) {
+    var lastHtml = h.last ? '<div class="fc-last"><span class="fc-lead-l">Most recent winner</span><b>' + esc(h.last.name) + '</b><span class="fc-last-s">Season ' + esc(h.last.season) + '</span></div>' : '';
+    return lastHtml +
+      '<span class="fc-sub">Winners here &middot; ' + esc(h.races || '') + (h.races ? ' SNR races' : '') + '</span>' +
+      '<div class="fc-wins">' + (winners.length ? winners.slice(0, 8).map(function (r) {
         return '<div class="fc-win"><span>' + esc(r.driver) + '</span><b>' + r.wins + (r.wins === 1 ? ' win' : ' wins') + '</b></div>';
       }).join('') : '<div class="fc-win"><span>No winners yet</span></div>') + '</div>' +
-      (h.last ? '<p class="fc-note">Last winner here: <b>' + esc(h.last.name) + '</b> (Season ' + esc(h.last.season) + ')</p>' : '') +
-      '<div class="fc-lead-grid">' + tile('Most laps led', 'laps_led') + tile('Most top 5s', 'top5') + tile('Most top 10s', 'top10') + tile('Most starts', 'starts') + '</div>';
+      '<div class="fc-lead-grid fc-lead-3">' + tile('Most laps led', 'laps_led') + tile('Most top 5s', 'top5') + tile('Most top 10s', 'top10') + '</div>';
   }
 
   function cardShell(front, backTitle, tabs, panes) {
@@ -163,7 +164,7 @@
       '<span class="fc-count" id="fcCount"></span>' +
       '<span class="fc-tap">' + ICON_FLIP + 'Tap for ' + esc(short.toLowerCase()) + ' history</span></div>' + TITLE_FOOT;
     var key = statsKey(next, stats);
-    card.innerHTML = cardShell(front2, esc(title) + ' history', ['At ' + esc(short.toLowerCase()), 'All-time league'], [trackHtml(next, key ? stats[key] : null, short), careerHtml(dd)]);
+    card.innerHTML = cardShell(front2, esc(short) + ' history', ['At ' + esc(short.toLowerCase())], [trackHtml(next, key ? stats[key] : null, short)]);
     wireCard(card);
     var cnt = $('fcCount');
     var tick = function () {
