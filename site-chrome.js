@@ -20,11 +20,13 @@
   var NAV = [
     { label: 'Schedule',    href: 'schedule.html', hidden: !SCHEDULE_RELEASED },   // shows when SCHEDULE_RELEASED is true
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
+    { label: 'Stats', items: [                                   // dropdown: opens on hover (desktop) or tap
+      { label: 'Drivers',   href: 'drivers.html',  note: 'Profiles and career stats' },
+      { label: 'Records',   href: 'records.html',  note: 'Streaks and all-time bests' },
+      { label: 'History',   page: 'history',       note: 'Champions and past seasons' }
+    ] },
+    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true }, // SNR Fantasy Live (presented by Full Throttle Frames)
     { label: 'News',        href: 'news.html' },
-    { label: 'Drivers',     href: 'drivers.html' }, // shown on the preview branch only (hidden on live)
-    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true }, // shown on the preview branch only (hidden on live); SNR Fantasy Live (presented by Full Throttle Frames), free fantasy lineup game (points only)
-    { label: 'Records',     href: 'records.html' }, // shown on the preview branch only (hidden on live)
-    { label: 'History',     page: 'history' }, // shown on the preview branch only (hidden on live)
     { label: 'Rules',       page: 'rules' }                      // home page (hash route)
   ];
 
@@ -63,12 +65,27 @@
     return onHome && it.page === hash;
   }
   var visible = NAV.filter(function (i) { return !i.hidden; });
+  var flat = [];   // every link, dropdown items included (footer)
+  visible.forEach(function (it) { if (it.items) flat = flat.concat(it.items.filter(function (x) { return !x.hidden; })); else flat.push(it); });
 
-  var links = visible.map(function (it) {
-    var cls = 'nav-link' + (it.cta ? ' nav-join-btn' : '') + (isActive(it) ? ' active' : '');
+  function linkHtml(it, cls) {
+    var c = cls + (isActive(it) ? ' active' : '');
     var dp = it.page && onHome ? ' data-page="' + it.page + '"' : '';
     var ext = it.external ? ' target="_blank" rel="noopener"' : '';
-    return '<a href="' + hrefFor(it) + '" class="' + cls + '"' + dp + ext + '>' + it.label + '</a>';
+    return '<a href="' + hrefFor(it) + '" class="' + c + '"' + dp + ext + '>';
+  }
+  var links = visible.map(function (it) {
+    if (it.items) {
+      var subs = it.items.filter(function (x) { return !x.hidden; });
+      var on = subs.some(isActive);
+      return '<div class="nav-drop' + (on ? ' active' : '') + '">' +
+        '<button type="button" class="nav-link nav-drop-btn' + (on ? ' active' : '') + '" aria-expanded="false" aria-haspopup="true">' + it.label +
+        '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+        '<div class="nav-drop-menu" role="menu">' + subs.map(function (x) {
+          return linkHtml(x, 'nav-drop-item').replace('<a ', '<a role="menuitem" ') + '<span class="ndi-label">' + x.label + '</span>' + (x.note ? '<span class="ndi-note">' + x.note + '</span>' : '') + '</a>';
+        }).join('') + '</div></div>';
+    }
+    return linkHtml(it, 'nav-link' + (it.cta ? ' nav-join-btn' : '')) + it.label + '</a>';
   }).join('\n      ');
 
   var wantItems = WANT.filter(function (w) { return w.page || w.href; }).map(function (w) {
@@ -113,7 +130,7 @@
     '  </div>\n' +
     '</nav>';
 
-  var footLinks = visible.map(function (it) {
+  var footLinks = flat.map(function (it) {
     var ext = it.external ? ' target="_blank" rel="noopener"' : '';
     return '<a href="' + hrefFor(it) + '"' + ext + '>' + it.label + '</a>';
   }).join('\n        ');
@@ -132,7 +149,7 @@
                  : '<span class="partner ' + (p.cls || '') + '">' + img + '</span>';
   };
 
-  var footLinks = visible.map(function (it) {
+  var footLinks = flat.map(function (it) {
     var ext = it.external ? ' target="_blank" rel="noopener"' : '';
     return '<a href="' + hrefFor(it) + '"' + ext + '>' + it.label + '</a>';
   }).concat(DISCORD_URL ? ['<a href="' + DISCORD_URL + '" target="_blank" rel="noopener">Discord</a>'] : [])
@@ -170,6 +187,17 @@
     if (el) el.outerHTML = html;
   }
   document.documentElement.classList.toggle('schedule-released', SCHEDULE_RELEASED);
+  /* Stats dropdown: hover opens it on desktop (CSS); a tap or click toggles it; Esc or a click outside closes it */
+  if (!window.__snrDropWired && document.querySelector('.nav-drop')) {
+    window.__snrDropWired = true;
+    var closeAll = function (except) { document.querySelectorAll('.nav-drop.open').forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false'); } }); };
+    document.querySelectorAll('.nav-drop-btn').forEach(function (b) {
+      b.addEventListener('click', function (e) { e.stopPropagation(); var d = b.parentNode; var open = !d.classList.contains('open'); closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); });
+    });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.nav-drop')) closeAll(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+    document.querySelectorAll('.nav-drop-item').forEach(function (a) { a.addEventListener('click', function () { closeAll(); }); });
+  }
   mount('site-nav', navHtml);
   mount('site-footer', footHtml);
 
