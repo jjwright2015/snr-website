@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   _safeInit('initStandingsSearch', initStandingsSearch);
   _safeInit('initTableSort',       initTableSort);
   _safeInit('initHistoryTabs',     initHistoryTabs);
-  _safeInit('renderHistory',       () => renderHistory(1));
+  _safeInit('renderHistory',       () => renderHistory(latestHistorySeason()));
   _safeInit('renderTracks',        renderTracks);
   _safeInit('initTrackSearch',     initTrackSearch);
   _safeInit('initRuleAccordions',  initRuleAccordions);
@@ -301,6 +301,15 @@ function initHistoryTabs() {
       renderHistory(season);
     });
   });
+}
+
+// History opens on the most recent finished season (the last numbered tab), not Season 1
+function latestHistorySeason() {
+  const tabs = [...document.querySelectorAll('.season-tab[data-season]')];
+  const last = tabs.reduce((a, t) => (+t.dataset.season > +(a?.dataset.season || 0) ? t : a), null);
+  if (!last) return 1;
+  tabs.forEach(t => t.classList.toggle('active', t === last));
+  return +last.dataset.season;
 }
 
 function renderHistory(season) {
