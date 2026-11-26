@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Source for assets/brand/og-card.jpg (the picture shown when a snrleague.com link is shared).
+     Render at 1200x630, device scale 2, then save as JPG. Not published (scripts/ is in .assetsignore). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../style.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0B0F14; }
+  body::before { display: none; }
+  .og { position: relative; width: 1200px; height: 630px; overflow: hidden; font-family: 'Saira Condensed', sans-serif; color: #fff; }
+  .og-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; opacity: .5; }
+  .og-shade { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 36% 50%, rgba(5,6,8,.55) 0%, rgba(5,6,8,.2) 70%), linear-gradient(90deg, rgba(5,6,8,.75) 0%, rgba(5,6,8,.35) 60%, rgba(5,6,8,.55) 100%); }
+  .og-in { position: absolute; inset: 0 0 18px; display: flex; align-items: center; justify-content: space-between; padding: 0 64px 0 58px; }
+  .og-left { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .og-kicker { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 24px; letter-spacing: .3em; color: #EADC5A; text-transform: uppercase; }
+  .og-check { width: 46px; height: 20px; background: repeating-conic-gradient(#FFFFFF 0 25%, transparent 0 50%) 0 0 / 10px 10px; }
+  .og .snr-badge { --u: .9px; }
+  .og-right { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 380px; }
+  .og-line { font-weight: 700; font-size: 27px; letter-spacing: .12em; text-transform: none; color: #D5DCE4; text-align: center; line-height: 1.35; }
+  .og-line b { color: #fff; }
+  .og-live { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 19px; letter-spacing: .24em; color: #AEB8C4; text-transform: uppercase; }
+  .og-live { white-space: nowrap; } .og-live img { height: 27px; }
+  .og-url { position: absolute; right: 64px; top: 34px; font-family: 'Saira', sans-serif; font-weight: 800; font-style: italic; font-size: 22px; color: #fff; letter-spacing: .02em; }
+  .og-checker { position: absolute; left: 0; right: 0; bottom: 0; height: 18px; background: repeating-conic-gradient(#FFFFFF 0 25%, #0B0F14 0 50%) 0 0 / 18px 18px; opacity: .9; }
+  .og-blue { position: absolute; left: 0; right: 0; bottom: 18px; height: 6px; background: linear-gradient(90deg, #0A6CD6, #1E9BFF); }
+</style>
+</head>
+<body>
+<div class="og">
+  <img class="og-art" src="../assets/brand/tire-flag-art.svg" alt="">
+  <div class="og-shade"></div>
+  <div class="og-url">snrleague.com</div>
+  <div class="og-in">
+    <div class="og-left">
+      <div class="og-kicker"><span class="og-check"></span>Season 7 &middot; 2027</div>
+      <span class="snr-badge"><span class="snr-badge-edge"><span class="snr-badge-body">
+        <img class="snr-badge-sticker" src="../assets/brand/snr-sticker-invert.svg" alt="" width="470" height="103">
+        <span class="snr-badge-cup">Cup Series</span>
+        <span class="snr-badge-stripe"></span>
+        <span class="snr-badge-band"><span class="snr-badge-label">Presented by</span><img src="../assets/sponsors/banksy-wordmark.png" alt=""></span>
+      </span></span></span>
+    </div>
+    <div class="og-right">
+      <div class="og-line"><b>NASCAR iRACING LEAGUE</b><br>SATURDAYS &middot; 10 PM ET</div>
+      <div class="og-live">Live on <img src="../assets/sponsors/vspeed-wide.png" alt="VSPEED"></div>
+    </div>
+  </div>
+  <div class="og-blue"></div>
+  <div class="og-checker"></div>
+</div>
+</body>
+</html>
