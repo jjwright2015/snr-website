@@ -21,10 +21,10 @@
     { label: 'Schedule',    href: 'schedule.html', hidden: !SCHEDULE_RELEASED },   // shows when SCHEDULE_RELEASED is true
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'News',        href: 'news.html' },
-    { label: 'Drivers',     href: 'drivers.html', hidden: true }, // hidden for now
-    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true, hidden: true }, // hidden for now; SNR Fantasy Live (presented by Full Throttle Frames), free fantasy lineup game (points only)
-    { label: 'Records',     href: 'records.html', hidden: true }, // hidden for now
-    { label: 'History',     page: 'history',      hidden: true }, // hidden for now
+    { label: 'Drivers',     href: 'drivers.html' }, // shown on the preview branch only (hidden on live)
+    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true }, // shown on the preview branch only (hidden on live); SNR Fantasy Live (presented by Full Throttle Frames), free fantasy lineup game (points only)
+    { label: 'Records',     href: 'records.html' }, // shown on the preview branch only (hidden on live)
+    { label: 'History',     page: 'history' }, // shown on the preview branch only (hidden on live)
     { label: 'Rules',       page: 'rules' }                      // home page (hash route)
   ];
 

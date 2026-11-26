@@ -2953,3 +2953,25 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
 /* Schedule page: the badge above the page title */
 .sc-badge { display: flex; justify-content: center; margin-bottom: 18px; }
 .sc-badge .snr-badge { --u: min(.56px, calc((100vw - 40px) / 660)); }
+
+/* Nav with all 8 links (preview branch shows Drivers, Fantasy, Records, History): tighten so it fits on one line */
+@media (max-width: 1560px) and (min-width: 769px) {
+  .main-nav .nav-inner { gap: 18px; }
+  .main-nav .nav-links { gap: 4px 16px; }
+  .main-nav .nav-link { font-size: 15px; letter-spacing: .08em; }
+}
+@media (max-width: 1400px) and (min-width: 769px) { .nav-sponsor-bar .ts-label { display: none; } }
+@media (max-width: 1300px) and (min-width: 769px) {
+  .nav-series { display: none; }
+  .main-nav .nav-links { gap: 4px 13px; }
+  .main-nav .nav-link { font-size: 14px; letter-spacing: .06em; }
+  .nav-sponsor img { height: 44px; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  .main-nav .nav-inner { padding: 0 14px; gap: 12px; }
+  .main-nav .nav-links { gap: 4px 10px; }
+  .main-nav .nav-link { font-size: 13px; letter-spacing: .03em; }
+  .want-btn { padding: 8px 12px; font-size: 13px; }
+  .nav-badge { height: 42px; }
+  .nav-sponsor img { height: 36px; }
+}
