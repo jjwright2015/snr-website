@@ -174,7 +174,7 @@
           </span></span></span>
     </div>
     <h1 class="page-title">Season 7 <span class="text-accent">Schedule</span></h1>
-    <p class="page-subtitle">24 races &middot; Saturday nights at 10:00 PM ET &middot; NASCAR Next Gen Cup car</p>
+    <p class="page-subtitle">24 races &middot; Saturday nights at 10:00 PM ET (SNR 500 at 8:30 PM) &middot; NASCAR Next Gen Cup car</p>
   </div>
   <div class="sc-meta" id="scMeta"></div>
   <div id="scList"><p style="text-align:center;color:var(--text-muted)">Loading schedule&hellip;</p></div>
@@ -203,6 +203,8 @@ hamburger.addEventListener('click', function () {
   var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function ymd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  // Start time in Eastern from the race's own start (most races 10:00 PM; the SNR 500 starts 8:30 PM)
+  function etTime(iso) { try { return new Date(iso).toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET'; } catch (e) { return '10:00 PM ET'; } }
   var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
   var eastern = /^America\/(New_York|Detroit|Toronto|Indiana|Kentucky|Nassau|Montreal)/.test(tz);
   function localTime(iso) {
@@ -248,7 +250,7 @@ hamburger.addEventListener('click', function () {
          '<button type="button" class="sc-ico sc-more" aria-expanded="' + (isNext ? 'true' : 'false') + '" aria-label="Details for race ' + e.round + '">' + ICON_CHEV + '</button></div>';
     // details (tap / click a race)
     var det = [], lt = localTime(e.start);
-    if (!r) det.push('<span>' + DAY[d.getDay()] + ' &middot; 10:00 PM ET' + (lt ? ' <span class="m">&middot; ' + esc(lt) + '</span>' : '') + '</span>');
+    if (!r) det.push('<span>' + DAY[d.getDay()] + ' &middot; ' + etTime(e.start) + (lt ? ' <span class="m">&middot; ' + esc(lt) + '</span>' : '') + '</span>');
     if (hi) {
       var most = hi.mostWins;
       if (most && most.wins > 1) det.push('<span><span class="m">Most wins:</span> ' + esc(most.names.join(', ')) + ' <span class="m">(' + most.wins + ')</span></span>');
