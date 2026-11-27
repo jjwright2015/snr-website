@@ -18,6 +18,7 @@
   var TITLE = { name: "Banksy's SimGarage", logo: 'assets/sponsors/banksy-wordmark.png', url: 'https://www.youtube.com/@BanksySimGarage' };
 
   var NAV = [
+    { label: 'News',        href: 'news.html' },
     { label: 'Schedule',    href: 'schedule.html', hidden: !SCHEDULE_RELEASED },   // shows when SCHEDULE_RELEASED is true
     { label: 'Standings',   page: 'standings' },                 // home page (hash route)
     { label: 'Stats', items: [                                   // dropdown: opens on hover (desktop) or tap
@@ -25,10 +26,10 @@
       { label: 'Records',   href: 'records.html',  note: 'Streaks and all-time bests' },
       { label: 'History',   page: 'history',       note: 'Champions and past seasons' }
     ] },
-    { label: 'Fantasy',     href: 'https://fantasy.snrleague.com/#/', external: true }, // SNR Fantasy Live (presented by Full Throttle Frames)
-    { label: 'News',        href: 'news.html' },
-    { label: 'Rules',       page: 'rules' }                      // home page (hash route)
+    { label: 'Fantasy Live', href: 'https://fantasy.snrleague.com/#/', external: true } // SNR Fantasy Live app (presented by Full Throttle Frames)
   ];
+  // Rules is its own page (index.html#rules), reached from the "I want to…" menu and the footer
+  var RULES = { label: 'Rules', page: 'rules' };
 
   /* "I want to…" menu (top right). Put the real link in `href`.
      An item whose href is empty is left out; 'TODO' shows a "link needed" tag (review only). */
@@ -38,6 +39,7 @@
   var YOUTUBE_URL = 'https://www.youtube.com/VSPEED';
   /* An item can show a small logo after its note: logo: { src: 'assets/…', alt: 'Name' } */
   var WANT = [
+    { label: 'Read the rules',          page: 'rules',         note: 'League rulebook' },
     { label: 'Apply to the league',     href: 'join.html',     note: 'Driver application' },
     { label: 'Pay my entry fee',        href: PAYPAL_URL,      note: 'Secure payment via', logo: { src: 'assets/brand/paypal-yellow.png', alt: 'PayPal' }, external: true },
     { label: 'Become a sponsor',        href: SPONSOR_URL,     note: 'Sponsorship request form', external: true },
@@ -67,6 +69,7 @@
   var visible = NAV.filter(function (i) { return !i.hidden; });
   var flat = [];   // every link, dropdown items included (footer)
   visible.forEach(function (it) { if (it.items) flat = flat.concat(it.items.filter(function (x) { return !x.hidden; })); else flat.push(it); });
+  flat.push(RULES);
 
   function linkHtml(it, cls) {
     var c = cls + (isActive(it) ? ' active' : '');
