@@ -193,9 +193,13 @@
   /* Stats dropdown: hover opens it on desktop (CSS); a tap or click toggles it; Esc or a click outside closes it */
   if (!window.__snrDropWired && document.querySelector('.nav-drop')) {
     window.__snrDropWired = true;
+    var canHover = function () { return window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches; };
     var closeAll = function (except) { document.querySelectorAll('.nav-drop.open').forEach(function (d) { if (d !== except) { d.classList.remove('open'); d.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false'); } }); };
     document.querySelectorAll('.nav-drop-btn').forEach(function (b) {
-      b.addEventListener('click', function (e) { e.stopPropagation(); var d = b.parentNode; var open = !d.classList.contains('open'); closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); });
+      // Mouse/trackpad: Stats is not a page, so a click does nothing; the menu opens on hover only (CSS).
+      // Touch screens (no hover) still tap to open and tap again to close.
+      b.addEventListener('mousedown', function (e) { if (canHover()) e.preventDefault(); });   // no focus, so the menu doesn't stay pinned open
+      b.addEventListener('click', function (e) { e.stopPropagation(); if (canHover()) return; var d = b.parentNode; var open = !d.classList.contains('open'); closeAll(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); });
     });
     document.addEventListener('click', function (e) { if (!e.target.closest('.nav-drop')) closeAll(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });

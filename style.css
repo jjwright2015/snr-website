@@ -3065,7 +3065,7 @@ body.home-view .site-partners { display: none; }   /* the home hero has its own 
 .nav-drop.open .nav-drop-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 .nav-drop.open .nav-drop-btn svg { transform: rotate(180deg); }
 @media (hover: hover) and (min-width: 769px) {
-  .nav-drop:hover .nav-drop-menu, .nav-drop:focus-within .nav-drop-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .nav-drop:hover .nav-drop-menu, .nav-drop:has(:focus-visible) .nav-drop-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
   .nav-drop:hover .nav-drop-btn svg { transform: rotate(180deg); }
   .nav-drop:hover .nav-drop-btn { color: var(--accent); }
 }
