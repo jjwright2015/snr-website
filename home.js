@@ -147,6 +147,23 @@
       wireCard(card);
       return;
     }
+    // Crown-jewel races get their announcement-graphic pill (silver edge, carbon fiber) instead of the plain name + track logo
+    var EVENT_PILLS = {
+      'SNR 500': { logo: 'assets/events/daytona-reversed.png', by: "Walkin' & Rollin' Costumes", byLogo: 'assets/events/walkin-rollin-white.svg' }
+    };
+    function pillHtml(ev, p, d) {
+      var day = +d.toLocaleDateString('en-US', { timeZone: 'America/New_York', day: 'numeric' });
+      var suf = (day % 100 > 10 && day % 100 < 14) ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[day % 10] || 'th');
+      var mon = d.toLocaleDateString('en-US', { timeZone: 'America/New_York', month: 'short' }).toUpperCase();
+      return '<div class="evp-wrap"><div class="evp" role="img" aria-label="' + esc(ev.name + ' at ' + ev.track + ', presented by ' + p.by) + '">' +
+        '<div class="evp-edge"><div class="evp-body"></div></div>' +
+        '<div class="evp-left"><span class="evp-name">' + esc(ev.name) + '</span>' +
+        '<span class="evp-date"><i></i>' + mon + ' ' + day + suf.toUpperCase() + '<i></i></span></div>' +
+        '<span class="evp-div"></span>' +
+        '<div class="evp-right"><img class="evp-track" src="' + esc(p.logo) + '" alt="">' +
+        '<span class="evp-by">Presented by</span><img class="evp-sp" src="' + esc(p.byLogo) + '" alt=""></div>' +
+        '</div></div>';
+    }
     var now = Date.now();
     var races = sd.events.filter(function (e) { return e.round; });
     var next = races.filter(function (e) { return new Date(e.start).getTime() + 4 * 3600e3 > now; })[0] || races[races.length - 1];
@@ -157,9 +174,11 @@
     var start = new Date(next.start);
     var dateTxt = start.toLocaleDateString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }).replace(',', ' ·').toUpperCase() +
       ' · ' + start.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) + ' ET';
+    var pill = EVENT_PILLS[next.name];
     var front2 = '<div class="fc-head"><span>' + head + '</span><span>' + esc(tag) + '</span></div>' +
-      '<div class="fc-main"><span class="fc-big">' + esc(title) + '</span>' +
-      '<img class="fc-logo" src="' + esc(next.logo) + '" alt="' + esc(next.track) + '">' +
+      '<div class="fc-main">' + (pill ? pillHtml(next, pill, start) :
+        '<span class="fc-big">' + esc(title) + '</span>' +
+        '<img class="fc-logo" src="' + esc(next.logo) + '" alt="' + esc(next.track) + '">') +
       '<span class="fc-date">' + esc(dateTxt) + '</span>' +
       '<span class="fc-count" id="fcCount"></span>' +
       '<span class="fc-tap">' + ICON_FLIP + 'Tap for ' + esc(short.toLowerCase()) + ' history</span></div>' + TITLE_FOOT;
