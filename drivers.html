@@ -38,6 +38,14 @@
 .dp-champ small { display:block; font-family:var(--font-display); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); }
 .dp-champ b { font-family:var(--font-display); font-size:18px; font-weight:700; }
 .dp-champ i { font-style:normal; font-size:12px; color:var(--text-muted); display:block; }
+.dp-recs-held summary { list-style:none; display:flex; align-items:center; gap:10px; cursor:pointer; padding:4px 0; }
+.dp-recs-held summary::-webkit-details-marker { display:none; }
+.dp-recs-held summary h4 { margin:0 !important; }
+.dp-recs-n { font-family:var(--font-display); font-weight:800; font-size:13px; min-width:24px; height:22px; padding:0 7px; border-radius:11px; background:var(--accent); color:#0B0F14; display:inline-flex; align-items:center; justify-content:center; }
+.dp-recs-held summary svg { width:14px; height:14px; margin-left:auto; fill:none; stroke:var(--text-muted); stroke-width:1.8; transition:transform .2s; }
+.dp-recs-held[open] summary svg { transform:rotate(180deg); }
+.dp-recs-held summary:hover h4, .dp-recs-held summary:hover svg { color:var(--accent); stroke:var(--accent); }
+.dp-recs-held[open] summary { margin-bottom:8px; }
 .dp-recs { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:10px; }
 .dp-rec { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; cursor:pointer; text-align:left; color:var(--text); font:inherit; }
 .dp-rec:hover { border-color:var(--accent); }
@@ -225,7 +233,10 @@
       stat('Best Finish', ord(c.best)) + stat('DNFs', c.dnf) + stat('Inc / Race', f1(c.avgInc)) + '</div></div>';
 
     if (held.length) {
-      h += '<div class="dp-sec"><h4>League Records Held</h4>' + held.map(function (t) { return row('<strong>' + esc(t) + '</strong>', ''); }).join('') + '<p class="dp-note"><a href="records.html" style="color:var(--accent)">See all league records &rarr;</a></p></div>';
+      // Collapsed by default: some drivers hold 30 records (full list lives on the Records page)
+      h += '<details class="dp-sec dp-recs-held"><summary><h4>League Records Held</h4><span class="dp-recs-n">' + held.length + '</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></summary>' +
+        held.map(function (t) { return row('<strong>' + esc(t) + '</strong>', ''); }).join('') +
+        '<p class="dp-note"><a href="records.html" style="color:var(--accent)">See all league records &rarr;</a></p></details>';
     }
 
     var bs = d.bestSeason && d.seasons[d.bestSeason];
